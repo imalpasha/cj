@@ -22,13 +22,18 @@ public class HomeActivity extends MainFragmentActivity implements FragmentContai
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //GridView gridview = (GridView) findViewById(R.id.gridview);
+ //       gridview.setAdapter(new ImageAdapter(this));
+
         ButterKnife.inject(this);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.main_content, HomeFragment.newInstance(),"Home").commit();
 
         setMenuButton();
-        hideTitle();
+        //hideTitle();
+        setTitle("Welcome");
         unlockDrawer();
         BaseFragment.removeLogoHeader(this);
     }

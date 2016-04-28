@@ -21,6 +21,7 @@ import com.fly.cj.drawer.DrawerItem;
 import com.fly.cj.drawer.NavigationDrawerFragment;
 import com.fly.cj.ui.activity.Homepage.HomeActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
+import com.fly.cj.ui.activity.Profile.ProfileActivity;
 import com.fly.cj.utils.RealmObjectController;
 import com.fly.cj.utils.SharedPrefManager;
 
@@ -132,6 +133,12 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
         mNavigationDrawerFragment.unlockDrawer();
     }
 
+    public void setTitle(String title)
+    {
+        View actionBarView = getActionBar().getCustomView();
+        aq.recycle(actionBarView);
+        aq.id(R.id.title).text(title);
+    }
 
     public void hideMenuButton()
     {
@@ -170,12 +177,18 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
                 startActivity(login);
 
             }
+            else if (item.getTag().equals("Information_Update"))
+            {
+                Intent register = new Intent(this, ProfileActivity.class);
+                register.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(register);
+
+            }
             else if (item.getTag().equals("Logout"))
             {
                 pref.setLoginStatus("N");
                 Controller.clearAll(this);
-                RealmObjectController.deleteRealmFile(MainFragmentActivity.getContext());
-
+                //RealmObjectController.deleteRealmFile(MainFragmentActivity.getContext());
                 Intent login = new Intent(this, HomeActivity.class);
                 login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(login);
@@ -226,8 +239,4 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
         }*/
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 }

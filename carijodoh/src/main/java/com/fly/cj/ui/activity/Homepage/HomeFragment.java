@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Point;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,23 +12,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.fly.cj.AnalyticsApplication;
-import com.fly.cj.Controller;
 import com.fly.cj.FireFlyApplication;
 import com.fly.cj.R;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.activity.FragmentContainerActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
+import com.fly.cj.ui.activity.Register.RegisterActivity;
 import com.fly.cj.ui.module.HomeModule;
 import com.fly.cj.ui.presenter.HomePresenter;
 import com.fly.cj.utils.RealmObjectController;
 import com.fly.cj.utils.SharedPrefManager;
 import com.google.android.gms.analytics.Tracker;
-import com.google.gson.Gson;
 
 import java.util.HashMap;
 
@@ -43,23 +39,18 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class HomeFragment extends BaseFragment implements HomePresenter.HomeView{
 
-    // --------------------------------------------------------------------------------//
-
-
-
-    // --------------------------------------------------------------------------------//
     private Tracker mTracker;
 
     @Inject
     HomePresenter presenter;
 
-    @InjectView(R.id.homeBookFlight)
-    LinearLayout bookFlight;
+    @InjectView(R.id.homeLogin)
+    LinearLayout homeLogin;
 
-    @InjectView(R.id.homeMobileCheckIn)
-    LinearLayout mobileCheckIn;
+    @InjectView(R.id.homeRegister)
+    LinearLayout homeRegister;
 
-    //@InjectView(R.id.homeBeacon)
+  /*  //@InjectView(R.id.homeBeacon)
     //LinearLayout homeBeacon;
 
     @InjectView(R.id.homeManageFlight)
@@ -82,7 +73,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
     @InjectView(R.id.bookFlightBtn)
     TextView bookFlightBtn;
-
+*/
     private String facebookUrl,twitterUrl,instagramUrl;
     private int fragmentContainerId;
     private static final String SCREEN_LABEL = "Home";
@@ -129,38 +120,21 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
         RealmObjectController.clearCachedResult(getActivity());
 
-        //TextView myTextView = new TextView(getActivity());
-
-        //private String retry = this.getResources().getString(R.string.retry);
-
-
-        /*Realm Obj Test*/
-//        Realm realm = Realm.getInstance(getActivity());
-//        RealmResults<BoardingPassObj> result2 = realm.where(BoardingPassObj.class).findAll();
-//        Log.e("Result",result2.toString());
-        /* ------------ */
-
-        //insurance clickable
-       /* SpannableString ss = new SpannableString("Android is a Software stack");
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        homeLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View textView) {
-                //startActivity(new Intent(MyActivity.this, NextActivity.class));
-                Log.e("CLICKED","TRUE");
+            public void onClick(View v) {
+                Intent login = new Intent (getActivity(), LoginActivity.class);
+                getActivity().startActivity(login);
             }
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
-            }
-        };
-        ss.setSpan(clickableSpan, 22, 27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        });
 
-        TextView textView = (TextView) findViewById(R.id.hello);
-        textView.setText(ss);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-        textView.setHighlightColor(Color.TRANSPARENT);*/
-        //
+        homeRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent register = new Intent (getActivity(), RegisterActivity.class);
+                getActivity().startActivity(register);
+            }
+        });
 
 
         /*GET PREF DATA*/
@@ -181,7 +155,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
             // do your code for before froyo versions
         }
 
-        aq.id(R.id.bannerImg).image(banner);
+        //aq.id(R.id.bannerImg).image(banner);
 
         HashMap<String, String> initBannerModule = pref.getBannerModule();
         final String bannerModule = initBannerModule.get(SharedPrefManager.BANNER_MODULE);
@@ -213,7 +187,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
 
         //facebook link
-        fbLink.setOnClickListener(new View.OnClickListener() {
+       /* fbLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -260,7 +234,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
                             Uri.parse("https://www.instagram.com/"+instagramUrl)));
                 }
             }
-        });
+        });*/
 
         //setUpMap();
         //trySetAlarm();
@@ -359,7 +333,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
     public void registerBackFunction() {
         new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("EXIT FIREFLY")
+                .setTitleText("EXIT ONLINE DATING?")
                 .setContentText("Confirm exit?")
                 .showCancelButton(true)
                 .setCancelText("Cancel")
@@ -382,33 +356,4 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
                 .show();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

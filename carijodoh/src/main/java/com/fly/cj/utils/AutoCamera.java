@@ -36,7 +36,7 @@ public class AutoCamera extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        textTimeLeft = (TextView) findViewById(R.id.textTimeLeft); // make time left object
+       /* textTimeLeft = (TextView) findViewById(R.id.textTimeLeft); // make time left object
         btnStartTimer = (Button) findViewById(R.id.btnStartTimer); // make time left object
         img = (ImageView) findViewById(R.id.bannerImg); // make time left object
 
@@ -118,6 +118,7 @@ public class AutoCamera extends Activity {
         }
 
         return camId;
-    }
+    }*/
 
+    }
 }

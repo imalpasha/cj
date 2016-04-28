@@ -4,6 +4,8 @@
     <color name="dark_green">#6BA039</color>
     <color name="bright_green">#57F900</color>
 
+    <color name="title_background">#F4F8FB</color>
+
     <color name="dark_gray">#333333</color>
 
     <color name="theme1_header_transparent">#CCff6a4d</color>
@@ -23,7 +25,7 @@
     <color name="theme1_tab_bg_4">#55d4b1</color>
     <color name="theme1_tab_bg_4_click">#77DDC1</color>
 
-    <color name="theme1_tab_bg_5">#ff7a34</color>
+    <color name="theme1_tab_bg_5">#27C5F5</color>
     <color name="theme1_tab_bg_5_click">#FF955D</color>
 
     <color name="theme1_drawer_bg">#362f2d</color>
@@ -70,7 +72,7 @@
     <color name="grey_lvl5">#DCD9D4</color>
 
 
-    <color name="home_description_layout">#4C4C4C</color>
+    <color name="home_description_layout">#262626</color>
     <color name="dark_lvl5">#444444</color>
     <color name="sign_in_button">#404040</color>
     <color name="sign_in_button_click">#666666</color>
@@ -82,7 +84,7 @@
     <color name="dark_lvl6">#333333</color>
     <color name="red_lvl6">#FF8566</color>
 
-    <color name="actionBarColour_default_theme">#F26F21</color>
+    <color name="actionBarColour_default_theme">#00B6D3</color>
 
 
     <!-- Login -->

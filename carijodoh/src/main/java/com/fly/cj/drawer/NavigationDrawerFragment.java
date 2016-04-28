@@ -211,7 +211,7 @@ public class NavigationDrawerFragment extends Fragment {
             } else{
                 DrawerItem vrsm = new DrawerItem();
                 vrsm.setId(0);
-                vrsm.setTitle("FIREFLY");
+                vrsm.setTitle("ONLINE DATING");
                 vrsm.setTag("HEADER");
                 vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
                 vrsm.setBackgroundColor(getResources().getColor(R.color.black));
@@ -261,7 +261,7 @@ public class NavigationDrawerFragment extends Fragment {
         else{
             DrawerItem vrsm = new DrawerItem();
             vrsm.setId(0);
-            vrsm.setTitle("FIREFLY");
+            vrsm.setTitle("ONLINE DATING");
             vrsm.setTag("HEADER");
             vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
             vrsm.setBackgroundColor(getResources().getColor(R.color.black));

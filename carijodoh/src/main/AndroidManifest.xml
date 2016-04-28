@@ -47,7 +47,7 @@
     <application
         android:name="com.fly.cj.FireFlyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/icon"
+        android:icon="@mipmap/love"
         android:label="@string/app_name"
         android:theme="@style/MyCustomTheme"
         tools:replace="android:icon"
@@ -67,6 +67,8 @@
 
 
         <activity android:name="com.fly.cj.ui.activity.Login.LoginActivity" />
+
+        <activity android:name="com.fly.cj.ui.activity.Profile.ProfileActivity" />
 
         <!-- LocalNotification -->
         <receiver android:name="com.fly.cj.AlarmReceiver" ></receiver>

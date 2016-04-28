@@ -23,6 +23,8 @@ import com.fly.cj.api.obj.LoginReceive;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.activity.FragmentContainerActivity;
 import com.fly.cj.ui.activity.Homepage.HomeActivity;
+import com.fly.cj.ui.activity.Profile.ProfileActivity;
+import com.fly.cj.ui.activity.Register.RegisterActivity;
 import com.fly.cj.ui.module.LoginModule;
 import com.fly.cj.ui.object.CachedResult;
 import com.fly.cj.ui.object.LoginRequest;
@@ -59,8 +61,11 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     @Inject
     LoginPresenter presenter;
 
-    @InjectView(R.id.registerBtn) Button registerButton;
-    @InjectView(R.id.btnLogin) Button btnLogin;
+    @InjectView(R.id.registerBtn)
+    Button registerBtn;
+
+    @InjectView(R.id.btnLogin)
+    Button btnLogin;
 
     @InjectView(R.id.txtForgotPassword)
     TextView txtForgotPassword;
@@ -79,7 +84,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     private SharedPrefManager pref;
     private String storePassword,storeUsername;
     private int fragmentContainerId;
-    private static final String SCREEN_LABEL = "Login";
 
     public static LoginFragment newInstance() {
 
@@ -123,6 +127,22 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
             }
         });
 
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent register = new Intent(getActivity(), RegisterActivity.class);
+                getActivity().startActivity(register);
+            }
+        });
+
+        txtForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AnalyticsApplication.sendEvent("Click", "forget password");
+                forgotPassword();
+            }
+        });
+
         return view;
     }
 
@@ -147,6 +167,13 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
     }
 
+    public void profile()
+    {
+        Intent profilePage = new Intent(getActivity(), ProfileActivity.class);
+        getActivity().startActivity(profilePage);
+        getActivity().finish();
+
+    }
 
     @Override
     public void onLoginSuccess(LoginReceive obj) {
@@ -173,7 +200,8 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
             String userInfo = gsonUserInfo.toJson(obj.getUser_info());
             pref.setUserInfo(userInfo);
             //setSuccessDialog(getActivity(), obj.getMessage(), SearchFlightActivity.class);
-            homepage();
+            //homepage();
+            profile();
         }
     }
 
@@ -184,8 +212,20 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         setAlertDialog(getActivity(),obj,"Login Error");
 
     }
+/*
+    @Override
+    public void onRequestPasswordSuccess(ForgotPasswordReceive obj) {
+        dismissLoading();
+        Log.e("Message", obj.getMessage());
 
+        Boolean status = Controller.getRequestStatus(obj.getStatus(), obj.getMessage(), getActivity());
+        if (status) {
+            setSuccessDialog(getActivity(), obj.getMessage(),null,"Success!");
+        }
 
+    }
+
+*/
     /* Validation Success - Start send data to server */
     @Override
     public void onValidationSucceeded() {
@@ -214,6 +254,69 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         }
     }
 
+    /*Popup Forgot Password*/
+    public void forgotPassword(){
+
+        LayoutInflater li = LayoutInflater.from(getActivity());
+        final View myView = li.inflate(R.layout.forgot_password, null);
+        Button cont = (Button)myView.findViewById(R.id.btncontinue);
+        final Button close = (Button)myView.findViewById(R.id.btncancel);
+
+        final EditText editEmail = (EditText)myView.findViewById(R.id.editTextemail_login);
+        final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+
+        cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(editEmail.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Email is required", Toast.LENGTH_LONG).show();
+
+                }
+                //else if (!editEmail.getText().toString().matches(emailPattern)) {
+                //   Toast.makeText(getActivity(), "Invalid Email", Toast.LENGTH_LONG).show();
+                //}
+                /*else{
+                    requestForgotPassword(editEmail.getText().toString(),"");
+                    dialog.dismiss();
+                }*/
+
+            }
+
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent back = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(back);
+            }
+        });
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(myView);
+
+        dialog = builder.create();
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.height = 570;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+
+    }
+
+   /* public void requestForgotPassword(String username,String signature){
+        initiateLoading(getActivity());
+        PasswordRequest data = new PasswordRequest();
+        data.setEmail(username);
+        data.setSignature(signature);
+        presenter.forgotPassword(data);
+    }*/
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -224,9 +327,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     public void onResume() {
         super.onResume();
         presenter.onResume();
-
-        AnalyticsApplication.sendScreenView(SCREEN_LABEL);
-        Log.e("Tracker", SCREEN_LABEL);
 
         RealmResults<CachedResult> result = RealmObjectController.getCachedResult(MainFragmentActivity.getContext());
         if(result.size() > 0){

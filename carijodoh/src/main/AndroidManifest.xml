@@ -68,6 +68,8 @@
 
         <activity android:name="com.fly.cj.ui.activity.Login.LoginActivity" />
 
+        <activity android:name="com.fly.cj.ui.activity.Register.RegisterActivity" />
+
         <activity android:name="com.fly.cj.ui.activity.Profile.ProfileActivity" />
 
         <!-- LocalNotification -->

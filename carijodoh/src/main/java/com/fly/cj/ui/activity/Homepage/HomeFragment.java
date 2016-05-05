@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.widget.Button;
 
 import com.fly.cj.AnalyticsApplication;
 import com.fly.cj.FireFlyApplication;
@@ -45,13 +45,13 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
     HomePresenter presenter;
 
     @InjectView(R.id.homeLogin)
-    LinearLayout homeLogin;
+    Button homeLogin;
 
     @InjectView(R.id.homeRegister)
-    LinearLayout homeRegister;
+    Button homeRegister;
 
-  /*  //@InjectView(R.id.homeBeacon)
-    //LinearLayout homeBeacon;
+  /*  //@InjectView(R.id.test)
+    //LinearLayout test;
 
     @InjectView(R.id.homeManageFlight)
     LinearLayout homeManageFlight;
@@ -76,7 +76,6 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 */
     private String facebookUrl,twitterUrl,instagramUrl;
     private int fragmentContainerId;
-    private static final String SCREEN_LABEL = "Home";
 
     private SharedPrefManager pref;
 
@@ -306,8 +305,6 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
         presenter.onResume();
         Log.e("ONRESUME", "TRUE");
 
-        AnalyticsApplication.sendScreenView(SCREEN_LABEL);
-        Log.e("Tracker", SCREEN_LABEL);
     }
 
     @Override

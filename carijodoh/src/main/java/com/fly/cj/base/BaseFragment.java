@@ -351,6 +351,8 @@ public class BaseFragment extends Fragment {
         return polygamyList;
     }
 
+    /* ---------------------------PROFILE END----------------------------- */
+
 	public void setShake(View view) {
 		Animation shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
 		view.startAnimation(shake);

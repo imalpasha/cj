@@ -265,7 +265,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Maritial");
                 Log.e("Clicked", "Ok");
-                popupSelection(maritialList, getActivity(), e, true, view);
+                popupSelection(maritialList, getActivity(), f, true, view);
             }
         });
 
@@ -274,7 +274,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Child");
                 Log.e("Clicked", "Ok");
-                popupSelection(childList, getActivity(), f, true, view);
+                popupSelection(childList, getActivity(), g, true, view);
             }
         });
 
@@ -283,7 +283,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Relationship");
                 Log.e("Clicked", "Ok");
-                popupSelection(relationList, getActivity(), g, true, view);
+                popupSelection(relationList, getActivity(), h, true, view);
             }
         });
 
@@ -292,7 +292,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Polygamy");
                 Log.e("Clicked", "Ok");
-                popupSelection(polygamyList, getActivity(), h, true, view);
+                popupSelection(polygamyList, getActivity(), i, true, view);
             }
         });
 
@@ -308,7 +308,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Religion");
                 Log.e("Clicked", "Ok");
-                popupSelection(smokerList, getActivity(), i, true, view);
+                popupSelection(smokerList, getActivity(), e, true, view);
             }
         });*/
 

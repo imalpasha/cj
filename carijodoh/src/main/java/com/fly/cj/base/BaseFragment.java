@@ -84,7 +84,7 @@ public class BaseFragment extends Fragment {
 
 	}
 
-	public String getDialingCode(String coutryCode,Activity act){
+	/*public String getDialingCode(String coutryCode,Activity act){
 
 		String dialingCode = null;
 
@@ -98,7 +98,7 @@ public class BaseFragment extends Fragment {
 		}
 
 		return dialingCode;
-	}
+	}*/
 
 	public boolean validateDialingCode(String dialingCode, String mobilePhone){
 
@@ -212,7 +212,7 @@ public class BaseFragment extends Fragment {
 		return travelDocList;
 	}
 
-
+/*
 	public static ArrayList<DropDownItem> getStaticCountry(Activity act){
 
 		ArrayList<DropDownItem> countrys = new ArrayList<DropDownItem>();
@@ -242,105 +242,114 @@ public class BaseFragment extends Fragment {
 		}
 
 		return countrys;
-	}
+	}*/
 
+    /* ---------------------------PROFILE----------------------------- */
 
-    /* -------------------------------------------------------- */
-
-	public static ArrayList<DropDownItem> getTravelDoc(Activity act) {
-
-		/*Travelling Purpose*/
-		ArrayList<DropDownItem> travelDocList = new ArrayList<DropDownItem>();
-
-		/*Travel Doc*/
-		final String[] doc = act.getResources().getStringArray(R.array.travel_doc);
-		for(int i = 0;i<doc.length; i++)
-		{
-			String travelDoc = doc[i];
-			String[] splitDoc = travelDoc.split("-");
-
-			DropDownItem itemDoc = new DropDownItem();
-			itemDoc.setText(splitDoc[0]);
-			itemDoc.setCode(splitDoc[1]);
-			travelDocList.add(itemDoc);
-		}
-
-		return travelDocList;
-
-	}
-
-
-
-	public static ArrayList<DropDownItem> getGender(Activity act) {
+	public static ArrayList<DropDownItem> getReligion(Activity act) {
 
 		/*Travelling Purpose*/
-		ArrayList<DropDownItem> genderList = new ArrayList<DropDownItem>();
+		ArrayList<DropDownItem> religionList = new ArrayList<DropDownItem>();
 
-		final String[] gender = act.getResources().getStringArray(R.array.gender);
-		for (int i = 0; i < gender.length; i++) {
-			DropDownItem itemTitle = new DropDownItem();
-			itemTitle.setText(gender[i]);
-			genderList.add(itemTitle);
+		final String[] religion = act.getResources().getStringArray(R.array.religion);
+		for (int i = 0; i < religion.length; i++) {
+			DropDownItem itemReligion = new DropDownItem();
+            itemReligion.setText(religion[i]);
+            religionList.add(itemReligion);
 		}
 
-		return genderList;
+		return religionList;
 	}
 
-	public static ArrayList<DropDownItem> getPurpose(Activity act){
+    public static ArrayList<DropDownItem> getSmoker(Activity act) {
 
 		/*Travelling Purpose*/
-		ArrayList<DropDownItem> purposeList = new ArrayList<DropDownItem>();
+        ArrayList<DropDownItem> smokerList = new ArrayList<DropDownItem>();
 
-		final String[] purpose = act.getResources().getStringArray(R.array.purpose);
-		for(int i = 0;i<purpose.length; i++)
-		{
-			int purposeTag = i+1;
-			DropDownItem itemPurpose = new DropDownItem();
-			itemPurpose.setText(purpose[i]);
-			itemPurpose.setCode(Integer.toString(purposeTag));
-			purposeList.add(itemPurpose);
-		}
+        final String[] smoker = act.getResources().getStringArray(R.array.smoker);
+        for (int i = 0; i < smoker.length; i++) {
+            DropDownItem itemSmoker = new DropDownItem();
+            itemSmoker.setText(smoker[i]);
+            smokerList.add(itemSmoker);
+        }
 
-		return purposeList;
-	}
+        return smokerList;
+    }
 
+    public static ArrayList<DropDownItem> getState(Activity act) {
 
-	public static ArrayList<DropDownItem> getStaticTitle(Activity act){
+		/*Travelling Purpose*/
+        ArrayList<DropDownItem> stateList = new ArrayList<DropDownItem>();
 
-		ArrayList<DropDownItem> title = new ArrayList<DropDownItem>();
-		JSONArray json = null;
+        final String[] state = act.getResources().getStringArray(R.array.state);
+        for (int i = 0; i < state.length; i++) {
+            DropDownItem itemState = new DropDownItem();
+            itemState.setText(state[i]);
+            stateList.add(itemState);
+        }
 
-		prefManager = new SharedPrefManager(act);
-		HashMap<String, String> init = prefManager.getTitle();
-		String dataTitle = init.get(SharedPrefManager.TITLE);
+        return stateList;
+    }
 
-		try {
-			json = new JSONArray(dataTitle);
-			Log.e("json",Integer.toString(json.length()));
-		}catch (JSONException e){
-			e.printStackTrace();
-		}
+    public static ArrayList<DropDownItem> getMaritial(Activity act) {
 
-		for (int i = 0; i < json.length(); i++)
-		{
-			JSONObject row = (JSONObject) json.opt(i);
+		/*Travelling Purpose*/
+        ArrayList<DropDownItem> maritialList = new ArrayList<DropDownItem>();
 
-			DropDownItem itemCountry = new DropDownItem();
-			itemCountry.setText(row.optString("title_name"));
-			itemCountry.setCode(row.optString("title_code"));
-			itemCountry.setTag("Country");
-			itemCountry.setId(i);
-			title.add(itemCountry);
-		}
+        final String[] maritial = act.getResources().getStringArray(R.array.maritial_status);
+        for (int i = 0; i < maritial.length; i++) {
+            DropDownItem itemMaritial = new DropDownItem();
+            itemMaritial.setText(maritial[i]);
+            maritialList.add(itemMaritial);
+        }
 
-		return title;
-	}
+        return maritialList;
+    }
 
+    public static ArrayList<DropDownItem> getChild(Activity act) {
 
+		/*Travelling Purpose*/
+        ArrayList<DropDownItem> childList = new ArrayList<DropDownItem>();
 
+        final String[] child = act.getResources().getStringArray(R.array.children);
+        for (int i = 0; i < child.length; i++) {
+            DropDownItem itemChild = new DropDownItem();
+            itemChild.setText(child[i]);
+            childList.add(itemChild);
+        }
 
+        return childList;
+    }
 
+    public static ArrayList<DropDownItem> getRelation(Activity act) {
 
+		/*Travelling Purpose*/
+        ArrayList<DropDownItem> relationList = new ArrayList<DropDownItem>();
+
+        final String[] relation = act.getResources().getStringArray(R.array.relationship_status);
+        for (int i = 0; i < relation.length; i++) {
+            DropDownItem itemRelation = new DropDownItem();
+            itemRelation.setText(relation[i]);
+            relationList.add(itemRelation);
+        }
+
+        return relationList;
+    }
+
+    public static ArrayList<DropDownItem> getPolygamy(Activity act) {
+
+		/*Travelling Purpose*/
+        ArrayList<DropDownItem> polygamyList = new ArrayList<DropDownItem>();
+
+        final String[] polygamy = act.getResources().getStringArray(R.array.polygamy);
+        for (int i = 0; i < polygamy.length; i++) {
+            DropDownItem itemPolygamy = new DropDownItem();
+            itemPolygamy.setText(polygamy[i]);
+            polygamyList.add(itemPolygamy);
+        }
+
+        return polygamyList;
+    }
 
 	public void setShake(View view) {
 		Animation shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
@@ -619,7 +628,46 @@ public class BaseFragment extends Fragment {
 		builder.show();
 	}
 
+	/*Global PoPup*/
+	public void popupSelection(final ArrayList array,Activity act,final TextView txt,final Boolean tagStatus,View v){
 
+		prefManager = new SharedPrefManager(act);
+		Utils.hideKeyboard(getActivity(), v);
+		Log.e("Popup Alert", "True");
+		final ArrayList<DropDownItem> a = array;
+		DropMenuAdapter dropState = new DropMenuAdapter(act);
+		dropState.setItems(a);
+
+		AlertDialog.Builder alertStateCode = new AlertDialog.Builder(act);
+
+		alertStateCode.setSingleChoiceItems(dropState, indexForState, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+				String selected = a.get(which).getText();
+				String selectedCode = a.get(which).getCode();
+
+				txt.setText(selected);
+				if (tagStatus) {
+					txt.setTag(selectedCode);
+				}
+
+				indexForState = which;
+
+				dialog.dismiss();
+			}
+		});
+
+
+		AlertDialog mDialog = alertStateCode.create();
+		mDialog.show();
+
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+		lp.copyFrom(mDialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+		lp.height = 600;
+		mDialog.getWindow().setAttributes(lp);
+	}
 
 	/*Global PoPup*/
 	public void popupSelectionExtra(final ArrayList array,Activity act,final TextView txt,final Boolean tagStatus,final LinearLayout txt2,final String indicate,final LinearLayout country){
@@ -718,6 +766,7 @@ public class BaseFragment extends Fragment {
 		return titleCode;
 	}
 
+
 	public String getTravelDocCode(Activity act,String travelDocData){
 		/*Travel Doc*/
 		String travelDocCode = null;
@@ -760,7 +809,6 @@ public class BaseFragment extends Fragment {
 		}
 
 		return countryCode;
-
 	}
 
 	public static String getCountryName(Activity act,String countryCode){
@@ -788,10 +836,9 @@ public class BaseFragment extends Fragment {
 		}
 
 		return countryName;
-
 	}
 
-	public JSONArray getState(Activity act){
+	/*public JSONArray getState(Activity act){
 
 		JSONArray json = null;
 
@@ -806,7 +853,7 @@ public class BaseFragment extends Fragment {
 		}
 
 		return json;
-	}
+	}*/
 
 	public static String getUserInfoCached(Activity act){
 
@@ -841,7 +888,7 @@ public class BaseFragment extends Fragment {
 		return new DateFormatSymbols().getShortMonths()[month];
 	}
 
-	/*Get All Country From OS*/
+	/*Get All Country From OS
 	public JSONArray getCountry(Activity act)
 	{
 		JSONArray json = null;
@@ -874,8 +921,8 @@ public class BaseFragment extends Fragment {
 		}
 
 		Collections.sort(countries);
-		return countries;*/
-	}
+		return countries;
+	}*/
 
 
 	/*Get All User Info From OS*/
@@ -945,11 +992,10 @@ public class BaseFragment extends Fragment {
 		}
 
 		return json;
-
 	}
 
 
-	public String getStateName(Activity act,String stateCode){
+	/*public String getStateName(Activity act,String stateCode){
 
 		String stateName = null;
 
@@ -965,7 +1011,7 @@ public class BaseFragment extends Fragment {
 
 		return stateName;
 
-	}
+	}*/
 
 
 	public static void setAlertNotification(Activity act){
@@ -977,24 +1023,6 @@ public class BaseFragment extends Fragment {
 		}
 		dismissLoading();
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	/*Get From OS*/
 	public JSONArray getTermInfo(Activity act) {

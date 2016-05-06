@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/scrollviewProfile">
 
     <LinearLayout
         android:orientation="vertical"
@@ -158,7 +159,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileName">
 
                                         <EditText
                                             android:layout_width="wrap_content"
@@ -167,8 +169,7 @@
                                             android:background="@null"
                                             android:hint="@string/profile_name"
                                             android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/txtTitle" />
+                                            android:textColorHint="@color/loginFontTxt"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -186,7 +187,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileDob">
                                         <LinearLayout
                                             android:orientation="horizontal"
                                             android:layout_width="0dp"
@@ -202,7 +204,7 @@
                                                 android:hint="@string/profile_dob"
                                                 android:textSize="@dimen/font16sp"
                                                 android:textColorHint="@color/loginFontTxt"
-                                                android:id="@+id/txtFirstName" />
+                                                android:id="@+id/profileDob" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
@@ -239,7 +241,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileMobile">
 
                                         <EditText
                                             android:layout_width="wrap_content"
@@ -248,8 +251,7 @@
                                             android:background="@null"
                                             android:hint="@string/profile_mobile"
                                             android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/txtLastName" />
+                                            android:textColorHint="@color/loginFontTxt"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -267,7 +269,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileHeight" >
 
                                         <EditText
                                             android:layout_width="wrap_content"
@@ -276,8 +279,7 @@
                                             android:background="@null"
                                             android:hint="@string/profile_height"
                                             android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/h" />
+                                            android:textColorHint="@color/loginFontTxt"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -295,7 +297,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileWeight">
 
                                         <EditText
                                             android:layout_width="wrap_content"
@@ -304,8 +307,7 @@
                                             android:background="@null"
                                             android:hint="@string/profile_weight"
                                             android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/w" />
+                                            android:textColorHint="@color/loginFontTxt"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -323,7 +325,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
                                         android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
+                                        android:layout_marginBottom="5dp"
+                                        android:id="@+id/txtprofileReligion">
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -333,7 +336,7 @@
                                             android:hint="@string/profile_religion"
                                             android:textSize="@dimen/font16sp"
                                             android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/r" />
+                                            android:id="@+id/a"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -350,7 +353,8 @@
                                         android:layout_width="fill_parent"
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/field_background"
-                                        android:padding="10dp">
+                                        android:padding="10dp"
+                                        android:id="@+id/txtprofileSmoke">
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -360,7 +364,7 @@
                                             android:hint="@string/profile_smoker"
                                             android:textSize="@dimen/font16sp"
                                             android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/s" />
+                                            android:id="@+id/b"/>
 
                                         <TextView
                                             android:layout_width="wrap_content"
@@ -409,7 +413,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileCountry">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -419,7 +424,7 @@
                                         android:hint="@string/profile_country"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/txtAddressLine1" />
+                                        android:id="@+id/c"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -437,7 +442,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileState">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -447,7 +453,7 @@
                                         android:hint="@string/profile_state"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/txtAddressLine2" />
+                                        android:id="@+id/d"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -465,7 +471,8 @@
                                     android:layout_height="match_parent"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileTown">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -475,7 +482,7 @@
                                         android:hint="@string/profile_town"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/editTextCountry" />
+                                        android:id="@+id/e"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -521,7 +528,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileEducation">
 
                                     <EditText
                                         android:layout_width="wrap_content"
@@ -531,8 +539,7 @@
                                         android:maxLength="16"
                                         android:hint="@string/profile_education"
                                         android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/editTextMobilePhone" />
+                                        android:textColorHint="@color/loginFontTxt" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -550,7 +557,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileOccupation">
 
                                     <EditText
                                         android:layout_width="wrap_content"
@@ -560,7 +568,6 @@
                                         android:hint="@string/profile_occupation"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/editTextAlternatePhone"
                                         android:maxLength="16"/>
 
                                     <TextView
@@ -607,7 +614,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileMaritial">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -617,7 +625,7 @@
                                         android:hint="@string/profile_maritial_status"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/h2" />
+                                        android:id="@+id/f"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -635,7 +643,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileChild" >
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -645,7 +654,7 @@
                                         android:hint="@string/profile_children"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/w2" />
+                                        android:id="@+id/g"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -663,7 +672,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofileRelation">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -673,7 +683,7 @@
                                         android:hint="@string/profile_relationship_status"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/r2" />
+                                        android:id="@+id/h"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -691,7 +701,8 @@
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/field_background"
                                     android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/txtprofilePolygamy">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -701,7 +712,7 @@
                                         android:hint="@string/profile_polygamy"
                                         android:textSize="@dimen/font16sp"
                                         android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/s2" />
+                                        android:id="@+id/i"/>
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -791,7 +802,7 @@
                                     android:background="@drawable/login_login_button_clicked"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"
-                                    android:id="@+id/registerContinueButton"
+                                    android:id="@+id/buttonprofileSubmit"
                                     android:layout_marginTop="15dp"/>
                             </LinearLayout>
 

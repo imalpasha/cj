@@ -158,17 +158,24 @@ public class NavigationDrawerFragment extends Fragment {
         if(loginStatus != null){
             if(loginStatus.equals("Y")) {
 
-                // Set Hi
                 DrawerItem vrsm = new DrawerItem();
                 vrsm.setId(0);
-                vrsm.setTitle("Hi, " + userName);
+                //vrsm.setTitle("Hi, " + userName);
+                vrsm.setTitle("ONLINE DATING");
                 vrsm.setTag("HEADER");
                 vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
                 vrsm.setBackgroundColor(getResources().getColor(R.color.black));
                 itemList.add(vrsm);
 
+                // Set Hi
+                DrawerItem pic = new DrawerItem();
+                pic.setId(1);
+                pic.setTag("USER");
+                pic.setLayoutId(DrawerViewType.DRAWER_PROFILE);
+                itemList.add(pic);
+
                 DrawerItem home = new DrawerItem();
-                home.setId(1);
+                home.setId(2);
                 home.setTag("Home");
                 home.setTitle("Home");
                 home.setLayoutId(DrawerViewType.STATIC_MENU);
@@ -177,7 +184,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 
                 DrawerItem profile = new DrawerItem();
-                profile.setId(4);
+                profile.setId(5);
                 profile.setIconId(R.drawable.side_profile_s);
                 profile.setTag("Information_Update");
                 profile.setTitle("Update Information");
@@ -185,7 +192,7 @@ public class NavigationDrawerFragment extends Fragment {
                 itemList.add(profile);
 
                 DrawerItem about = new DrawerItem();
-                about.setId(5);
+                about.setId(6);
                 about.setTag("About");
                 about.setTitle("About");
                 about.setLayoutId(DrawerViewType.STATIC_MENU);
@@ -193,7 +200,7 @@ public class NavigationDrawerFragment extends Fragment {
                 itemList.add(about);
 
                 DrawerItem terms = new DrawerItem();
-                terms.setId(5);
+                terms.setId(6);
                 terms.setTag("FAQ");
                 terms.setTitle("FAQ");
                 terms.setLayoutId(DrawerViewType.STATIC_MENU);
@@ -201,7 +208,7 @@ public class NavigationDrawerFragment extends Fragment {
                 itemList.add(terms);
 
                 DrawerItem sbb = new DrawerItem();
-                sbb.setId(3);
+                sbb.setId(4);
                 sbb.setTag("Logout");
                 sbb.setTitle("Logout");
                 sbb.setLayoutId(DrawerViewType.STATIC_MENU);
@@ -307,16 +314,6 @@ public class NavigationDrawerFragment extends Fragment {
             terms.setIconId(R.drawable.side_faq_s);
             itemList.add(terms);
         }
-
-        /*DrawerItem faq = new DrawerItem();
-        faq.setId(5);
-        faq.setTag("Faq");
-        faq.setTitle("Faq");
-        faq.setLayoutId(DrawerViewType.MENU);
-        faq.setIconId(R.drawable.side_faq_s);
-        itemList.add(faq);*/
-
-
     }
 
     public boolean isDrawerOpen() {

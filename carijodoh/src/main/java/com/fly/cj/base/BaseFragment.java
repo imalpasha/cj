@@ -246,24 +246,9 @@ public class BaseFragment extends Fragment {
 
     /* ---------------------------PROFILE----------------------------- */
 
-	public static ArrayList<DropDownItem> getReligion(Activity act) {
-
-		/*Travelling Purpose*/
-		ArrayList<DropDownItem> religionList = new ArrayList<DropDownItem>();
-
-		final String[] religion = act.getResources().getStringArray(R.array.religion);
-		for (int i = 0; i < religion.length; i++) {
-			DropDownItem itemReligion = new DropDownItem();
-            itemReligion.setText(religion[i]);
-            religionList.add(itemReligion);
-		}
-
-		return religionList;
-	}
-
     public static ArrayList<DropDownItem> getSmoker(Activity act) {
 
-		/*Travelling Purpose*/
+		/*Smoker or Vaper*/
         ArrayList<DropDownItem> smokerList = new ArrayList<DropDownItem>();
 
         final String[] smoker = act.getResources().getStringArray(R.array.smoker);
@@ -278,7 +263,7 @@ public class BaseFragment extends Fragment {
 
     public static ArrayList<DropDownItem> getState(Activity act) {
 
-		/*Travelling Purpose*/
+		/*State*/
         ArrayList<DropDownItem> stateList = new ArrayList<DropDownItem>();
 
         final String[] state = act.getResources().getStringArray(R.array.state);
@@ -293,7 +278,7 @@ public class BaseFragment extends Fragment {
 
     public static ArrayList<DropDownItem> getMaritial(Activity act) {
 
-		/*Travelling Purpose*/
+		/*Maritial*/
         ArrayList<DropDownItem> maritialList = new ArrayList<DropDownItem>();
 
         final String[] maritial = act.getResources().getStringArray(R.array.maritial_status);
@@ -308,7 +293,7 @@ public class BaseFragment extends Fragment {
 
     public static ArrayList<DropDownItem> getChild(Activity act) {
 
-		/*Travelling Purpose*/
+		/*Child*/
         ArrayList<DropDownItem> childList = new ArrayList<DropDownItem>();
 
         final String[] child = act.getResources().getStringArray(R.array.children);
@@ -323,7 +308,7 @@ public class BaseFragment extends Fragment {
 
     public static ArrayList<DropDownItem> getRelation(Activity act) {
 
-		/*Travelling Purpose*/
+		/*Relationship*/
         ArrayList<DropDownItem> relationList = new ArrayList<DropDownItem>();
 
         final String[] relation = act.getResources().getStringArray(R.array.relationship_status);
@@ -338,7 +323,7 @@ public class BaseFragment extends Fragment {
 
     public static ArrayList<DropDownItem> getPolygamy(Activity act) {
 
-		/*Travelling Purpose*/
+		/*Polygamy*/
         ArrayList<DropDownItem> polygamyList = new ArrayList<DropDownItem>();
 
         final String[] polygamy = act.getResources().getStringArray(R.array.polygamy);
@@ -349,6 +334,21 @@ public class BaseFragment extends Fragment {
         }
 
         return polygamyList;
+    }
+
+    public static ArrayList<DropDownItem> getFinancial(Activity act) {
+
+		/*Financial*/
+        ArrayList<DropDownItem> financialList = new ArrayList<DropDownItem>();
+
+        final String[] financial = act.getResources().getStringArray(R.array.financial);
+        for (int i = 0; i < financial.length; i++) {
+            DropDownItem itemFinancial = new DropDownItem();
+            itemFinancial.setText(financial[i]);
+            financialList.add(itemFinancial);
+        }
+
+        return financialList;
     }
 
     /* ---------------------------PROFILE END----------------------------- */

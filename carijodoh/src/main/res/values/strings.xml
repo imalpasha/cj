@@ -268,17 +268,18 @@
 
     <string name="register_title">REGISTER</string>
 
-    <string name="register_hint_fname">First Name</string>
-    <string name="register_hint_lname">Last Name</string>
-    <string name="register_hint_email">Email Address</string>
+    <string name="register_hint_username">Username</string>
+    <string name="register_hint_email">Email</string>
     <string name="register_hint_password">Password</string>
     <string name="register_hint_confirm_password">Confirm Password</string>
+    <string name="register_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
+    <string name="asterik">*</string>
 
     <string name="register_register_button">REGISTER</string>
 
 
 
-    <string name="register_basic_information">LOGIN INFORMATION</string>
+    <!--<string name="register_basic_information">LOGIN INFORMATION</string>
     <string name="register_basic_informationV2">BASIC INFORMATION</string>
     <string name="register_personal_information">PERSONAL INFORMATION</string>
     <string name="register_address_information">ADDRESS INFORMATION</string>
@@ -301,10 +302,7 @@
     <string name="register_city">Town/City</string>
     <string name="register_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
     <string name="register_password_policy">Password Policy</string>
-
-    <string name="asterik">*</string>
-
-    <string name="register_term_error_message">You must agree with terms &amp; conditions</string>
+    <string name="register_term_error_message">You must agree with terms &amp; conditions</string>-->
 
     <!-- END REGISTER -->
 
@@ -334,29 +332,10 @@
     <string name="profile_relationship_status">Relationship Status</string>
     <string name="profile_polygamy">Polygamy</string>
     <string name="profile_financial_level">Financial Level</string>
-    <string name="financial_1">Not working</string>
-    <string name="financial_2">Low income</string>
-    <string name="financial_3">Middle income</string>
-    <string name="financial_4">High income</string>
-    <string name="financial_5">Need more information</string>
-
-    <string-array name="religion">
-        <item>Buddha</item>
-        <item>Christian</item>
-        <item>Hindhu</item>
-        <item>Islam</item>
-    </string-array>
 
     <string-array name="smoker">
         <item>Yes</item>
         <item>No</item>
-    </string-array>
-
-    <string-array name="country">
-        <item>Brunei</item>
-        <item>Malaysia</item>
-        <item>Singapore</item>
-        <item>Thailand</item>
     </string-array>
 
     <string-array name="state">
@@ -374,14 +353,6 @@
         <item>Selangor</item>
         <item>Terengganu</item>
         <item>Wilayah Persekutuan</item>
-    </string-array>
-
-    <string-array name="town">
-        <item>Batu Pahat</item>
-        <item>Johor Bahru</item>
-        <item>Kuantan</item>
-        <item>Maran</item>
-        <item>Pontian</item>
     </string-array>
 
     <string-array name="children">
@@ -410,8 +381,26 @@
         <item>tidak pasti</item>
     </string-array>
 
+    <string-array name="financial">
+        <item>Not working</item>
+        <item>Low income</item>
+        <item>Middle income</item>
+        <item>High income</item>
+        <item>Need more information</item>
+    </string-array>
+
     <string name="profile_submit_button">SUBMIT</string>
     <!--END PROFILE-->
+
+    <!--PASSWORD EXPIRED-->
+    <string name="expired_title">PASSWORD EXPIRED</string>
+    <string name="expired_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
+    <string name="expired_username">User ID(Email)</string>
+    <string name="expired_current_password">Current Password</string>
+    <string name="expired_new_password">New Password</string>
+    <string name="expired_confirm_password">Confirm Password</string>
+    <string name="expired_button">Continue</string>
+    <!--END PASSWORD EXPIRED-->
 
     <!-- BOOKING FLIGHT - SEARCH FLIGHT -->
     <string name="book_flight">BOOK FLIGHT</string>

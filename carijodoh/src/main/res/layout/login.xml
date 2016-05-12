@@ -34,7 +34,6 @@
                     android:layout_marginBottom="5dp"
                     android:background="@color/white">
 
-
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -52,14 +51,12 @@
                             android:textSize="@dimen/font21sp"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
-
                     </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:id="@+id/space" />
-
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -77,18 +74,6 @@
                             android:padding="10dp"
                             android:layout_marginBottom="10dp">
 
-                            <EditText
-                                android:layout_marginLeft="3dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:inputType="textEmailAddress"
-                                android:background="@null"
-                                android:hint="@string/login_enter_email"
-                                android:textSize="@dimen/font17sp"
-                                android:textColorHint="@color/loginFontTxt"
-                                android:id="@+id/txtLoginEmail"
-                                android:tag="tagLoginEmail"/>
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -97,6 +82,18 @@
                                 android:textColor="@color/red"
                                 android:textStyle="bold"
                                 android:id="@+id/textView395" />
+
+                            <EditText
+                                android:layout_marginLeft="3dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress"
+                                android:background="@null"
+                                android:hint="@string/login_enter_email"
+                                android:textSize="@dimen/font17sp"
+                                android:textColorHint="@color/loginFontTxt"
+                                android:id="@+id/txtLoginEmail"
+                                android:tag="tagLoginEmail"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -107,8 +104,17 @@
                             android:padding="10dp"
                             android:background="@drawable/field_background">
 
-                            <EditText
+                            <TextView
                                 android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint=" *"
+                                android:textColorHint="@color/red"
+                                android:textColor="@color/red"
+                                android:textStyle="bold"
+                                android:id="@+id/textView396" />
+
+                            <EditText
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
                                 android:hint="@string/login_enter_password"
@@ -118,15 +124,6 @@
                                 android:textColorHint="@color/loginFontTxt"
                                 android:id="@+id/txtLoginPassword"
                                 android:tag="tagLoginPassword"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textColor="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView396" />
                         </LinearLayout>
 
                         <LinearLayout

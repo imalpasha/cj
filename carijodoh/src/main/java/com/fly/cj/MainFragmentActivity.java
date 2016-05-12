@@ -22,6 +22,7 @@ import com.fly.cj.drawer.NavigationDrawerFragment;
 import com.fly.cj.ui.activity.Homepage.HomeActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
 import com.fly.cj.ui.activity.Profile.ProfileActivity;
+import com.fly.cj.ui.activity.Register.RegisterActivity;
 import com.fly.cj.utils.RealmObjectController;
 import com.fly.cj.utils.SharedPrefManager;
 
@@ -175,6 +176,14 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
                 Intent login = new Intent(this, LoginActivity.class);
                 login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(login);
+
+            }
+            else if (item.getTag().equals("Register"))
+            {
+
+                Intent register = new Intent(this, RegisterActivity.class);
+                register.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(register);
 
             }
             else if (item.getTag().equals("Information_Update"))

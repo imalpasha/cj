@@ -56,14 +56,8 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     @InjectView(R.id.buttonprofileSubmit)
     Button buttonprofileSubmit;
 
-    @InjectView(R.id.a)
-    TextView a;
-
     @InjectView(R.id.b)
     TextView b;
-
-    @InjectView(R.id.c)
-    TextView c;
 
     @InjectView(R.id.d)
     TextView d;
@@ -82,6 +76,9 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
 
     @InjectView(R.id.i)
     TextView i;
+
+    @InjectView(R.id.j)
+    TextView j;
 
     @Order(1) @NotEmpty
     @InjectView(R.id.txtprofileName)
@@ -107,48 +104,44 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     LinearLayout txtprofileWeight;
 
     @Order(6) @NotEmpty
-    @InjectView(R.id.txtprofileReligion)
-    LinearLayout txtprofileReligion;
-
-    @Order(7) @NotEmpty
     @InjectView(R.id.txtprofileSmoke)
     LinearLayout txtprofileSmoke;
 
-    @Order(8) @NotEmpty
-    @InjectView(R.id.txtprofileCountry)
-    LinearLayout txtprofileCountry;
-
-    @Order(9) @NotEmpty
+    @Order(7) @NotEmpty
     @InjectView(R.id.txtprofileState)
     LinearLayout txtprofileState;
 
-    @Order(10) @NotEmpty
+    @Order(8) @NotEmpty
     @InjectView(R.id.txtprofileTown)
     LinearLayout txtprofileTown;
 
-    @Order(11) @NotEmpty
+    @Order(9) @NotEmpty
     @InjectView(R.id.txtprofileEducation)
     LinearLayout txtprofileEducation;
 
-    @Order(12) @NotEmpty
+    @Order(10) @NotEmpty
     @InjectView(R.id.txtprofileOccupation)
     LinearLayout txtprofileOccupation;
 
-    @Order(13) @NotEmpty
+    @Order(11) @NotEmpty
     @InjectView(R.id.txtprofileMaritial)
     LinearLayout txtprofileMaritial;
 
-    @Order(14) @NotEmpty
+    @Order(12) @NotEmpty
     @InjectView(R.id.txtprofileChild)
     LinearLayout txtprofileChild;
 
-    @Order(15) @NotEmpty
+    @Order(13) @NotEmpty
     @InjectView(R.id.txtprofileRelation)
     LinearLayout txtprofileRelation;
 
-    @Order(16) @NotEmpty
+    @Order(14) @NotEmpty
     @InjectView(R.id.txtprofilePolygamy)
     LinearLayout txtprofilePolygamy;
+
+    @Order(15) @NotEmpty
+    @InjectView(R.id.txtprofileFinancial)
+    LinearLayout txtprofileFinancial;
 
     private Validator mValidator;
     private Tracker mTracker;
@@ -160,15 +153,13 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     private Boolean limitAge;
 
     private String DATEPICKER_TAG = "DATEPICKER_TAG";
-    private ArrayList<DropDownItem> religionList;
     private ArrayList<DropDownItem> smokerList;
-    private ArrayList<DropDownItem> countryList;
     private ArrayList<DropDownItem> stateList;
-    //private ArrayList<DropDownItem> townList;
     private ArrayList<DropDownItem> maritialList;
     private ArrayList<DropDownItem> childList;
     private ArrayList<DropDownItem> relationList;
     private ArrayList<DropDownItem> polygamyList;
+    private ArrayList<DropDownItem> financialList;
 
     View view;
 
@@ -205,15 +196,13 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         final int year = calendar.get(Calendar.YEAR);
         final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
-        religionList = getReligion(getActivity());
         smokerList = getSmoker(getActivity());
-        //countryList = getCountry(getActivity());
         stateList = getState(getActivity());
-        //townList = getStaticTown(getActivity());
         maritialList = getMaritial(getActivity());
         childList = getChild(getActivity());
         relationList = getRelation(getActivity());
         polygamyList = getPolygamy(getActivity());
+        financialList = getFinancial(getActivity());
 
         txtprofileDob.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,14 +213,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             }
         });
 
-        txtprofileReligion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Religion");
-                Log.e("Clicked", "Ok");
-                popupSelection(religionList, getActivity(), a, true, view);
-            }
-        });
 
         txtprofileSmoke.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,15 +220,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
                 AnalyticsApplication.sendEvent("Edit", "Smoke");
                 Log.e("Clicked", "Ok");
                 popupSelection(smokerList, getActivity(), b, true, view);
-            }
-        });
-
-        txtprofileCountry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Country");
-                Log.e("Clicked", "Ok");
-                popupSelection(countryList, getActivity(), c, true, view);
             }
         });
 
@@ -296,21 +268,21 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             }
         });
 
+        txtprofileFinancial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AnalyticsApplication.sendEvent("Edit", "Financial");
+                Log.e("Clicked", "Ok");
+                popupSelection(financialList, getActivity(), j, true, view);
+            }
+        });
+
         buttonprofileSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-
-        /*txtprofileReligion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Religion");
-                Log.e("Clicked", "Ok");
-                popupSelection(smokerList, getActivity(), e, true, view);
-            }
-        });*/
 
         return view;
     }

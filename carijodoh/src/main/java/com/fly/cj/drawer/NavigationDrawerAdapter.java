@@ -74,9 +74,9 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
 	{
 
         String profileImage = "n/a";
-        String registerDate = "n/a";
+        //String registerDate = "n/a";
         String userFullName = "n/a";
-        String userLocation = "n/a";
+        //String userLocation = "n/a";
 
 
         try
@@ -139,15 +139,16 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
         else if (layoutRes == DrawerViewType.DRAWER_PROFILE)
         {
             holder.dpProfile = aq.id(R.id.drawerProfilePic).getImageView();
-            holder.regDate = aq.id(R.id.txtUserRegisterDate).getTextView();
+            //holder.regDate = aq.id(R.id.txtUserRegisterDate).getTextView();
             holder.fullName = aq.id(R.id.txtUserFullName).getTextView();
-            holder.userLoc = aq.id(R.id.txtUserLocation).getTextView();
+            //holder.userLoc = aq.id(R.id.txtUserLocation).getTextView();
 
             try
             {
                 if(profileImage != "n/a") {
                     final String fullUrl = profileImage.replace("&amp;", "&");
                     imageLoader.DisplayImage(fullUrl, holder.dpProfile, null);
+					aq.id(holder.fullName).text(userFullName);
                 }
                 else
                 {
@@ -159,11 +160,8 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
                 e.printStackTrace();
             }
 
-
-
-           aq.id(holder.regDate).text("Member since: " + registerDate);
-           aq.id(holder.userLoc).text("Location: " + userLocation);
-           aq.id(holder.fullName).text(userFullName);
+           //aq.id(holder.regDate).text("Member since: " + registerDate);
+           //aq.id(holder.userLoc).text("Location: " + userLocation);
 
         }
 

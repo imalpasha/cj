@@ -136,7 +136,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
         });
 
 
-        /*GET PREF DATA*/
+        /*GET PREF DATA
         HashMap<String, String> initPromoBanner = pref.getPromoBanner();
         String banner = initPromoBanner.get(SharedPrefManager.PROMO_BANNER);
 
@@ -161,6 +161,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
         HashMap<String, String> initSocialMedia = pref.getSocialMedia();
         String socialMedia = initSocialMedia.get(SharedPrefManager.SOCIAL_MEDIA);
+        */
 
 
         // [START shared_tracker]
@@ -283,7 +284,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
     // ------------------------------------------------------------------------------------------- //
 
-    /*Public-Inner Func*/
+    /*Public-Inner Func
     public void goToLoginPage(){
        Intent loginPage = new Intent(getActivity(), LoginActivity.class);
        // Intent loginPage = new Intent(getActivity(), SensorActivity.class);
@@ -291,7 +292,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
        // Intent loginPage = new Intent(getActivity(), RelativeFragment.class);
         getActivity().startActivity(loginPage);
 
-    }
+    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

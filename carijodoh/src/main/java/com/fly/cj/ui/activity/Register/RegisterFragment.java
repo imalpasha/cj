@@ -6,15 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.fly.cj.R;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.activity.FragmentContainerActivity;
+import com.fly.cj.ui.activity.Login.LoginActivity;
 import com.fly.cj.ui.activity.Profile.ProfileActivity;
 import com.fly.cj.ui.presenter.RegisterPresenter;
 import com.fly.cj.utils.SharedPrefManager;
+import com.fly.cj.utils.Utils;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Order;
 
 import java.util.List;
 
@@ -35,6 +40,26 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
     @InjectView(R.id.reg_registerBtn)
     Button reg_registerBtn;
 
+    @NotEmpty(sequence = 1)
+    @Order(1)
+    @InjectView(R.id.txtRegisterUname)
+    EditText txtRegisterUname;
+
+    @NotEmpty(sequence = 1)
+    @Order(2)
+    @InjectView(R.id.txtRegisterEmail)
+    EditText txtRegisterEmail;
+
+    @NotEmpty(sequence = 1)
+    @Order(3)
+    @InjectView(R.id.txtRegisterPassword)
+    EditText txtRegisterPassword;
+
+    @NotEmpty(sequence = 1)
+    @Order(4)
+    @InjectView(R.id.txtRegisterCpassword)
+    EditText txtRegisterCpassword;
+
     public static RegisterFragment newInstance() {
 
         RegisterFragment fragment = new RegisterFragment();
@@ -48,6 +73,10 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Validator
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
+        mValidator.setValidationMode(Validator.Mode.BURST);
     }
 
     @Override
@@ -61,8 +90,10 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
         reg_registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent register = new Intent(getActivity(), ProfileActivity.class);
-                getActivity().startActivity(register);
+                mValidator.validate();
+                Utils.hideKeyboard(getActivity(), v);
+
+
             }
         });
 
@@ -77,11 +108,27 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
 
     @Override
     public void onValidationSucceeded() {
-
+        Intent register = new Intent(getActivity(), LoginActivity.class);
+        getActivity().startActivity(register);
     }
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            setShake(view);
+
+            /* Split Error Message. Display first sequence only */
+            String message = error.getCollatedErrorMessage(getActivity());
+            String splitErrorMsg[] = message.split("\\r?\\n");
+
+            // Display error messages
+            if (view instanceof EditText) {
+                ((EditText) view).setError(splitErrorMsg[0]);
+            } else {
+                croutonAlert(getActivity(), splitErrorMsg[0]);
+            }
+        }
 
     }
 }

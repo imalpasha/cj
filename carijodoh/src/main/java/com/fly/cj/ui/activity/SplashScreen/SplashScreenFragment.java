@@ -61,6 +61,13 @@ public class SplashScreenFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.splash_screen, container, false);
         ButterKnife.inject(this, view);
 
+        //after loading data .. redirect to home (dummy loading)
+        //try {
+        //    Thread.sleep(3000);//1000 milliseconds is one second.
+        //} catch(InterruptedException ex) {
+        //     Thread.currentThread().interrupt();
+        // }
+
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         getActivity().startActivity(intent);
         getActivity().finish();

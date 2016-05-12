@@ -25,9 +25,7 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
         public View background;
 
         public ImageView dpProfile;
-        public TextView regDate;
         public TextView fullName;
-        public TextView userLoc;
 
         public ViewHolder()
 		{
@@ -74,9 +72,7 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
 	{
 
         String profileImage = "n/a";
-        //String registerDate = "n/a";
         String userFullName = "n/a";
-        //String userLocation = "n/a";
 
 
         try
@@ -139,10 +135,7 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
         else if (layoutRes == DrawerViewType.DRAWER_PROFILE)
         {
             holder.dpProfile = aq.id(R.id.drawerProfilePic).getImageView();
-            //holder.regDate = aq.id(R.id.txtUserRegisterDate).getTextView();
             holder.fullName = aq.id(R.id.txtUserFullName).getTextView();
-            //holder.userLoc = aq.id(R.id.txtUserLocation).getTextView();
-
             try
             {
                 if(profileImage != "n/a") {

@@ -1,19 +1,12 @@
 package com.fly.cj.ui.activity.Profile;
 
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Point;
+
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;

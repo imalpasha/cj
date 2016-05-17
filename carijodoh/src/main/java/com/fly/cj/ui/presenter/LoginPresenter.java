@@ -1,7 +1,5 @@
 package com.fly.cj.ui.presenter;
 
-import android.util.Log;
-
 import com.fly.cj.api.obj.LoginReceive;
 import com.fly.cj.ui.object.LoginRequest;
 import com.squareup.otto.Bus;
@@ -13,9 +11,6 @@ public class LoginPresenter {
 
         void onLoginSuccess(LoginReceive obj);
         void onLoginFailed(String dumm);
-        //  void onPasswordRequestFailed(ForgotPasswordReceive obj);
-        //void onPasswordRequesFailed(String dumm);
-
 
     }
 
@@ -35,29 +30,18 @@ public class LoginPresenter {
         bus.unregister(this);
     }
 
+    //start sending data to api request handler
     public void loginFunction(LoginRequest data) {
-        Log.e("xxxx",data.getUsername());
+        //otto function driven
         bus.post(new LoginRequest(data));
     }
 
-
+    //receive data from ApiRequestHandler using otto
     @Subscribe
     public void onUserSuccessLogin(LoginReceive event) {
 
         /*Save Session And Redirect To Homepage*/
         view.onLoginSuccess(event.getUserObj());
     }
-
-
-
-   // @Subscribe
-    //public void onUserFailedReqPassword(SplashFailedConnect event) {
-    /*@Subscribe
-    public void onUserFailedReqPassword(FailedConnectToServer event) {
->>>>>>> 6401c7b9c51ce353bbc670f4f01fdaaabf4b7ad8
-//
-        /*//*Save Session And Redirect To Homepage*//**//*
-      view.onPasswordRequestFailed(event.getDummy());
-   }*/
 
 }

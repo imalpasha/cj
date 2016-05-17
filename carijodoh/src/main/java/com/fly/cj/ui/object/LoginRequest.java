@@ -1,12 +1,9 @@
 package com.fly.cj.ui.object;
 
-/**
- * Created by Dell on 11/4/2015.
- */
 public class LoginRequest{
 
     /*Local Data Send To Server*/
-    String username;
+    String email;
     String password;
 
     /*Initiate Class*/
@@ -18,7 +15,7 @@ public class LoginRequest{
     //}
 
     public LoginRequest(LoginRequest data){
-        username = data.getUsername();
+        email = data.getUsername();
         password = data.getPassword();
     }
 
@@ -34,12 +31,12 @@ public class LoginRequest{
 
     public String getUsername() {
 
-        return username;
+        return email;
     }
 
     public void setUsername(String username) {
 
-        this.username = username;
+        this.email = username;
     }
 
 

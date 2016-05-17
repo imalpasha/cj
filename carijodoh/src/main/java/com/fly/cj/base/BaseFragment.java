@@ -111,57 +111,6 @@ public class BaseFragment extends Fragment {
 		}
 		return status;
 	}
-	public boolean timeCompare(String arrivalTime,String returnDepartureTime){
-
-		boolean status = false;
-
-		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
-		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
-
-		Date arrival = null;
-		Date departureReturn = null;
-
-		try {
-			arrival = parseFormat.parse(arrivalTime);
-			departureReturn = parseFormat.parse(returnDepartureTime);
-		}catch (Exception e){
-		}
-		Log.e("xxxxxxxxxxxxxxx", Long.toString(departureReturn.getTime()));
-		Log.e("yyyyyyyyyyyyyy", Long.toString(arrival.getTime()));
-
-		if(arrival.getTime() > departureReturn.getTime() ){
-			status = true;
-		}
-
-		return status;
-	}
-
-	public boolean compare90Minute(String arrivalTime,String returnDepartureTime){
-
-		boolean status = false;
-
-		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
-		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
-
-		Date arrival = null;
-		Date departureReturn = null;
-
-		try {
-			arrival = parseFormat.parse(arrivalTime);
-			departureReturn = parseFormat.parse(returnDepartureTime);
-		}catch (Exception e){
-		}
-
-		long count90minute = arrival.getTime() - departureReturn.getTime();
-
-		Log.e("abc", Long.toString(TimeUnit.MILLISECONDS.toMinutes(count90minute)));
-
-		if(Math.abs(TimeUnit.MILLISECONDS.toMinutes(count90minute)) < 90 ){
-			status = true;
-		}
-
-		return status;
-	}
 
 	public boolean travellerAgeValidation(ArrayList<Integer> ageOfTraveller){
 
@@ -537,10 +486,6 @@ public class BaseFragment extends Fragment {
 	}
 
 	public static void initiateLoading(Activity act){
-
-		//if(dialog.isShowing()) {
-		//	Log.e("Currenlt","showing");
-		//}
 
 		try {
 			dialog.dismiss();

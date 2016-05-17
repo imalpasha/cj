@@ -256,10 +256,7 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
         int height = size.y;
 
         Log.e(Integer.toString(width),Integer.toString(height));
-
     }
-
-
 
     public void getScreenSize(){
 

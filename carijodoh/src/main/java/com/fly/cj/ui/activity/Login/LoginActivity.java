@@ -42,7 +42,6 @@ public class LoginActivity extends MainFragmentActivity implements FragmentConta
     @Override
     public void onResume() {
         super.onResume();
-        // presenter.onResume();
     }
 
 

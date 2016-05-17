@@ -266,16 +266,15 @@
 
     <!-- REGISTER -->
 
-    <string name="register_title">REGISTER</string>
+    <string name="create_title">CREATE ACCOUNT</string>
 
-    <string name="register_hint_username">Username</string>
-    <string name="register_hint_email">Email</string>
-    <string name="register_hint_password">Password</string>
-    <string name="register_hint_confirm_password">Confirm Password</string>
-    <string name="register_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
+    <string name="create_hint_email">Email</string>
+    <string name="create_hint_password">Password</string>
+    <string name="create_hint_confirm_password">Confirm Password</string>
+    <string name="create_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
     <string name="asterik">*</string>
 
-    <string name="register_register_button">REGISTER</string>
+    <string name="create_create_button">CREATE</string>
 
 
 
@@ -310,6 +309,7 @@
     <string name="title_profile">PROFILE</string>
     <string name="profile_personal_information">PERSONAL INFORMATION</string>
     <string name="profile_name">Name</string>
+    <string name="profile_gender">Gender</string>
     <string name="profile_dob">Date of Birth</string>
     <string name="profile_mobile">Mobile</string>
     <string name="profile_height">Height</string>
@@ -328,7 +328,7 @@
 
     <string name="profile_status_information">STATUS INFORMATION</string>
     <string name="profile_maritial_status">Maritial Status</string>
-    <string name="profile_children">Have a children</string>
+    <string name="profile_children">Have children</string>
     <string name="profile_relationship_status">Relationship Status</string>
     <string name="profile_polygamy">Polygamy</string>
     <string name="profile_financial_level">Financial Level</string>

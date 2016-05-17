@@ -1,11 +1,11 @@
 package com.fly.cj.api.obj;
- // Response From API
-public class LoginReceive {
+// Response From API
+public class UpdateReceive {
 
-    private final LoginReceive userObj;
+    private final UpdateReceive userObj;
     private String status;
 
-    public LoginReceive(LoginReceive param_userObj) {
+    public UpdateReceive(UpdateReceive param_userObj) {
         this.userObj = param_userObj;
         status = param_userObj.getStatus();
     }
@@ -18,8 +18,7 @@ public class LoginReceive {
         this.status = status;
     }
 
-    public LoginReceive getUserObj() {
+    public UpdateReceive getUserObj() {
         return userObj;
     }
-
 }

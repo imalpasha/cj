@@ -29,8 +29,6 @@ import com.fly.cj.ui.module.LoginModule;
 import com.fly.cj.ui.object.CachedResult;
 import com.fly.cj.ui.object.LoginRequest;
 import com.fly.cj.ui.presenter.LoginPresenter;
-import com.fly.cj.utils.AESCBC;
-import com.fly.cj.utils.App;
 import com.fly.cj.utils.RealmObjectController;
 import com.fly.cj.utils.SharedPrefManager;
 import com.fly.cj.utils.Utils;
@@ -38,25 +36,21 @@ import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Order;
 
 import java.util.List;
-
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+
 import io.realm.RealmResults;
 
 public class LoginFragment extends BaseFragment implements LoginPresenter.LoginView,Validator.ValidationListener {
-
-    // Validator Attributes
-    private Validator mValidator;
-    private Tracker mTracker;
 
     @Inject
     LoginPresenter presenter;
@@ -76,7 +70,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
 
     @NotEmpty(sequence = 1)
-    @Length(sequence = 2, min = 6, max = 16 , message = "Must be at least 8 and maximum 16 characters")
+    //@Length(sequence = 2, min = 6, max = 16 , message = "Must be at least 8 and maximum 16 characters")
     @Order(2)
     @InjectView(R.id.txtLoginPassword) EditText txtLoginPassword;
 
@@ -84,6 +78,10 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     private SharedPrefManager pref;
     private String storePassword,storeUsername;
     private int fragmentContainerId;
+
+    // Validator Attributes
+    private Validator mValidator;
+    private Tracker mTracker;
 
     public static LoginFragment newInstance() {
 
@@ -97,7 +95,10 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //inject (singleton)
         FireFlyApplication.get(getActivity()).createScopedGraph(new LoginModule(this)).inject(this);
+
         RealmObjectController.clearCachedResult(getActivity());
 
         // Validator
@@ -117,11 +118,10 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         //set edittext password input type
         txtLoginPassword.setTransformationMethod(new PasswordTransformationMethod());
 
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Click", "btnLogin");
+                //AnalyticsApplication.sendEvent("Click", "btnLogin");
                 mValidator.validate();
                 Utils.hideKeyboard(getActivity(), v);
             }
@@ -149,13 +149,17 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     public void loginFromFragment(String username,String password){
         /*Start Loading*/
         initiateLoading(getActivity());
+
+        //insert value into object
         LoginRequest data = new LoginRequest();
         data.setUsername(username);
         data.setPassword(password);
 
+        //save username & password
         storeUsername = username;
         storePassword = password;
 
+        //start call api at presenter fail
         presenter.loginFunction(data);
     }
 
@@ -164,7 +168,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         Intent loginPage = new Intent(getActivity(), HomeActivity.class);
         getActivity().startActivity(loginPage);
         getActivity().finish();
-
     }
 
     public void profile()
@@ -172,7 +175,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         Intent profilePage = new Intent(getActivity(), ProfileActivity.class);
         getActivity().startActivity(profilePage);
         getActivity().finish();
-
     }
 
     @Override
@@ -185,20 +187,17 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         pref.setUserEmail(storeUsername);
         pref.setUserPassword(storePassword);
 
-        Boolean status = Controller.getRequestStatus(obj.getStatus(), obj.getMessage(), getActivity());
+        Boolean status = Controller.getRequestStatus(obj.getStatus(), "", getActivity());
         if (status) {
 
             pref.setLoginStatus("Y");
-            pref.setNewsletterStatus(obj.getUser_info().getNewsletter());
-            pref.setSignatureToLocalStorage(obj.getUser_info().getSignature());
-            pref.setUsername(obj.getUser_info().getFirst_name());
-
-            Log.e("signature",obj.getUser_info().getSignature());
             Log.e(storeUsername,storePassword);
+            Log.e("Login Status",obj.getStatus());
+            //convert json object to string , save to pref
+            //Gson gsonUserInfo = new Gson();
+            //String userInfo = gsonUserInfo.toJson(obj.getUser_info());
+            //pref.setUserInfo(userInfo);
 
-            Gson gsonUserInfo = new Gson();
-            String userInfo = gsonUserInfo.toJson(obj.getUser_info());
-            pref.setUserInfo(userInfo);
             //setSuccessDialog(getActivity(), obj.getMessage(), SearchFlightActivity.class);
             //homepage();
             profile();
@@ -229,9 +228,8 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     /* Validation Success - Start send data to server */
     @Override
     public void onValidationSucceeded() {
-        loginFromFragment(txtLoginEmail.getText().toString(),
-                AESCBC.encrypt(App.KEY, App.IV, txtLoginPassword.getText().toString()));
 
+        loginFromFragment(txtLoginEmail.getText().toString(),txtLoginPassword.getText().toString());
     }
 
     /* Validation Failed - Toast Error */
@@ -254,7 +252,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         }
     }
 
-    /*Popup Forgot Password*/
+    //Popup Forgot Password
     public void forgotPassword(){
 
         LayoutInflater li = LayoutInflater.from(getActivity());
@@ -334,7 +332,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
             LoginReceive obj = gson.fromJson(result.get(0).getCachedResult(), LoginReceive.class);
             onLoginSuccess(obj);
         }
-
     }
 
     @Override

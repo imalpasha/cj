@@ -136,7 +136,6 @@ public class PasswordExpiredFragment extends BaseFragment implements PasswordExp
         return view;
     }
 
-
     public void requestChangePassword(String username,String password ,String new_password){
         initiateLoading(getActivity());
         Log.e("Changepassword", "success");
@@ -147,10 +146,8 @@ public class PasswordExpiredFragment extends BaseFragment implements PasswordExp
         presenter.changePassword(data);
     }
 
-
     public void goLoginPage()
     {
-
         Intent loginPage = new Intent(getActivity(), LoginActivity.class);
         getActivity().startActivity(loginPage);
         getActivity().finish();
@@ -166,7 +163,6 @@ public class PasswordExpiredFragment extends BaseFragment implements PasswordExp
         }
 
     }
-
 
     //Validator Result//
     @Override

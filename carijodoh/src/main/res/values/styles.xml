@@ -1,6 +1,5 @@
 <resources>
 
-
     <!-- Latest Theme -->
     <style name="MyCustomTheme" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
@@ -58,6 +57,10 @@
     <!-- Base application theme. -->
     <style name="BaseAppTheme" >
 
+    </style>
+
+    <style name="HomeTheme" parent="Theme.AppCompat">
+        <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
     </style>
 
     <style name="AppTheme"  parent="android:Theme.Holo.Light"/>

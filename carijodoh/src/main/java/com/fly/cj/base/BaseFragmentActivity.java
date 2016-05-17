@@ -32,7 +32,6 @@ public class BaseFragmentActivity extends FragmentActivity {
 
        if ((getApplicationContext().getResources().getConfiguration().screenLayout &
                 android.content.res.Configuration.SCREENLAYOUT_SIZE_MASK) >= android.content.res.Configuration.SCREENLAYOUT_SIZE_LARGE){
-            //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
            getApplicationContext().getResources().getConfiguration().orientation = 2;
 
@@ -41,51 +40,21 @@ public class BaseFragmentActivity extends FragmentActivity {
             getApplicationContext().getResources().getConfiguration().orientation = 1;
         }
 
-
         try
         {
             ActionBar actionBar = getActionBar();
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-           // actionBar.setElevation(0);
-            //actionBar.setBackgroundDrawable(null);
-           // tabsView = new ScrollingTabContainerView(actionBar.getThemedContext());
-             actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             actionBar.setCustomView(R.layout.actionbar);
             View actionBarView = actionBar.getCustomView();
             aq.recycle(actionBarView);
             aq.id(R.id.title).typeface(Typeface.createFromAsset(getAssets(), App.FONT_HELVETICA_NEUE)).textSize(22).textColor(Color.WHITE);
-           // if(Utils.getDeviceType(this) == "1")
-            //{
-             //   aq.id(R.id.tabContainerTablet).visible();
-                //display tab here
-           // }
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
     }
-
-   /* public void tabSearch(View v)
-    {
-        Intent intent = new Intent(BaseFragmentActivity.this, GlobalSearchView.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        BaseFragmentActivity.this.startActivity(intent);
-    }
-
-    public void tabWish(View v)
-    {
-        Intent intent = new Intent(BaseFragmentActivity.this, MyWishListList.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        BaseFragmentActivity.this.startActivity(intent);
-    }
-
-    public void tabCart(View v)
-    {
-        Intent intent = new Intent(BaseFragmentActivity.this, CartsView.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        BaseFragmentActivity.this.startActivity(intent);
-    }*/
 
     @Override
     public void setTitle(CharSequence title)

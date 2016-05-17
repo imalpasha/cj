@@ -7,12 +7,11 @@ import android.util.Log;
 import com.estimote.sdk.repackaged.gson_v2_3_1.com.google.gson.Gson;
 import com.fly.cj.MainFragmentActivity;
 import com.fly.cj.api.obj.LoginReceive;
+import com.fly.cj.api.obj.RegisterReceive;
+import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
-import com.fly.cj.ui.object.FlightSummary;
 import com.fly.cj.ui.object.LoginRequest;
-import com.fly.cj.ui.object.PushNotificationObj;
-import com.fly.cj.ui.object.RegisterObj;
-import com.fly.cj.ui.object.Signature;
+import com.fly.cj.ui.object.RegisterRequest;
 import com.fly.cj.utils.RealmObjectController;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -36,23 +35,46 @@ public class ApiRequestHandler {
         retry = false;
     }
 
-    // ------------------------------------------------------------------------------ //
+    // -------------------------------------LOGIN----------------------------------------- //
 
 
     @Subscribe
     public void onLoginRequest(final LoginRequest event) {
 
-
+        //LoginReceive -> receive response from api - pass to object
         apiService.onRequestToLogin(event, new Callback<LoginReceive>() {
 
             @Override
             public void success(LoginReceive rhymesResponse, Response response) {
 
+                //otto send api data to login presenter back
                 bus.post(new LoginReceive(rhymesResponse));
                 RealmObjectController.cachedResult(MainFragmentActivity.getContext(), (new Gson()).toJson(rhymesResponse));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+                BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+            }
+
+        });
+    }
+
+    // -------------------------------------REGISTER----------------------------------------- //
+
+    @Subscribe
+    public void onRegisterRequest(final RegisterRequest event) {
+
+        //RegisterReceive -> receive response from api - pass to object
+        apiService.onRequestToRegister(event, new Callback<RegisterReceive>() {
+
+            @Override
+            public void success(RegisterReceive rhymesResponse, Response response) {
+                //otto send api data to register presenter back
+                bus.post(new RegisterReceive(rhymesResponse));
+                RealmObjectController.cachedResult(MainFragmentActivity.getContext(), (new Gson()).toJson(rhymesResponse));
                 resetInc();
-
-
             }
 
             @Override
@@ -60,16 +82,52 @@ public class ApiRequestHandler {
 
                 Log.e("inc", Integer.toString(inc));
                 if (retry) {
-                    onLoginRequest(event);
+                    onRegisterRequest(event);
                     loop();
                 } else {
                     resetInc();
                     BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
                 }
+
             }
 
         });
     }
+
+    // -------------------------------------UPDATE----------------------------------------- //
+/*
+    @Subscribe
+    public void onUpdateRequest(final UpdateRequest event) {
+
+        //UpdateReceive -> receive response from api - pass to object
+        apiService.onRequestToUpdate(event, new Callback<UpdateReceive>() {
+
+            @Override
+            public void success(UpdateReceive rhymesResponse, Response response) {
+
+                //otto send api data to update presenter back
+                bus.post(new UpdateReceive(rhymesResponse));
+                RealmObjectController.cachedResult(MainFragmentActivity.getContext(), (new Gson()).toJson(rhymesResponse));
+                resetInc();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+                BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+                Log.e("inc", Integer.toString(inc));
+                if (retry) {
+                    onUpdateRequest(event);
+                    loop();
+                } else {
+                    resetInc();
+                    BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+                }
+
+            }
+
+        });
+    }*/
 
     public void resetInc(){
         inc = 0;
@@ -84,5 +142,4 @@ public class ApiRequestHandler {
             retry = false;
         }
     }
-
 }

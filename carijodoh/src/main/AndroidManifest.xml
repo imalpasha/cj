@@ -53,11 +53,15 @@
         tools:replace="android:icon"
         android:vmSafeMode="true">
 
-        <!-- android:theme="@style/Theme1" -->
-        <!-- android:name="com.fly.firefly.ui.activity.MainActivity" -->
-        <activity android:name="com.fly.cj.ui.activity.SplashScreen.SplashScreenActivity">
+        <!-- SplashActivity -->
+        <activity
+            android:name="com.fly.cj.ui.activity.SplashScreen.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -70,6 +74,9 @@
         </activity>
 
         <activity android:name="com.fly.cj.ui.activity.Login.LoginActivity" />
+
+        <activity android:name="com.fly.cj.ui.activity.HomepageLogin.HomeLoginActivity"
+            android:theme="@style/HomeTheme"/>
 
         <activity android:name="com.fly.cj.ui.activity.Register.RegisterActivity" />
 

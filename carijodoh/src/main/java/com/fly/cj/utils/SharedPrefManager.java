@@ -21,6 +21,7 @@ public class SharedPrefManager {
     public static final String STATE = "STATE";
 
     public static final String ISLOGIN = "ISLOGIN";
+    public static final String ISREGISTER = "ISREGISTER";
     public static final String ISNEWSLETTER = "ISNEWSLETTER";
     public static final String PROMO_BANNER = "PM";
     public static final String DEFAULT_BANNER = "DB";
@@ -371,6 +372,12 @@ public class SharedPrefManager {
     /*Set Signature Value*/
     public void setLoginStatus(String status) {
         _prefsEditor.putString(ISLOGIN, status);
+        _prefsEditor.apply();
+    }
+
+    /*Set Signature Value*/
+    public void setRegisterStatus(String status) {
+        _prefsEditor.putString(ISREGISTER, status);
         _prefsEditor.apply();
     }
 

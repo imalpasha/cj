@@ -43,98 +43,91 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     @Inject
     ProfilePresenter presenter;
 
-    @InjectView(R.id.scrollviewProfile)
-    ScrollView scrollviewProfile;
-
-    @InjectView(R.id.buttonprofileSubmit)
-    Button buttonprofileSubmit;
-
-    @InjectView(R.id.b)
-    TextView b;
-
-    @InjectView(R.id.d)
-    TextView d;
-
-    @InjectView(R.id.e)
-    TextView e;
-
-    @InjectView(R.id.f)
-    TextView f;
-
-    @InjectView(R.id.g)
-    TextView g;
-
-    @InjectView(R.id.h)
-    TextView h;
-
-    @InjectView(R.id.i)
-    TextView i;
-
-    @InjectView(R.id.j)
-    TextView j;
+    @InjectView(R.id.profile_submitBtn)
+    Button profile_submitBtn;
 
     @Order(1) @NotEmpty
-    @InjectView(R.id.txtprofileName)
-    LinearLayout txtprofileName;
+    @InjectView(R.id.profile_email)
+    TextView profile_email;
 
     @Order(2) @NotEmpty
-    @InjectView(R.id.txtprofileDob)
-    LinearLayout txtprofileDob;
-
-    @InjectView(R.id.profileDob)
-    TextView profileDob;
+    @InjectView(R.id.profile_password)
+    TextView profile_password;
 
     @Order(3) @NotEmpty
-    @InjectView(R.id.txtprofileMobile)
-    LinearLayout txtprofileMobile;
+    @InjectView(R.id.profile_cmpassword)
+    TextView profile_cmpassword;
 
     @Order(4) @NotEmpty
-    @InjectView(R.id.txtprofileHeight)
-    LinearLayout txtprofileHeight;
+    @InjectView(R.id.profile_name)
+    TextView profile_name;
 
     @Order(5) @NotEmpty
-    @InjectView(R.id.txtprofileWeight)
-    LinearLayout txtprofileWeight;
+    @InjectView(R.id.profile_gender)
+    TextView profile_gender;
 
     @Order(6) @NotEmpty
-    @InjectView(R.id.txtprofileSmoke)
-    LinearLayout txtprofileSmoke;
+    @InjectView(R.id.profile_dob)
+    TextView profile_dob;
 
     @Order(7) @NotEmpty
-    @InjectView(R.id.txtprofileState)
-    LinearLayout txtprofileState;
+    @InjectView(R.id.profile_mobile)
+    TextView profile_mobile;
 
     @Order(8) @NotEmpty
-    @InjectView(R.id.txtprofileTown)
-    LinearLayout txtprofileTown;
+    @InjectView(R.id.profile_height)
+    TextView profile_height;
 
     @Order(9) @NotEmpty
-    @InjectView(R.id.txtprofileEducation)
-    LinearLayout txtprofileEducation;
+    @InjectView(R.id.profile_weight)
+    TextView profile_weight;
 
     @Order(10) @NotEmpty
-    @InjectView(R.id.txtprofileOccupation)
-    LinearLayout txtprofileOccupation;
+    @InjectView(R.id.profile_smoker)
+    TextView profile_smoker;
 
     @Order(11) @NotEmpty
-    @InjectView(R.id.txtprofileMaritial)
-    LinearLayout txtprofileMaritial;
+    @InjectView(R.id.profile_country)
+    TextView profile_country;
 
     @Order(12) @NotEmpty
-    @InjectView(R.id.txtprofileChild)
-    LinearLayout txtprofileChild;
+    @InjectView(R.id.profile_state)
+    TextView profile_state;
 
     @Order(13) @NotEmpty
-    @InjectView(R.id.txtprofileRelation)
-    LinearLayout txtprofileRelation;
+    @InjectView(R.id.profile_town)
+    TextView profile_town;
 
     @Order(14) @NotEmpty
-    @InjectView(R.id.txtprofilePolygamy)
-    LinearLayout txtprofilePolygamy;
+    @InjectView(R.id.profile_education)
+    TextView profile_education;
 
     @Order(15) @NotEmpty
-    @InjectView(R.id.txtprofileFinancial)
-    LinearLayout txtprofileFinancial;
+    @InjectView(R.id.profile_occupation)
+    TextView profile_occupation;
+
+    @Order(16) @NotEmpty
+    @InjectView(R.id.profile_maritial)
+    TextView profile_maritial;
+
+    @Order(17) @NotEmpty
+    @InjectView(R.id.profile_children)
+    TextView profile_children;
+
+    @Order(18) @NotEmpty
+    @InjectView(R.id.profile_relationship)
+    TextView profile_relationship;
+
+    @Order(19) @NotEmpty
+    @InjectView(R.id.profile_polygamy)
+    TextView profile_polygamy;
+
+    @Order(20) @NotEmpty
+    @InjectView(R.id.profile_financial)
+    TextView profile_financial;
+
+    @InjectView(R.id.profile_package)
+    TextView profile_package;
 
     private Validator mValidator;
     private Tracker mTracker;
@@ -197,7 +190,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         polygamyList = getPolygamy(getActivity());
         financialList = getFinancial(getActivity());
 
-        txtprofileDob.setOnClickListener(new View.OnClickListener() {
+        profile_dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Dob");
@@ -207,70 +200,70 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         });
 
 
-        txtprofileSmoke.setOnClickListener(new View.OnClickListener() {
+        profile_smoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Smoke");
                 Log.e("Clicked", "Ok");
-                popupSelection(smokerList, getActivity(), b, true, view);
+                popupSelection(smokerList, getActivity(), profile_smoker, true, view);
             }
         });
 
-        txtprofileState.setOnClickListener(new View.OnClickListener() {
+        profile_state.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "State");
                 Log.e("Clicked", "Ok");
-                popupSelection(stateList, getActivity(), d, true, view);
+                popupSelection(stateList, getActivity(), profile_state, true, view);
             }
         });
 
-        txtprofileMaritial.setOnClickListener(new View.OnClickListener() {
+        profile_maritial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Maritial");
                 Log.e("Clicked", "Ok");
-                popupSelection(maritialList, getActivity(), f, true, view);
+                popupSelection(maritialList, getActivity(), profile_maritial, true, view);
             }
         });
 
-        txtprofileChild.setOnClickListener(new View.OnClickListener() {
+        profile_children.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Child");
                 Log.e("Clicked", "Ok");
-                popupSelection(childList, getActivity(), g, true, view);
+                popupSelection(childList, getActivity(), profile_children, true, view);
             }
         });
 
-        txtprofileRelation.setOnClickListener(new View.OnClickListener() {
+        profile_relationship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Relationship");
                 Log.e("Clicked", "Ok");
-                popupSelection(relationList, getActivity(), h, true, view);
+                popupSelection(relationList, getActivity(), profile_relationship, true, view);
             }
         });
 
-        txtprofilePolygamy.setOnClickListener(new View.OnClickListener() {
+        profile_polygamy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Polygamy");
                 Log.e("Clicked", "Ok");
-                popupSelection(polygamyList, getActivity(), i, true, view);
+                popupSelection(polygamyList, getActivity(), profile_polygamy, true, view);
             }
         });
 
-        txtprofileFinancial.setOnClickListener(new View.OnClickListener() {
+        profile_financial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AnalyticsApplication.sendEvent("Edit", "Financial");
                 Log.e("Clicked", "Ok");
-                popupSelection(financialList, getActivity(), j, true, view);
+                popupSelection(financialList, getActivity(), profile_financial, true, view);
             }
         });
 
-        buttonprofileSubmit.setOnClickListener(new View.OnClickListener() {
+        profile_submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -372,7 +365,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     public void onDateSet(com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
 
         String monthInAlphabet = getMonthAlphabet(month);
-        profileDob.setText(day + " " + monthInAlphabet + " " + year);
+        profile_dob.setText(day + " " + monthInAlphabet + " " + year);
 
         //Reconstruct DOB
         String varMonth = "";

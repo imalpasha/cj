@@ -307,6 +307,9 @@
 
     <!--PROFILE-->
     <string name="title_profile">PROFILE</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_password">Password</string>
+    <string name="profile_cmpassword">Confirm Password</string>
     <string name="profile_personal_information">PERSONAL INFORMATION</string>
     <string name="profile_name">Name</string>
     <string name="profile_gender">Gender</string>

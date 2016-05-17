@@ -76,7 +76,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
     private AlertDialog dialog;
     private SharedPrefManager pref;
-    private String storePassword,storeUsername;
+    private String storePassword,storeUsername, storeAuth_token, storeSignature;
     private int fragmentContainerId;
 
     // Validator Attributes
@@ -155,6 +155,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         data.setUsername(username);
         data.setPassword(password);
 
+
         //save username & password
         storeUsername = username;
         storePassword = password;
@@ -191,8 +192,16 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         if (status) {
 
             pref.setLoginStatus("Y");
+
+            storeAuth_token = obj.getAuth_token();
+            storeSignature = obj.getSignature();
+            pref.setUserAuth(storeAuth_token);
+            pref.setUserSignature(storeSignature);
+
             Log.e(storeUsername,storePassword);
             Log.e("Login Status",obj.getStatus());
+            Log.e("Signature ", storeSignature);
+
             //convert json object to string , save to pref
             //Gson gsonUserInfo = new Gson();
             //String userInfo = gsonUserInfo.toJson(obj.getUser_info());

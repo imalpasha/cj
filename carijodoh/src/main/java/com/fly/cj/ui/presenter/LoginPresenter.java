@@ -43,5 +43,4 @@ public class LoginPresenter {
         /*Save Session And Redirect To Homepage*/
         view.onLoginSuccess(event.getUserObj());
     }
-
 }

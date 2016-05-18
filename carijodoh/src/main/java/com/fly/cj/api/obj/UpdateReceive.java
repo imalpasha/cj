@@ -8,6 +8,7 @@ public class UpdateReceive {
     public UpdateReceive(UpdateReceive param_userObj) {
         this.userObj = param_userObj;
         status = param_userObj.getStatus();
+
     }
 
     public String getStatus() {

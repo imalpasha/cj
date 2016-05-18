@@ -12,6 +12,8 @@ public class SharedPrefManager {
     public static final String SIGNATURE = "SIGNATURE";
     public static final String SELECTED = "SELECTED";
     public static final String USER_EMAIL = "USER_EMAIL";
+    public static final String USER_AUTH = "USER_AUTH";
+    public static final String USER_SIGNATURE = "USER_SIGNATURE";
     public static final String USER_INFO = "USER_INFO";
     public static final String CHECKIN_INFO = "CHECKIN_INFO";
     public static final String TERM_INFO = "TERM_INFO";
@@ -457,6 +459,16 @@ public class SharedPrefManager {
     /*Set Userinfo Value*/
     public void setUserEmail(String url) {
         _prefsEditor.putString(USER_EMAIL, url);
+        _prefsEditor.apply();
+    }
+
+    public void setUserAuth(String url) {
+        _prefsEditor.putString(USER_AUTH, url);
+        _prefsEditor.apply();
+    }
+
+    public void setUserSignature(String url) {
+        _prefsEditor.putString(USER_SIGNATURE, url);
         _prefsEditor.apply();
     }
 

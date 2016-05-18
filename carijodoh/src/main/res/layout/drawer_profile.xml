@@ -25,15 +25,15 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView2"
                         android:src="@drawable/load"
-                        android:alpha="0.3"/>
+                        android:alpha="0.2"/>
 
                 </LinearLayout>
 
                 <com.fly.cj.CircleImage
                     android:id="@+id/drawerProfilePic"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="100dp"
-                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/load"
                     app:civ_border_width="2dp"
                     app:civ_border_color="@color/light" />
@@ -43,11 +43,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16dp"
                     android:text="AMINUDIN BAKI"
                     android:gravity="center"
-                    android:layout_marginBottom="-55dp"
+                    android:layout_marginBottom="-30dp"
                     android:textStyle="bold"
                     android:layout_alignBottom="@+id/drawerProfilePic"/>
 

@@ -12,6 +12,7 @@ import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.object.LoginRequest;
 import com.fly.cj.ui.object.RegisterRequest;
+import com.fly.cj.ui.object.UpdateRequest;
 import com.fly.cj.utils.RealmObjectController;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -95,7 +96,7 @@ public class ApiRequestHandler {
     }
 
     // -------------------------------------UPDATE----------------------------------------- //
-/*
+
     @Subscribe
     public void onUpdateRequest(final UpdateRequest event) {
 
@@ -127,7 +128,7 @@ public class ApiRequestHandler {
             }
 
         });
-    }*/
+    }
 
     public void resetInc(){
         inc = 0;

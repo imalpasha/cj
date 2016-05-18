@@ -43,6 +43,8 @@ public class SharedPrefManager {
     public static final String USER_ID ="UI";
 
     public static final String APP_VERSION = "AV";
+    public static final String GCMKey = "GCMKey";
+
     int PRIVATE_MODE = 0;
     Context _context;
     private SharedPreferences _sharedPrefs;
@@ -61,6 +63,40 @@ public class SharedPrefManager {
         init.put(USER_ID, _sharedPrefs.getString(USER_ID, null));
         return init;
     }
+
+
+
+    /*GCM*/
+
+    /*Set GCM Value*/
+    public void setGCMKey(String key) {
+        _prefsEditor.putString(GCMKey, key);
+        _prefsEditor.apply();
+    }
+
+    /*SOCIAL MEDIA*/
+    public HashMap<String, String> getGCMKey() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(GCMKey, _sharedPrefs.getString(GCMKey, null));
+        return init;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*SOCIAL MEDIA*/
     public HashMap<String, String> getAppVersion() {

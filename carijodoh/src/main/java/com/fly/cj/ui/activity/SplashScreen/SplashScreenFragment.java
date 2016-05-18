@@ -41,10 +41,9 @@ public class SplashScreenFragment extends BaseFragment {
     private boolean proceed = false;
     boolean goTimer = true;
 
-    public static SplashScreenFragment newInstance() {
+    public static SplashScreenFragment newInstance(Bundle bundle) {
 
         SplashScreenFragment fragment = new SplashScreenFragment();
-        Bundle bundle = new Bundle();
         fragment.setArguments(bundle);
         return fragment;
 
@@ -60,13 +59,16 @@ public class SplashScreenFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.splash_screen, container, false);
         ButterKnife.inject(this, view);
+        pref = new SharedPrefManager(getActivity());
 
-        //after loading data .. redirect to home (dummy loading)
-        //try {
-        //    Thread.sleep(3000);//1000 milliseconds is one second.
-        //} catch(InterruptedException ex) {
-        //     Thread.currentThread().interrupt();
-        // }
+        Bundle bundle = getArguments();
+
+        String gcmKey = bundle.getString("GCM_KEY");
+        if(gcmKey == null){
+            gcmKey = "";
+        }
+
+        pref.setGCMKey(gcmKey);
 
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         getActivity().startActivity(intent);

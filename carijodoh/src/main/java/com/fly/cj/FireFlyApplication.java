@@ -40,8 +40,8 @@ public class FireFlyApplication extends AnalyticsApplication {
     public void onCreate() {
         super.onCreate();
 
-        Crashlytics crashlytics = new Crashlytics.Builder().disabled(BuildConfig.DEBUG).build();
-        Fabric.with(this, crashlytics);
+        //Crashlytics crashlytics = new Crashlytics.Builder().disabled(BuildConfig.DEBUG).build();
+        //Fabric.with(this, crashlytics);
         //Fabric.with(this, new Crashlytics());
         buildObjectGraphAndInject();
         createApiRequestHandler();

@@ -21,7 +21,7 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView2"
                         android:src="@drawable/load"
@@ -33,7 +33,7 @@
                     android:id="@+id/drawerProfilePic"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="18dp"
                     android:src="@drawable/load"
                     app:civ_border_width="2dp"
                     app:civ_border_color="@color/light" />
@@ -43,14 +43,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16dp"
                     android:text="AMINUDIN BAKI"
                     android:gravity="center"
-                    android:layout_marginBottom="-30dp"
+                    android:layout_marginBottom="-21dp"
                     android:textStyle="bold"
                     android:layout_alignBottom="@+id/drawerProfilePic"/>
 
             </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>

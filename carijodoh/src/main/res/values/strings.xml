@@ -99,10 +99,7 @@
 
 
     <!-- DropDown Value -->
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-    </string-array>
+
 
     <string-array name="travel_doc">
         <item>Malaysia IC-NRIC</item>
@@ -335,6 +332,11 @@
     <string name="profile_relationship_status">Relationship Status</string>
     <string name="profile_polygamy">Polygamy</string>
     <string name="profile_financial_level">Financial Level</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
     <string-array name="smoker">
         <item>Yes</item>

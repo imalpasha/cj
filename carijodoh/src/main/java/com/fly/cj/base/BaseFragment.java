@@ -195,7 +195,22 @@ public class BaseFragment extends Fragment {
 
     /* ---------------------------PROFILE----------------------------- */
 
-    public static ArrayList<DropDownItem> getSmoker(Activity act) {
+	public static ArrayList<DropDownItem> getGender(Activity act) {
+
+		/*Smoker or Vaper*/
+		ArrayList<DropDownItem> genderList = new ArrayList<DropDownItem>();
+
+		final String[] gender = act.getResources().getStringArray(R.array.gender);
+		for (int i = 0; i < gender.length; i++) {
+			DropDownItem itemGender = new DropDownItem();
+			itemGender.setText(gender[i]);
+			genderList.add(itemGender);
+		}
+
+		return genderList;
+	}
+
+	public static ArrayList<DropDownItem> getSmoker(Activity act) {
 
 		/*Smoker or Vaper*/
         ArrayList<DropDownItem> smokerList = new ArrayList<DropDownItem>();

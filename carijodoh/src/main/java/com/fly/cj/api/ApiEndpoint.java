@@ -15,8 +15,9 @@ public class ApiEndpoint implements Endpoint {
         //return "http://fyapi.me-tech.com.my/api";
        // return "http://192.168.0.111:44447";
 
-        return "http://192.168.0.156/fly/public/api/";
-      //  return "http://103.249.85.102";
+        //-----------------CARI JODOH------------------//
+        //return "http://192.168.0.156/fly/public/api/";
+        return "http://192.168.0.121/fly/public/api/";
 
     }
 

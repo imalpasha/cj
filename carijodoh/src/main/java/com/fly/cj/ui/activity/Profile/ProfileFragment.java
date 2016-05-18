@@ -1,6 +1,7 @@
 package com.fly.cj.ui.activity.Profile;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fly.cj.AnalyticsApplication;
 import com.fly.cj.FireFlyApplication;
@@ -25,6 +27,8 @@ import com.fly.cj.utils.SharedPrefManager;
 import com.google.android.gms.analytics.Tracker;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.DecimalMax;
+import com.mobsandgeeks.saripaar.annotation.Max;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Order;
 
@@ -139,6 +143,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     private Boolean limitAge;
 
     private String DATEPICKER_TAG = "DATEPICKER_TAG";
+    private ArrayList<DropDownItem> genderList;
     private ArrayList<DropDownItem> smokerList;
     private ArrayList<DropDownItem> stateList;
     private ArrayList<DropDownItem> maritialList;
@@ -182,6 +187,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         final int year = calendar.get(Calendar.YEAR);
         final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
+        genderList = getGender(getActivity());
         smokerList = getSmoker(getActivity());
         stateList = getState(getActivity());
         maritialList = getMaritial(getActivity());
@@ -190,21 +196,24 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         polygamyList = getPolygamy(getActivity());
         financialList = getFinancial(getActivity());
 
+        profile_gender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupSelection(genderList, getActivity(), profile_gender, true, view);
+            }
+        });
+
         profile_dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Dob");
                 datePickerDialog.setYearRange(year - 80, year);
                 datePickerDialog.show(getActivity().getSupportFragmentManager(), DATEPICKER_TAG);
             }
         });
 
-
         profile_smoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Smoke");
-                Log.e("Clicked", "Ok");
                 popupSelection(smokerList, getActivity(), profile_smoker, true, view);
             }
         });
@@ -212,8 +221,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_state.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "State");
-                Log.e("Clicked", "Ok");
                 popupSelection(stateList, getActivity(), profile_state, true, view);
             }
         });
@@ -221,8 +228,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_maritial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Maritial");
-                Log.e("Clicked", "Ok");
                 popupSelection(maritialList, getActivity(), profile_maritial, true, view);
             }
         });
@@ -230,8 +235,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_children.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Child");
-                Log.e("Clicked", "Ok");
                 popupSelection(childList, getActivity(), profile_children, true, view);
             }
         });
@@ -239,8 +242,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_relationship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Relationship");
-                Log.e("Clicked", "Ok");
                 popupSelection(relationList, getActivity(), profile_relationship, true, view);
             }
         });
@@ -248,8 +249,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_polygamy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Polygamy");
-                Log.e("Clicked", "Ok");
                 popupSelection(polygamyList, getActivity(), profile_polygamy, true, view);
             }
         });
@@ -257,8 +256,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         profile_financial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Edit", "Financial");
-                Log.e("Clicked", "Ok");
                 popupSelection(financialList, getActivity(), profile_financial, true, view);
             }
         });
@@ -273,9 +270,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         return view;
     }
 
-
     // ------------------------------------------------------------------------------------------- //
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -383,9 +378,11 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         int currentYear = calendar.get(Calendar.YEAR);
         age = currentYear - year;
         if(age < 18){
-            limitAge = false;
-        }else{
             limitAge = true;
+            Toast.makeText(getActivity(), "Underage", Toast.LENGTH_SHORT).show();
+
+        }else{
+            limitAge = false;
         }
 
     }

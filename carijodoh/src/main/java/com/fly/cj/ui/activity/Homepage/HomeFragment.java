@@ -94,11 +94,10 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
     private Location lastLocation;*/
     //FragmentManager fm;
 
-    public static HomeFragment newInstance() {
+    public static HomeFragment newInstance(Bundle bundle) {
 
         HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+        fragment.setArguments(bundle);
         return fragment;
 
     }
@@ -134,6 +133,10 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
                 getActivity().startActivity(register);
             }
         });
+
+        HashMap<String, String> initPromoBanner = pref.getGCMKey();
+        String gcmKey = initPromoBanner.get(SharedPrefManager.GCMKey);
+        Log.e("gcmKey","x"+gcmKey);
 
 
         /*GET PREF DATA

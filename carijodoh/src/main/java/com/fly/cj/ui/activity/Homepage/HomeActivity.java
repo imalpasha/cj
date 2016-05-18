@@ -25,8 +25,11 @@ public class HomeActivity extends MainFragmentActivity implements FragmentContai
 
         ButterKnife.inject(this);
 
+        Bundle bundle = getIntent().getExtras();
+
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.main_content, HomeFragment.newInstance(),"Home").commit();
+        fragmentManager.beginTransaction().replace(R.id.main_content, HomeFragment.newInstance(bundle),"Home").commit();
+
 
         setMenuButton();
         //hideTitle();

@@ -5,18 +5,15 @@ public class LoginRequest{
     /*Local Data Send To Server*/
     String email;
     String password;
+    String deviceId;
 
     /*Initiate Class*/
-    public LoginRequest(){
-    }
-
-    //public LoginRequest(String username123){
-    //    this.username = username123;
-    //}
+    public LoginRequest(){    }
 
     public LoginRequest(LoginRequest data){
         email = data.getUsername();
         password = data.getPassword();
+        deviceId = data.getDeviceId();
     }
 
     public String getPassword() {
@@ -39,15 +36,20 @@ public class LoginRequest{
         this.email = username;
     }
 
+    public String getDeviceId() {
 
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+
+        this.deviceId = deviceId;
+    }
 
     /*Response Data From Server*/
     String status;
 
-
     public String getStatus() {
         return status;
     }
-
-
 }

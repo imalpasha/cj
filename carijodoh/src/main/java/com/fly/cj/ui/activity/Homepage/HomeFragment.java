@@ -134,9 +134,9 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
             }
         });
 
-        HashMap<String, String> initPromoBanner = pref.getGCMKey();
-        String gcmKey = initPromoBanner.get(SharedPrefManager.GCMKey);
-        Log.e("gcmKey","x"+gcmKey);
+        //HashMap<String, String> initPromoBanner = pref.getGCMKey();
+        //String gcmKey = initPromoBanner.get(SharedPrefManager.GCMKey);
+        //Log.e("gcmKey","x"+gcmKey);
 
 
         /*GET PREF DATA

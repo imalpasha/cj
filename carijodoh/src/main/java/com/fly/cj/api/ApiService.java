@@ -9,6 +9,7 @@ import com.fly.cj.ui.object.UpdateRequest;
 
 import retrofit.Callback;
 import retrofit.http.Body;
+import retrofit.http.Header;
 import retrofit.http.POST;
 
 public interface ApiService {
@@ -20,8 +21,9 @@ public interface ApiService {
     void onRequestToRegister(@Body RegisterRequest obj, Callback<RegisterReceive> callback);
 
     @POST("/update")
-    void onRequestToUpdate(@Body UpdateRequest task, Callback<UpdateReceive> callback);
+    void onRequestToUpdate(@Header("Authorization") String token, @Body UpdateRequest task, Callback<UpdateReceive> callback);
+
+   // @POST("/getProfile")
+   // void onRequestToView(@Header("Authorization") String token, @Body UpdateRequest task, Callback<UpdateReceive> callback);
 
 }
-
-

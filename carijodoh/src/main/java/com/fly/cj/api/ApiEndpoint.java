@@ -17,7 +17,9 @@ public class ApiEndpoint implements Endpoint {
 
         //-----------------CARI JODOH------------------//
         //return "http://192.168.0.156/fly/public/api/";
-        return "http://192.168.0.121/fly/public/api/";
+        //return "http://192.168.0.130/fly/public/api/";
+        return "http://192.168.0.124/fly/public/api/";
+
 
     }
 

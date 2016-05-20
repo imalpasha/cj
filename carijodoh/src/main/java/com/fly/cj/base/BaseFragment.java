@@ -67,10 +67,9 @@ public class BaseFragment extends Fragment {
 	private static SweetAlertDialog pDialog;
 	private static Dialog dialog;
 
-
 	private static Boolean status;
-	Boolean manualValidationStatus = true;
 	private static int staticIndex = -1;
+	Boolean manualValidationStatus = true;
 
 	public void blinkText(TextView txt){
 
@@ -142,27 +141,7 @@ public class BaseFragment extends Fragment {
 		return age;
 	}
 
-	/* ------------------ Mobile Check-In ------------------- */
-	public static ArrayList<DropDownItem> getTravelDoc(Context context) {
-
-		ArrayList<DropDownItem> travelDocList = new ArrayList<DropDownItem>();
-
-		/*Travel Doc*/
-		final String[] doc = context.getResources().getStringArray(R.array.travel_doc);
-		for (int i = 0; i < doc.length; i++) {
-			String travelDoc = doc[i];
-			String[] splitDoc = travelDoc.split("-");
-			DropDownItem itemDoc = new DropDownItem();
-			itemDoc.setText(splitDoc[0]);
-			itemDoc.setCode(splitDoc[1]);
-			travelDocList.add(itemDoc);
-		}
-
-		return travelDocList;
-	}
-
-/*
-	public static ArrayList<DropDownItem> getStaticCountry(Activity act){
+	/*public static ArrayList<DropDownItem> getStaticCountry(Activity act){
 
 		ArrayList<DropDownItem> countrys = new ArrayList<DropDownItem>();
 		JSONArray json = null;
@@ -193,11 +172,11 @@ public class BaseFragment extends Fragment {
 		return countrys;
 	}*/
 
-    /* ---------------------------PROFILE----------------------------- */
+    /* ---------------------------PROFILE DROPDOWN----------------------------- */
 
 	public static ArrayList<DropDownItem> getGender(Activity act) {
 
-		/*Smoker or Vaper*/
+		/*Gender*/
 		ArrayList<DropDownItem> genderList = new ArrayList<DropDownItem>();
 
 		final String[] gender = act.getResources().getStringArray(R.array.gender);
@@ -315,44 +294,11 @@ public class BaseFragment extends Fragment {
         return financialList;
     }
 
-    /* ---------------------------PROFILE END----------------------------- */
+    /* ---------------------------PROFILE DROPDOWN END----------------------------- */
 
 	public void setShake(View view) {
 		Animation shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
 		view.startAnimation(shake);
-	}
-
-	public String getFlightPurpose(String travel_purpose){
-
-		String purpose;
-
-		if(travel_purpose.equals("1")){
-			purpose = "Leisure";
-		}else{
-			purpose = "Business";
-		}
-
-		return purpose;
-	}
-
-	public static String getTravelDocument(Activity act,String docType){
-
-		String documentType = "";
-
-		/*Travel Doc*/
-		final String[] doc = act.getResources().getStringArray(R.array.travel_doc);
-		for(int i = 0;i<doc.length; i++)
-		{
-			String travelDoc = doc[i];
-			String[] splitDoc = travelDoc.split("-");
-
-
-			if(docType.equals(splitDoc[1])){
-				documentType = splitDoc[0];
-			}
-		}
-
-		return documentType;
 	}
 
 	public static void setSuccessDialog(final Activity act,String msg,final Class<?> cls,String message) {
@@ -390,8 +336,6 @@ public class BaseFragment extends Fragment {
 					.show();
 		}
 	}
-
-
 
 	public static void setNormalDialog(Context act,String msg,String title){
 		new SweetAlertDialog(act, SweetAlertDialog.NORMAL_TYPE)
@@ -693,7 +637,7 @@ public class BaseFragment extends Fragment {
 
 
 
-	public String getTitleCode(Activity act,String title,String data){
+	/*public String getTitleCode(Activity act,String title,String data){
 
 		String titleCode = null;
 		JSONArray json = null;
@@ -726,7 +670,7 @@ public class BaseFragment extends Fragment {
 		}
 
 		return titleCode;
-	}
+	}*/
 
 
 	public String getTravelDocCode(Activity act,String travelDocData){
@@ -826,7 +770,7 @@ public class BaseFragment extends Fragment {
 		return userInfo;
 	}
 
-	public static JSONArray getFlight(Activity act){
+	/*public static JSONArray getFlight(Activity act){
 
 		JSONArray json = null;
 
@@ -843,7 +787,7 @@ public class BaseFragment extends Fragment {
 		}
 
 		return json;
-	}
+	}*/
 
 	/*Return month in alphabet*/
 	public static String getMonthAlphabet(int month) {
@@ -903,9 +847,7 @@ public class BaseFragment extends Fragment {
 		}catch (JSONException e){
 			e.printStackTrace();
 		}
-
 		return json;
-
 	}
 
 	public static String reformatDOB(String dob){
@@ -936,7 +878,7 @@ public class BaseFragment extends Fragment {
 		return date;
 	}
 
-	/*Get All User Info From OS*/
+	/*Get All User Info From OS
 	public JSONObject getCheckinInfo(Activity act)
 	{
 		JSONObject json = null;
@@ -954,7 +896,7 @@ public class BaseFragment extends Fragment {
 		}
 
 		return json;
-	}
+	}*/
 
 
 	/*public String getStateName(Activity act,String stateCode){
@@ -986,7 +928,7 @@ public class BaseFragment extends Fragment {
 		dismissLoading();
 	}
 
-	/*Get From OS*/
+	/*Get From OS
 	public JSONArray getTermInfo(Activity act) {
 		JSONArray json = null;
 
@@ -1003,7 +945,8 @@ public class BaseFragment extends Fragment {
 		}
 
 		return json;
-	}
+	}*/
+
 	/*public static void showConnectionError(String test, Activity activity)
 	{
         if(activity != null) {
@@ -1129,7 +1072,6 @@ public class BaseFragment extends Fragment {
 
 		}
 	}
-
 
 	public Boolean getManualValidationStatus(){
 		return manualValidationStatus;

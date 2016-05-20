@@ -100,8 +100,10 @@ public class ApiRequestHandler {
     @Subscribe
     public void onUpdateRequest(final UpdateRequest event) {
 
+        String token = "Bearer " + event.getAuth_token();
+
         //UpdateReceive -> receive response from api - pass to object
-        apiService.onRequestToUpdate(event, new Callback<UpdateReceive>() {
+        apiService.onRequestToUpdate(token, event, new Callback<UpdateReceive>() {
 
             @Override
             public void success(UpdateReceive rhymesResponse, Response response) {

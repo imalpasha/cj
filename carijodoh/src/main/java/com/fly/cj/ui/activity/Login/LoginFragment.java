@@ -3,6 +3,7 @@ package com.fly.cj.ui.activity.Login;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,7 +77,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
     private AlertDialog dialog;
     private SharedPrefManager pref;
-    private String storePassword,storeUsername, storeAuth_token, storeSignature;
+    private String storePassword,storeUsername, storeAuth_token, storeSignature, storeDeviceId;
     private int fragmentContainerId;
 
     // Validator Attributes
@@ -150,10 +151,13 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         /*Start Loading*/
         initiateLoading(getActivity());
 
+        String deviceId = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+
         //insert value into object
         LoginRequest data = new LoginRequest();
         data.setUsername(username);
         data.setPassword(password);
+        data.setDeviceId(deviceId);
 
 
         //save username & password
@@ -196,19 +200,12 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
             storeAuth_token = obj.getAuth_token();
             storeSignature = obj.getSignature();
             pref.setUserAuth(storeAuth_token);
-            pref.setUserSignature(storeSignature);
+            pref.setSignatureToLocalStorage(storeSignature);
 
             Log.e(storeUsername,storePassword);
             Log.e("Login Status",obj.getStatus());
             Log.e("Signature ", storeSignature);
 
-            //convert json object to string , save to pref
-            //Gson gsonUserInfo = new Gson();
-            //String userInfo = gsonUserInfo.toJson(obj.getUser_info());
-            //pref.setUserInfo(userInfo);
-
-            //setSuccessDialog(getActivity(), obj.getMessage(), SearchFlightActivity.class);
-            //homepage();
             profile();
         }
     }
@@ -312,8 +309,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         //lp.height = 570;
         dialog.getWindow().setAttributes(lp);
         dialog.show();
-
-
     }
 
    /* public void requestForgotPassword(String username,String signature){

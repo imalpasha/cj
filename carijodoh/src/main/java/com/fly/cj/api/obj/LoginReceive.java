@@ -1,4 +1,5 @@
 package com.fly.cj.api.obj;
+
  // Response From API
 public class LoginReceive {
 
@@ -20,19 +21,19 @@ public class LoginReceive {
         this.status = status;
     }
 
-     public String getAuth_token() {
+    public String getAuth_token() {
          return auth_token;
      }
 
-     public void setAuth_token(String auth_token) {
+    public void setAuth_token(String auth_token) {
          this.auth_token = auth_token;
      }
 
-     public String getSignature() {
+    public String getSignature() {
          return signature;
      }
 
-     public void setSignature(String signature) {
+    public void setSignature(String signature) {
          this.signature = signature;
      }
 

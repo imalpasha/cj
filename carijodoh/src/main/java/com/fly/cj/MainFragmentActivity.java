@@ -194,6 +194,10 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
                 startActivity(login2);
 
             }
+            else if (item.getTag().equals("FAQ"))
+            {
+
+            }
             else if (item.getTag().equals("Information_Update"))
             {
                 Intent register = new Intent(this, ProfileActivity.class);

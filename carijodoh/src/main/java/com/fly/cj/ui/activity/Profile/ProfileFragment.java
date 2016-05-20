@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import com.fly.cj.Controller;
 import com.fly.cj.FireFlyApplication;
-import com.fly.cj.ImageBase64;
 import com.fly.cj.R;
 import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
@@ -50,10 +49,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -542,6 +539,7 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
             }
         });
         builder.show();
+        changeImage();
     }
 
     @Override
@@ -607,7 +605,16 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
 
     //-----------------------------------CONVERT IMAGE TO 64BASE--------------------------------------//
 
-    private void changeImage(){
-        
+    public void changeImage(){
+        BitmapDrawable drawable = (BitmapDrawable) profile_picture.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,bos);
+        byte[] bb = bos.toByteArray();
+        String image = Base64.encodeToString(bb, 0);
+        System.out.println("string:"+ image);
+
+        //Log.e("64Base", image);
+        //imageInText.setText(img_str);
     }
 }

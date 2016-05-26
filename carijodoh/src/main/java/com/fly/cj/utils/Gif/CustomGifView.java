@@ -10,9 +10,6 @@ import com.fly.cj.R;
 
 import java.io.InputStream;
 
-/**
- * Created by Dell on 10/20/2015.
- */
 public class CustomGifView extends View {
 
     private InputStream gifInputStream;
@@ -81,14 +78,10 @@ public class CustomGifView extends View {
             }
 
             int relTime = (int)((now - mMovieStart) % dur);
-
             gifMovie.setTime(relTime);
-
             gifMovie.draw(canvas, 0, 0);
             invalidate();
 
         }
-
     }
-
 }

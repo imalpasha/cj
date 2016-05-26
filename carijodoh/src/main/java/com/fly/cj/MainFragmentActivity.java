@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,22 +23,11 @@ import com.fly.cj.ui.activity.HomepageLogin.HomeLoginActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
 import com.fly.cj.ui.activity.Profile.ProfileActivity;
 import com.fly.cj.ui.activity.Register.RegisterActivity;
-import com.fly.cj.utils.RealmObjectController;
 import com.fly.cj.utils.SharedPrefManager;
 
 import butterknife.ButterKnife;
 
-//import com.actionbarsherlock.view.Menu;
-//import com.actionbarsherlock.view.MenuItem;
-
-
-public class MainFragmentActivity extends BaseFragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks
-{
-
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the
-     * navigation drawer.
-     */
+public class MainFragmentActivity extends BaseFragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private SharedPrefManager pref;
     private static MainFragmentActivity instance;
@@ -62,7 +50,6 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
     }
 
     private void initActionBar() {
-
     }
 
     private void moveDrawerToTop() {
@@ -90,12 +77,8 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
         return result;
     }
 
-
     public static Activity getContext() {
-        //return instance.getApplicationContext();
-        //return ActivityName.this;
         return instance;
-
     }
 
     @Override
@@ -128,7 +111,6 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
 
     public void lockDrawer(){
         mNavigationDrawerFragment.lockDrawer();
-
     }
 
     public void unlockDrawer(){
@@ -169,23 +151,18 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
                 Intent homepage = new Intent(this, HomeActivity.class);
                 homepage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(homepage);
-
             }
             else if (item.getTag().equals("Login"))
             {
-
                 Intent login = new Intent(this, LoginActivity.class);
                 login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(login);
-
             }
             else if (item.getTag().equals("Register"))
             {
-
                 Intent register = new Intent(this, RegisterActivity.class);
                 register.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(register);
-
             }
             else if (item.getTag().equals("About"))
             {
@@ -203,7 +180,6 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
                 Intent register = new Intent(this, ProfileActivity.class);
                 register.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(register);
-
             }
             else if (item.getTag().equals("Logout"))
             {
@@ -218,27 +194,21 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
             {
 
             }
-
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-
     }
 
     public void restoreActionBar()
     {
         ActionBar actionBar = getActionBar();
-        // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        // actionBar.setDisplayShowTitleEnabled(true);
-        // actionBar.setTitle(mTitle);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -246,18 +216,6 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        /*int id = item.getItemId();
-        switch (id)
-        {
-            case R.id.action_settings:
-                break;
-
-            default:
-                break;
-        }*/
         return super.onOptionsItemSelected(item);
     }
 }

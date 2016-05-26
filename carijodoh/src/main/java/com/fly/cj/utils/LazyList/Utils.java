@@ -3,9 +3,6 @@ package com.fly.cj.utils.LazyList;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by jepp on 22/04/15.
- */
 public class Utils {
     public static void CopyStream(InputStream is, OutputStream os)
     {

@@ -1,6 +1,8 @@
 package com.fly.cj.ui.presenter;
 
+import com.fly.cj.api.obj.ProfileViewReceive;
 import com.fly.cj.api.obj.UpdateReceive;
+import com.fly.cj.ui.object.ProfileViewRequest;
 import com.fly.cj.ui.object.UpdateRequest;
 import com.fly.cj.utils.SharedPrefManager;
 import com.squareup.otto.Bus;
@@ -14,7 +16,7 @@ public class ProfilePresenter {
 
         void onUpdateSuccess(UpdateReceive obj);
         void onUpdateFailed(String dumm);
-        void onUpdateView(UpdateReceive obj);
+        void onViewSuccess(ProfileViewReceive obj);
     }
 
     private ProfileView view;
@@ -39,10 +41,11 @@ public class ProfilePresenter {
         bus.post(new UpdateRequest(data));
     }
 
+
     //start sending data to api request handler
-    public void viewFunction(UpdateRequest info) {
+    public void viewFunction(ProfileViewRequest data) {
         //otto function driven
-        bus.post(new UpdateRequest(info));
+        bus.post(new ProfileViewRequest(data));
     }
 
     //receive data from ApiRequestHandler using otto
@@ -51,6 +54,13 @@ public class ProfilePresenter {
 
         /*Save Session And Redirect To Homepage*/
         view.onUpdateSuccess(event.getUserObj());
+    }
+
+    @Subscribe
+    public void onProfileViewSuccess(ProfileViewReceive event) {
+
+        /*Save Session And Redirect To Homepage*/
+        view.onViewSuccess(event.getUserObj());
     }
 
 }

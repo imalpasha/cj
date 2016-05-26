@@ -14,10 +14,6 @@ import com.fly.cj.R;
 import com.fly.cj.utils.App;
 import com.fly.cj.utils.RealmObjectController;
 
-//import com.actionbarsherlock.app.ActionBar;
-//import com.actionbarsherlock.app.SherlockFragmentActivity;
-//import com.actionbarsherlock.internal.widget.ScrollingTabContainerView.TabView;
-
 public class BaseFragmentActivity extends FragmentActivity {
 
     public com.fly.cj.base.AQuery aq;
@@ -108,19 +104,6 @@ public class BaseFragmentActivity extends FragmentActivity {
         aq.id(R.id.globalSearchBoxTablet).visible();
         aq.id(R.id.tabMySearch1).gone();
         aq.id(R.id.centerPart).gone();
-
-        /*RelativeLayout leftPart = (RelativeLayout) actionBarView.findViewById(R.id.leftPart);
-        RelativeLayout.LayoutParams lp = new RelativeLayout().LayoutParams(0,1);
-        lp.weight = 0.05f;
-        leftPart.setLayoutParams(lp);*/
-
-        /*aq.id(R.id.tabBackButton).clicked(new OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                finish();
-            }
-        });*/
     }
 
     public void setTabBackButton()
@@ -135,11 +118,6 @@ public class BaseFragmentActivity extends FragmentActivity {
             }
         });
     }
-
-
-
-
-
 
     @Override
     public void setTitle(int titleId)

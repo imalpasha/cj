@@ -21,10 +21,7 @@ public class App extends Application {
 	public static final String KEY = "owNLfnLjPvwbQH3hUmj5Wb7wBIv83pR7";
 	public static final String IV = "owNLfnLjPvwbQH3h";
 
-
 	public static final String APP_VERSION = "0.11";
-
-
 
 	// code 7 is success code with badge
 	public static final List<String> SUCCESS_CODE = Arrays.asList("1", "7");

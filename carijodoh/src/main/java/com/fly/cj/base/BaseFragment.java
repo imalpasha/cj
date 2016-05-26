@@ -83,22 +83,6 @@ public class BaseFragment extends Fragment {
 
 	}
 
-	/*public String getDialingCode(String coutryCode,Activity act){
-
-		String dialingCode = null;
-
-		JSONArray jsonCountry = getCountry(act);
-		for(int x = 0 ; x < jsonCountry.length() ; x++) {
-
-			JSONObject row = (JSONObject) jsonCountry.opt(x);
-			if(coutryCode.equals(row.optString("country_code"))) {
-				dialingCode = row.optString("dialing_code");
-			}
-		}
-
-		return dialingCode;
-	}*/
-
 	public boolean validateDialingCode(String dialingCode, String mobilePhone){
 
 		boolean status = false;
@@ -322,8 +306,7 @@ public class BaseFragment extends Fragment {
 							act.finish();
 
 						}
-					})
-					.show();
+					}).show();
 		}
 	}
 
@@ -363,9 +346,7 @@ public class BaseFragment extends Fragment {
 						status = false;
 						sDialog.dismiss();
 					}
-				})
-				.show();
-
+				}).show();
 		return status;
 	}
 
@@ -377,7 +358,6 @@ public class BaseFragment extends Fragment {
 		Calendar calendar = Calendar.getInstance();
 		int year = calendar.get(Calendar.YEAR);
 
-
 		for(int yearX =  year ; yearX < year+15 ; yearX++){
 
 			DropDownItem itemYear = new DropDownItem();
@@ -386,10 +366,7 @@ public class BaseFragment extends Fragment {
 			itemYear.setTag("Year");
 			yearList.add(itemYear);
 		}
-
-
 		return yearList;
-
 	}
 
 	public ArrayList<DropDownItem> getListOfMonth(Activity act){
@@ -410,10 +387,7 @@ public class BaseFragment extends Fragment {
 			itemTitle.setTag("Month");
 			monthList.add(itemTitle);
 		}
-
-
 		return monthList;
-
 	}
 
 	public static void croutonAlert(Activity act,String msg){
@@ -458,48 +432,14 @@ public class BaseFragment extends Fragment {
 
 
 			Log.e("Hello","OK");
-			/*pDialog = new SweetAlertDialog(act, SweetAlertDialog.PROGRESS_TYPE);
-			pDialog.getProgressHelper().setBarColor(Color.parseColor("#CCff6a4d"));
-			pDialog.setTitleText("Loading");
-			pDialog.setCustomImage(R.drawable.load);
-			pDialog.setCancelable(false);
-			pDialog.show();*/
-
-			//ContextThemeWrapper wrapper = new ContextThemeWrapper(act, R.style.DialogTheme);
-			//final LayoutInflater inflater = (LayoutInflater) wrapper.getSystemService(act.LAYOUT_INFLATER_SERVICE);
-
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(act);
 		builder.setView(myView);
-
-
-
 
 			dialog.setContentView(myView);
 			dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 			dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#CCFFFFFF")));
 			dialog.setCancelable(false);
-			//dialog.show();
-
-
-
-
-			/*Dialog dialog2 = new Dialog(getActivity(),R.style.DialogTheme);
-			dialog2.setContentView(myView);
-			dialog2.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-			dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-			dialog2.show();
-
-
-				//LayoutInflater li = LayoutInflater.from(act);
-				//final View myView = inflater.inflate(R.layout.loading_screen, null);
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(wrapper);
-				builder.setView(myView);
-
-				dialog = builder.create();
-				//dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-			*/
 
 			WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
 			lp.copyFrom(dialog.getWindow().getAttributes());
@@ -507,7 +447,6 @@ public class BaseFragment extends Fragment {
 			//lp.height = 570;
 			dialog.getWindow().setAttributes(lp);
 			dialog.show();
-
 	}
 
 	public static void dismissLoading(){
@@ -635,61 +574,6 @@ public class BaseFragment extends Fragment {
 		return selectedValue;
 	}
 
-
-
-	/*public String getTitleCode(Activity act,String title,String data){
-
-		String titleCode = null;
-		JSONArray json = null;
-
-		prefManager = new SharedPrefManager(act);
-		HashMap<String, String> init = prefManager.getTitle();
-		String dataTitle = init.get(SharedPrefManager.TITLE);
-
-		try {
-			json = new JSONArray(dataTitle);
-		}catch (JSONException e){
-			e.printStackTrace();
-		}
-
-		for (int i = 0; i < json.length(); i++)
-		{
-			if(data.equals("code")){
-				JSONObject row = (JSONObject) json.opt(i);
-				Log.e(row.optString("title_name"),row.optString("title_code"));
-				if(title.equals(row.optString("title_name"))){
-					titleCode = row.optString("title_code");
-				}
-			}else{
-				JSONObject row = (JSONObject) json.opt(i);
-				if(title.equals(row.optString("title_code"))){
-					titleCode = row.optString("title_name");
-				}
-			}
-
-		}
-
-		return titleCode;
-	}*/
-
-
-	public String getTravelDocCode(Activity act,String travelDocData){
-		/*Travel Doc*/
-		String travelDocCode = null;
-		final String[] doc = getResources().getStringArray(R.array.travel_doc);
-		for(int i = 0;i<doc.length; i++)
-		{
-			String travelDoc = doc[i];
-			String[] splitDoc = travelDoc.split("-");
-
-			if(travelDocData.equals(splitDoc[0])){
-				travelDocCode = splitDoc[1];
-			}
-		}
-
-		return travelDocCode;
-	}
-
 	public String getCountryCode(Activity act,String countryData){
 
 		String countryCode = null;
@@ -770,25 +654,6 @@ public class BaseFragment extends Fragment {
 		return userInfo;
 	}
 
-	/*public static JSONArray getFlight(Activity act){
-
-		JSONArray json = null;
-
-		prefManager = new SharedPrefManager(act);
-		HashMap<String, String> init = prefManager.getFlight();
-		String dataFlight = init.get(SharedPrefManager.FLIGHT);
-
-		try {
-			json = new JSONArray(dataFlight);
-			Log.e("Flight Size",Integer.toString(json.length()));
-
-		}catch (JSONException e){
-			e.printStackTrace();
-		}
-
-		return json;
-	}*/
-
 	/*Return month in alphabet*/
 	public static String getMonthAlphabet(int month) {
 		return new DateFormatSymbols().getShortMonths()[month];
@@ -820,7 +685,6 @@ public class BaseFragment extends Fragment {
 			String country = locale.getDisplayCountry();
 			String countryCode = locale.getCountry();
 
-
 			if (country.trim().length()>0 && !countries.contains(country)) {
 				countries.add(country+"-"+countryCode);
 			}
@@ -829,7 +693,6 @@ public class BaseFragment extends Fragment {
 		Collections.sort(countries);
 		return countries;
 	}*/
-
 
 	/*Get All User Info From OS*/
 	public JSONObject getUserInfo(Activity act)
@@ -866,39 +729,6 @@ public class BaseFragment extends Fragment {
 		return date;
 	}
 
-	public String reformatDOB2(String dob){
-		String date;
-		String string = dob;
-		String[] parts = string.split("/");
-		String day = parts[0];
-		String month = parts[1];
-		String year = parts[2];
-		date = year+"-"+month+"-"+day;
-
-		return date;
-	}
-
-	/*Get All User Info From OS
-	public JSONObject getCheckinInfo(Activity act)
-	{
-		JSONObject json = null;
-
-		prefManager = new SharedPrefManager(act);
-		HashMap<String, String> init = prefManager.getCheckinInfo();
-		String checkinInfo = init.get(SharedPrefManager.CHECKIN_INFO);
-
-
-		try {
-			json = new JSONObject(checkinInfo);
-
-		}catch (JSONException e){
-			e.printStackTrace();
-		}
-
-		return json;
-	}*/
-
-
 	/*public String getStateName(Activity act,String stateCode){
 
 		String stateName = null;
@@ -911,12 +741,8 @@ public class BaseFragment extends Fragment {
 				stateName = row.optString("state_name");
 			}
 		}
-
-
 		return stateName;
-
 	}*/
-
 
 	public static void setAlertNotification(Activity act){
 
@@ -927,72 +753,6 @@ public class BaseFragment extends Fragment {
 		}
 		dismissLoading();
 	}
-
-	/*Get From OS
-	public JSONArray getTermInfo(Activity act) {
-		JSONArray json = null;
-
-		prefManager = new SharedPrefManager(act);
-		HashMap<String, String> init = prefManager.getTermInfo();
-		String dataTerm = init.get(SharedPrefManager.TERM_INFO);
-		//Log.e("dataTerm", dataTerm);
-
-		try {
-			json = new JSONArray(dataTerm);
-			//Log.e("json", Integer.toString(json.length()));
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-
-		return json;
-	}*/
-
-	/*public static void showConnectionError(String test, Activity activity)
-	{
-        if(activity != null) {
-            try {
-                TextView txtUTC = (TextView) activity.findViewById(R.id.txtUTC);
-                txtUTC.setText(test);
-
-                FrameLayout mainFrame = (FrameLayout) activity.findViewById(R.id.utc_container);
-                mainFrame.setVisibility(View.VISIBLE);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-	}
-
-	public static void baseInitiateLoading(Activity activity)
-	{
-        Log.e("Initiate Loading","TRUE");
-		try
-		{
-			final FrameLayout mainFrame = (FrameLayout) activity.findViewById(R.id.container);
-			mainFrame.setVisibility(View.VISIBLE);
-
-			RelativeLayout mainFrameRelative = (RelativeLayout) activity.findViewById(R.id.mainFrameRelative);
-			mainFrameRelative.setVisibility(View.VISIBLE);
-			mainFrame.bringChildToFront(mainFrameRelative);
-			mainFrame.invalidate();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public static void baseRemoveLoading(Activity activity)
-	{
-		try
-		{
-			RelativeLayout mainFrameRelative = (RelativeLayout) activity.findViewById(R.id.mainFrameRelative);
-			mainFrameRelative.setVisibility(View.GONE);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}*/
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -1007,16 +767,6 @@ public class BaseFragment extends Fragment {
 		aq = new com.fly.cj.base.AQuery(getActivity());
 		pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
 	}
-
-	/*public void showUTCError(String msg)
-	{
-		Activity activity = getActivity();
-		if (activity instanceof MainFragmentActivity)
-		{
-			MainFragmentActivity myactivity = (MainFragmentActivity) activity;
-			myactivity.unableToConnectToServer(msg);
-		}
-	}*/
 
 	public boolean isNetworkAvailable(Activity activity)
 	{
@@ -1043,7 +793,6 @@ public class BaseFragment extends Fragment {
 	public static void tempResult(String cachedResult){
 
 		prefManager.setTempResult(cachedResult);
-
 	}
 
 	public void manualValidation(EditText editText,String validationRule){

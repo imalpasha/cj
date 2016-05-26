@@ -1,8 +1,5 @@
 package com.fly.cj;
 
-/**
- * Created by Dell on 1/15/2016.
- */
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -64,7 +61,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationBuilder
                 .setContentText("test")
                 .setContentTitle(String.format("Fence %1$s", "test"))
-                .setSmallIcon(R.drawable.departure_icon)
+                .setSmallIcon(R.drawable.calendar_icon)
                 .setColor(Color.argb(0x55, 0x00, 0x00, 0xff))
                 .setTicker(String.format("%1$s Fence: %2$s", "test", 1));
         //Intent notificationIntent = new Intent(context, MapsActivity.class);

@@ -25,12 +25,17 @@ import android.widget.Toast;
 
 import com.fly.cj.Controller;
 import com.fly.cj.FireFlyApplication;
+import com.fly.cj.MainFragmentActivity;
 import com.fly.cj.R;
+import com.fly.cj.api.obj.LoginReceive;
+import com.fly.cj.api.obj.ProfileViewReceive;
 import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.activity.FragmentContainerActivity;
 import com.fly.cj.ui.activity.Homepage.HomeActivity;
 import com.fly.cj.ui.module.ProfileModule;
+import com.fly.cj.ui.object.CachedResult;
+import com.fly.cj.ui.object.ProfileViewRequest;
 import com.fly.cj.ui.object.UpdateRequest;
 import com.fly.cj.ui.presenter.ProfilePresenter;
 import com.fly.cj.utils.DropDownItem;
@@ -39,6 +44,7 @@ import com.fly.cj.utils.SharedPrefManager;
 
 import com.google.android.gms.analytics.Tracker;
 
+import com.google.gson.Gson;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
@@ -58,6 +64,7 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import io.realm.RealmResults;
 
 public class ProfileFragment extends BaseFragment implements Validator.ValidationListener, com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener,ProfilePresenter.ProfileView {
 
@@ -161,7 +168,8 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     private String fullDate;
     private int age;
     private Boolean limitAge;
-    String auth, signature;
+    private String storeAuth_token;
+
     int REQUEST_CAMERA = 0, SELECT_FILE = 1;
 
     private String DATEPICKER_TAG = "DATEPICKER_TAG";
@@ -182,7 +190,6 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
-
     }
 
     @Override
@@ -205,20 +212,20 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         aq.recycle(view);
         pref = new SharedPrefManager(getActivity());
 
-        HashMap<String, String> initAuth = pref.getAuth();
-        auth = initAuth.get(SharedPrefManager.USER_AUTH);
-        Log.e("Token pref", auth);
-
-        HashMap<String, String> initSignature = pref.getSignatureFromLocalStorage();
-        signature = initSignature.get(SharedPrefManager.SIGNATURE);
-        //Log.e("Signature pref", signature);
-
         calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
-        //UpdateRequest info = new UpdateRequest();
-        //presenter.viewFunction(info);
+        HashMap<String, String> initSign = pref.getSignatureFromLocalStorage();
+        String s = initSign.get(SharedPrefManager.SIGNATURE);
+
+        HashMap<String, String> initAuth = pref.getAuth();
+        String a = initAuth.get(SharedPrefManager.USER_AUTH);
+
+        ProfileViewRequest data = new ProfileViewRequest();
+        data.setSignature(s);
+        data.setAuth_token(a);
+        presenter.viewFunction(data);
 
         genderList = getGender(getActivity());
         smokerList = getSmoker(getActivity());
@@ -323,6 +330,13 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         super.onResume();
         presenter.onResume();
         Log.e("ONRESUME", "TRUE");
+
+        RealmResults<CachedResult> result = RealmObjectController.getCachedResult(MainFragmentActivity.getContext());
+        if(result.size() > 0){
+            Gson gson = new Gson();
+            UpdateReceive obj = gson.fromJson(result.get(0).getCachedResult(), UpdateReceive.class);
+            onUpdateSuccess(obj);
+        }
     }
 
     @Override
@@ -403,18 +417,19 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     @Override
     public void onUpdateSuccess(UpdateReceive obj) {
         dismissLoading();
+
         Boolean status = Controller.getRequestStatus(obj.getStatus(), "", getActivity());
         if (status){
+
+            storeAuth_token = obj.getAuth_token();
+            pref.setUserAuth(storeAuth_token);
+
             Log.e("Status update : ", obj.getStatus());
-            Log.e("Token", obj.getAuth_token());
-            Log.e("Signature", obj.getSignature());
-            Log.e("New Education", obj.getEducation());
-            setSuccessDialog(getActivity(), "Information Successfully Updated", HomeActivity.class,"Update Information");
+            Log.e("Token", storeAuth_token);
+            //setSuccessDialog(getActivity(), "Information Successfully Updated", HomeActivity.class,"Update Information");
+            Toast.makeText(getActivity(), "Successfully update!", Toast.LENGTH_SHORT).show();
 
-            pref.setUserAuth(obj.getAuth_token());
-            pref.setSignatureToLocalStorage(obj.getSignature());
-
-            home();
+            //home();
         }
     }
 
@@ -424,8 +439,11 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     public void requestUpdateProfile() {
         initiateLoading(getActivity());
 
-        HashMap<String, String> init = pref.getSignatureFromLocalStorage();
-        String signatureFromLocal = init.get(SharedPrefManager.SIGNATURE);
+        HashMap<String, String> initSign = pref.getSignatureFromLocalStorage();
+        String s = initSign.get(SharedPrefManager.SIGNATURE);
+
+        HashMap<String, String> initAuth = pref.getAuth();
+        String a = initAuth.get(SharedPrefManager.USER_AUTH);
 
         UpdateRequest data = new UpdateRequest();
 
@@ -437,8 +455,8 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         data.setTown(profile_town.getText().toString());
         data.setEducation(profile_education.getText().toString());
         data.setOccupation(profile_occupation.getText().toString());
-        data.setAuth_token(auth);
-        data.setSignature(signature);
+        data.setAuth_token(a);
+        data.setSignature(s);
         //date
         data.setDOB(fullDate);
 
@@ -455,24 +473,28 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
     //-------------------------------VIEW SAVED PROFILE---------------------------------//
 
     @Override
-    public void onUpdateView(UpdateReceive obj) {
+    public void onViewSuccess(ProfileViewReceive obj) {
         dismissLoading();
         Boolean status = Controller.getRequestStatus(obj.getStatus(), "", getActivity());
         if (status){
             setSummary(obj);
+
+            storeAuth_token = obj.getAuth_token();
+            pref.setUserAuth(storeAuth_token);
         }
     }
 
-    public void setSummary(UpdateReceive obj){
-        String dob = obj.getDOB();
-        String mobile = obj.getMobile();
-        String height = obj.getHeight();
-        String weight = obj.getWeight();
-        String smoke = obj.getSmoke();
-        String state = obj.getState();
-        String town = obj.getTown();
-        String education = obj.getEducation();
-        String occupation = obj.getOccupation();
+    public void setSummary(ProfileViewReceive obj){
+
+        String dob = obj.getUserProfile().getDOB();
+        String mobile = obj.getUserProfile().getMobile();
+        String height = obj.getUserProfile().getHeight();
+        String weight = obj.getUserProfile().getWeight();
+        String smoke = obj.getUserProfile().getSmoke();
+        String state = obj.getUserProfile().getState();
+        String town = obj.getUserProfile().getTown();
+        String education = obj.getUserProfile().getEducation();
+        String occupation = obj.getUserProfile().getOccupation();
 
         if (mobile!=""){
             profile_mobile.setText(mobile, TextView.BufferType.EDITABLE);
@@ -494,14 +516,19 @@ public class ProfileFragment extends BaseFragment implements Validator.Validatio
         }
         if (education!=""){
             profile_education.setText(education, TextView.BufferType.EDITABLE);
+        }else {
+            profile_mobile.setText("No Education");
         }
         if (occupation!=""){
             profile_occupation.setText(occupation, TextView.BufferType.EDITABLE);
         }
+        if(dob!=""){
+            profile_dob.setText(dob, TextView.BufferType.EDITABLE);
+        }
         //date picker
-        String dobNew = reformatDOB(dob);
-        profile_dob.setText(dobNew);
-        fullDate = dob;
+        //String dobNew = reformatDOB(dob);
+        //profile_dob.setText(dobNew);
+        //fullDate = dob;
     }
 
     //-----------------------------------ADD NEW IMAGE--------------------------------------//

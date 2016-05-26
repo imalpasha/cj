@@ -1,8 +1,5 @@
 package com.fly.cj.ui.object;
 
-/**
- * Created by Dell on 11/13/2015.
- */
 public class Country {
 
     private String country_name;

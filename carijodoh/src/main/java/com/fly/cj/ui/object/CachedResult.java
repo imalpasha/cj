@@ -2,9 +2,6 @@ package com.fly.cj.ui.object;
 
 import io.realm.RealmObject;
 
-/**
- * Created by Dell on 3/7/2016.
- */
 public class CachedResult extends RealmObject {
 
     private String cachedResult;

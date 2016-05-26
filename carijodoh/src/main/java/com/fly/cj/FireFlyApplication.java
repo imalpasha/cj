@@ -99,16 +99,6 @@ public class FireFlyApplication extends AnalyticsApplication {
 
     }
 
-   /* public Geofence geofence() {
-        String id = UUID.randomUUID().toString();
-        return new Geofence.Builder()
-                .setRequestId(id)
-                .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
-                .setCircularRegion(52.00, 51.00, 100)
-                .setExpirationDuration(Geofence.NEVER_EXPIRE)
-                .build();
-    } */
-
     private void buildObjectGraphAndInject() {
         objectGraph = ObjectGraph.create(Modules.list("ASJ3wq8YnBmshFGszZZFHEntCFOUp1xhB2Sjsn4QZMpC3KV6kk"));
         objectGraph.inject(this);

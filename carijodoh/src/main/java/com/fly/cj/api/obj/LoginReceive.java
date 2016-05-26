@@ -6,6 +6,10 @@ public class LoginReceive {
     private final LoginReceive userObj;
     private String status, auth_token, signature;
 
+     public LoginReceive getUserObj() {
+         return userObj;
+     }
+
     public LoginReceive(LoginReceive param_userObj) {
         this.userObj = param_userObj;
         status = param_userObj.getStatus();
@@ -37,8 +41,5 @@ public class LoginReceive {
          this.signature = signature;
      }
 
-    public LoginReceive getUserObj() {
-        return userObj;
-    }
 
 }

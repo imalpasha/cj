@@ -1,7 +1,9 @@
 package com.fly.cj.ui.activity.Login;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.method.PasswordTransformationMethod;
@@ -31,6 +33,8 @@ import com.fly.cj.ui.object.CachedResult;
 import com.fly.cj.ui.object.LoginRequest;
 import com.fly.cj.ui.presenter.LoginPresenter;
 import com.fly.cj.utils.RealmObjectController;
+import com.fly.cj.utils.SQLite.MyDBHandler;
+import com.fly.cj.utils.SQLite.User;
 import com.fly.cj.utils.SharedPrefManager;
 import com.fly.cj.utils.Utils;
 import com.google.android.gms.analytics.Tracker;
@@ -40,6 +44,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Order;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -77,10 +82,9 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
     private AlertDialog dialog;
     private SharedPrefManager pref;
-    private String storePassword,storeUsername, storeAuth_token, storeSignature, storeDeviceId;
+    private String storePassword,storeUsername, storeAuth_token, storeSignature;
     private int fragmentContainerId;
 
-    // Validator Attributes
     private Validator mValidator;
     private Tracker mTracker;
 
@@ -139,7 +143,7 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         txtForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnalyticsApplication.sendEvent("Click", "forget password");
+                //AnalyticsApplication.sendEvent("Click", "forget password");
                 forgotPassword();
             }
         });
@@ -158,7 +162,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         data.setUsername(username);
         data.setPassword(password);
         data.setDeviceId(deviceId);
-
 
         //save username & password
         storeUsername = username;
@@ -185,12 +188,12 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
     @Override
     public void onLoginSuccess(LoginReceive obj) {
 
-        //Log.e("STATUS",obj.getStatus());
         /*Dismiss Loading*/
         dismissLoading();
 
         pref.setUserEmail(storeUsername);
         pref.setUserPassword(storePassword);
+
 
         Boolean status = Controller.getRequestStatus(obj.getStatus(), "", getActivity());
         if (status) {
@@ -199,14 +202,25 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
             storeAuth_token = obj.getAuth_token();
             storeSignature = obj.getSignature();
+
             pref.setUserAuth(storeAuth_token);
             pref.setSignatureToLocalStorage(storeSignature);
 
+            //-------------------------CALL FROM PREF----------------------------------//
+            HashMap<String, String> initAuth = pref.getAuth();
+            String token = initAuth.get(SharedPrefManager.USER_AUTH);
+
+            HashMap<String, String> initSign = pref.getSignatureFromLocalStorage();
+            String sign = initSign.get(SharedPrefManager.SIGNATURE);
+            //Toast.makeText(getActivity(), sign, Toast.LENGTH_LONG).show();
+
             Log.e(storeUsername,storePassword);
             Log.e("Login Status",obj.getStatus());
-            Log.e("Signature ", storeSignature);
+            Log.e("Signature ", sign);
+            Log.e("Token ", token);
 
             profile();
+            //homepage();
         }
     }
 
@@ -264,9 +278,8 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
         LayoutInflater li = LayoutInflater.from(getActivity());
         final View myView = li.inflate(R.layout.forgot_password, null);
         Button cont = (Button)myView.findViewById(R.id.btncontinue);
-        final Button close = (Button)myView.findViewById(R.id.btncancel);
 
-        final EditText editEmail = (EditText)myView.findViewById(R.id.editTextemail_login);
+        final EditText editEmail = (EditText)myView.findViewById(R.id.forgot_email);
         final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
@@ -288,14 +301,6 @@ public class LoginFragment extends BaseFragment implements LoginPresenter.LoginV
 
             }
 
-        });
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back = new Intent(getActivity(), LoginActivity.class);
-                getActivity().startActivity(back);
-            }
         });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

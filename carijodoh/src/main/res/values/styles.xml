@@ -67,7 +67,7 @@
 
     <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/desired_seat</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/red</item>
     </style>
 

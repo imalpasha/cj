@@ -11,9 +11,6 @@ import com.fly.cj.utils.Utils;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-/**
- * Created by Dell on 1/5/2016.
- */
 public class Controller extends BaseFragment {
 
     public static void clearAll(Activity act){

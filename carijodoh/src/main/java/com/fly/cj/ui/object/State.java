@@ -1,8 +1,5 @@
 package com.fly.cj.ui.object;
 
-/**
- * Created by Dell on 11/13/2015.
- */
 public class State {
 
     private String state_name;

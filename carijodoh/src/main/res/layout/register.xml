@@ -34,29 +34,9 @@
                     android:layout_marginBottom="5dp"
                     android:background="@color/white">
 
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_gravity="right"
-                        android:background="@color/title_background">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/create_title"
-                            android:gravity="center"
-                            android:textSize="@dimen/font21sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:id="@+id/space" />
 
                     <LinearLayout
@@ -90,7 +70,7 @@
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
                                 android:imeOptions="actionDone"
-                                android:textColorHint="@color/loginFontTxt"
+                                android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETemail"
                                 android:tag="tagLoginPassword"/>
                         </LinearLayout>
@@ -120,7 +100,7 @@
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
                                 android:imeOptions="actionDone"
-                                android:textColorHint="@color/loginFontTxt"
+                                android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETpass"
                                 android:tag="tagLoginPassword"/>
                         </LinearLayout>
@@ -149,7 +129,7 @@
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
                                 android:imeOptions="actionDone"
-                                android:textColorHint="@color/loginFontTxt"
+                                android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETcpass"
                                 android:tag="tagLoginPassword"/>
                         </LinearLayout>
@@ -165,9 +145,9 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/create_create_button"
                                 android:id="@+id/create_Bcreate"
-                                android:textColor="@color/black"
+                                android:textColor="@color/button_text"
                                 android:textStyle="bold"
-                                android:background="@drawable/login_register_button_clicked"/>
+                                android:background="@drawable/button_clicked"/>
                         </LinearLayout>
 
                     </LinearLayout>

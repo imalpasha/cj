@@ -152,9 +152,6 @@ public class NavigationDrawerFragment extends Fragment {
         itemList.clear();
         itemList = new ArrayList<DrawerItem>();
 
-
-       // if(loginStatus.equals("N")){
-       // if( loginStatus != "Y"){
         if(loginStatus != null){
             if(loginStatus.equals("Y")) {
 

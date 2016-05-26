@@ -7,10 +7,12 @@ import android.util.Log;
 import com.estimote.sdk.repackaged.gson_v2_3_1.com.google.gson.Gson;
 import com.fly.cj.MainFragmentActivity;
 import com.fly.cj.api.obj.LoginReceive;
+import com.fly.cj.api.obj.ProfileViewReceive;
 import com.fly.cj.api.obj.RegisterReceive;
 import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
 import com.fly.cj.ui.object.LoginRequest;
+import com.fly.cj.ui.object.ProfileViewRequest;
 import com.fly.cj.ui.object.RegisterRequest;
 import com.fly.cj.ui.object.UpdateRequest;
 import com.fly.cj.utils.RealmObjectController;
@@ -38,7 +40,6 @@ public class ApiRequestHandler {
 
     // -------------------------------------LOGIN----------------------------------------- //
 
-
     @Subscribe
     public void onLoginRequest(final LoginRequest event) {
 
@@ -58,7 +59,6 @@ public class ApiRequestHandler {
 
                 BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
             }
-
         });
     }
 
@@ -89,9 +89,7 @@ public class ApiRequestHandler {
                     resetInc();
                     BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
                 }
-
             }
-
         });
     }
 
@@ -126,9 +124,42 @@ public class ApiRequestHandler {
                     resetInc();
                     BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
                 }
+            }
+        });
+    }
 
+    // -------------------------------------VIEW PROFILE----------------------------------------- //
+
+    @Subscribe
+    public void onProfileViewRequest(final ProfileViewRequest event) {
+
+        String token = "Bearer " + event.getAuth_token();
+
+        //UpdateReceive -> receive response from api - pass to object
+        apiService.onRequestToView(token, event, new Callback<ProfileViewReceive>() {
+
+            @Override
+            public void success(ProfileViewReceive rhymesResponse, Response response) {
+
+                //otto send api data to view presenter back
+                bus.post(new ProfileViewReceive(rhymesResponse));
+                RealmObjectController.cachedResult(MainFragmentActivity.getContext(), (new Gson()).toJson(rhymesResponse));
+                resetInc();
             }
 
+            @Override
+            public void failure(RetrofitError error) {
+
+                BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+                Log.e("inc", Integer.toString(inc));
+                if (retry) {
+                    onProfileViewRequest(event);
+                    loop();
+                } else {
+                    resetInc();
+                    BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+                }
+            }
         });
     }
 

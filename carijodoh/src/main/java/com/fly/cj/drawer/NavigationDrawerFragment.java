@@ -74,7 +74,6 @@ public class NavigationDrawerFragment extends Fragment {
     //SharedPrefManager prefer;
     public ImageLoader imageLoader;
     private SharedPrefManager pref;
-    private String userName;
     private String loginStatus;
 
     public NavigationDrawerFragment() {
@@ -129,8 +128,6 @@ public class NavigationDrawerFragment extends Fragment {
             HashMap<String, String> init = pref.getLoginStatus();
             loginStatus = init.get(SharedPrefManager.ISLOGIN);
             Log.e("loginStatus",loginStatus);
-            HashMap<String, String> username = pref.getUsername();
-            userName = username.get(SharedPrefManager.USERNAME);
         }
         catch (Exception e){
             Log.e("loginStatus",e.getMessage());
@@ -158,10 +155,10 @@ public class NavigationDrawerFragment extends Fragment {
                 DrawerItem vrsm = new DrawerItem();
                 vrsm.setId(0);
                 //vrsm.setTitle("Hi, " + userName);
-                vrsm.setTitle("ONLINE DATING");
+                vrsm.setTitle("CARI JODOH");
                 vrsm.setTag("HEADER");
                 vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
-                vrsm.setBackgroundColor(getResources().getColor(R.color.black));
+                vrsm.setBackgroundColor(getResources().getColor(R.color.actionBarColour_default_theme));
                 itemList.add(vrsm);
 
                 // Set Hi
@@ -174,142 +171,118 @@ public class NavigationDrawerFragment extends Fragment {
                 DrawerItem home = new DrawerItem();
                 home.setId(2);
                 home.setTag("Home");
-                home.setTitle("Home");
+                home.setTitle("Laman Utama");
                 home.setLayoutId(DrawerViewType.STATIC_MENU);
-                home.setIconId(R.drawable.side_home_s);
+                home.setIconId(R.drawable.menu_home_s);
                 itemList.add(home);
 
 
                 DrawerItem profile = new DrawerItem();
-                profile.setId(5);
-                profile.setIconId(R.drawable.side_profile_s);
+                profile.setId(3);
                 profile.setTag("Information_Update");
-                profile.setTitle("Update Information");
+                profile.setTitle("Kemaskini Profil");
                 profile.setLayoutId(DrawerViewType.STATIC_MENU);
+                profile.setIconId(R.drawable.menu_profile_s);
                 itemList.add(profile);
 
+                DrawerItem gallery = new DrawerItem();
+                gallery.setId(4);
+                gallery.setTag("Gallery");
+                gallery.setTitle("Galeri Foto");
+                gallery.setLayoutId(DrawerViewType.STATIC_MENU);
+                gallery.setIconId(R.drawable.menu_gallery_s);
+                itemList.add(gallery);
+
+                DrawerItem favourite = new DrawerItem();
+                favourite.setId(5);
+                favourite.setTag("Favourite");
+                favourite.setTitle("Kegemaran");
+                favourite.setLayoutId(DrawerViewType.STATIC_MENU);
+                favourite.setIconId(R.drawable.menu_kegemaran_s);
+                itemList.add(favourite);
+
+                DrawerItem chat = new DrawerItem();
+                chat.setId(6);
+                chat.setTag("Chat");
+                chat.setTitle("Peti Masuk");
+                chat.setLayoutId(DrawerViewType.STATIC_MENU);
+                chat.setIconId(R.drawable.menu_sembang_s);
+                itemList.add(chat);
+
+                DrawerItem search = new DrawerItem();
+                search.setId(7);
+                search.setTag("Search");
+                search.setTitle("Carian");
+                search.setLayoutId(DrawerViewType.STATIC_MENU);
+                search.setIconId(R.drawable.menu_carian_s);
+                itemList.add(search);
+
+                DrawerItem setting = new DrawerItem();
+                setting.setId(8);
+                setting.setTag("Setting");
+                setting.setTitle("Tetapan Carian");
+                setting.setLayoutId(DrawerViewType.STATIC_MENU);
+                setting.setIconId(R.drawable.menu_tetapan_carian_s);
+                itemList.add(setting);
+
                 DrawerItem about = new DrawerItem();
-                about.setId(6);
+                about.setId(9);
                 about.setTag("About");
-                about.setTitle("About");
+                about.setTitle("Tentang Kami");
                 about.setLayoutId(DrawerViewType.STATIC_MENU);
-                about.setIconId(R.drawable.side_about_s);
+                about.setIconId(R.drawable.menu_about_s);
                 itemList.add(about);
 
-                DrawerItem terms = new DrawerItem();
-                terms.setId(6);
-                terms.setTag("FAQ");
-                terms.setTitle("FAQ");
-                terms.setLayoutId(DrawerViewType.STATIC_MENU);
-                terms.setIconId(R.drawable.side_faq_s);
-                itemList.add(terms);
-
                 DrawerItem sbb = new DrawerItem();
-                sbb.setId(4);
+                sbb.setId(11);
                 sbb.setTag("Logout");
-                sbb.setTitle("Logout");
+                sbb.setTitle("Log Keluar");
                 sbb.setLayoutId(DrawerViewType.STATIC_MENU);
-                sbb.setIconId(R.drawable.side_logout_s);
+                sbb.setIconId(R.drawable.menu_log_keluar_s);
                 itemList.add(sbb);
 
             } else{
                 DrawerItem vrsm = new DrawerItem();
                 vrsm.setId(0);
-                vrsm.setTitle("ONLINE DATING");
+                //vrsm.setTitle("Hi, " + userName);
+                vrsm.setTitle("CARI JODOH");
                 vrsm.setTag("HEADER");
                 vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
-                vrsm.setBackgroundColor(getResources().getColor(R.color.black));
+                vrsm.setBackgroundColor(getResources().getColor(R.color.actionBarColour_default_theme));
                 itemList.add(vrsm);
 
                 DrawerItem home = new DrawerItem();
                 home.setId(1);
                 home.setTag("Home");
-                home.setTitle("Home");
+                home.setTitle("Laman Utama");
                 home.setLayoutId(DrawerViewType.STATIC_MENU);
-                home.setIconId(R.drawable.side_home_s);
+                home.setIconId(R.drawable.menu_home_s);
                 itemList.add(home);
 
                 DrawerItem sbb = new DrawerItem();
                 sbb.setId(2);
                 sbb.setTag("Login");
-                sbb.setTitle("Login");
+                sbb.setTitle("Log Masuk");
                 sbb.setLayoutId(DrawerViewType.STATIC_MENU);
-                sbb.setIconId(R.drawable.side_login_s);
+                sbb.setIconId(R.drawable.menu_log_masuk_s);
                 itemList.add(sbb);
 
                 DrawerItem register = new DrawerItem();
                 register.setId(3);
                 register.setTag("Register");
-                register.setTitle("Register");
+                register.setTitle("Daftar Baru");
                 register.setLayoutId(DrawerViewType.STATIC_MENU);
-                register.setIconId(R.drawable.side_register_s);
+                register.setIconId(R.drawable.menu_daftar_s);
                 itemList.add(register);
 
                 DrawerItem about = new DrawerItem();
-                about.setId(5);
+                about.setId(4);
                 about.setTag("About");
-                about.setTitle("About");
+                about.setTitle("Tentang Kami");
                 about.setLayoutId(DrawerViewType.STATIC_MENU);
-                about.setIconId(R.drawable.side_about_s);
+                about.setIconId(R.drawable.menu_about_s);
                 itemList.add(about);
-
-                DrawerItem terms = new DrawerItem();
-                terms.setId(5);
-                terms.setTag("FAQ");
-                terms.setTitle("FAQ");
-                terms.setLayoutId(DrawerViewType.STATIC_MENU);
-                terms.setIconId(R.drawable.side_faq_s);
-                itemList.add(terms);
             }
-        }
-        else{
-            DrawerItem vrsm = new DrawerItem();
-            vrsm.setId(0);
-            vrsm.setTitle("ONLINE DATING");
-            vrsm.setTag("HEADER");
-            vrsm.setLayoutId(DrawerViewType.HEADER_CLOSEBTN);
-            vrsm.setBackgroundColor(getResources().getColor(R.color.black));
-            itemList.add(vrsm);
-
-            DrawerItem home = new DrawerItem();
-            home.setId(1);
-            home.setTag("Home");
-            home.setTitle("Home");
-            home.setLayoutId(DrawerViewType.STATIC_MENU);
-            home.setIconId(R.drawable.side_home_s);
-            itemList.add(home);
-
-            DrawerItem sbb = new DrawerItem();
-            sbb.setId(2);
-            sbb.setTag("Login");
-            sbb.setTitle("Login");
-            sbb.setLayoutId(DrawerViewType.STATIC_MENU);
-            sbb.setIconId(R.drawable.side_login_s);
-            itemList.add(sbb);
-
-            DrawerItem register = new DrawerItem();
-            register.setId(3);
-            register.setTag("Register");
-            register.setTitle("Register");
-            register.setLayoutId(DrawerViewType.STATIC_MENU);
-            register.setIconId(R.drawable.side_register_s);
-            itemList.add(register);
-
-            DrawerItem about = new DrawerItem();
-            about.setId(5);
-            about.setTag("About");
-            about.setTitle("About");
-            about.setLayoutId(DrawerViewType.STATIC_MENU);
-            about.setIconId(R.drawable.side_about_s);
-            itemList.add(about);
-
-            DrawerItem terms = new DrawerItem();
-            terms.setId(5);
-            terms.setTag("FAQ");
-            terms.setTitle("FAQ");
-            terms.setLayoutId(DrawerViewType.STATIC_MENU);
-            terms.setIconId(R.drawable.side_faq_s);
-            itemList.add(terms);
         }
     }
 
@@ -525,6 +498,9 @@ public class NavigationDrawerFragment extends Fragment {
 
     public void unlockDrawer(){
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+
+    public void removeDrawer(){
     }
 
 }

@@ -55,26 +55,17 @@
                             android:padding="10dp"
                             android:layout_marginBottom="10dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textColor="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView395" />
-
                             <EditText
                                 android:layout_marginLeft="3dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textEmailAddress"
                                 android:background="@null"
-                                android:hint="@string/login_enter_email"
                                 android:textSize="@dimen/font17sp"
+                                android:imeOptions="actionNext"
                                 android:textColorHint="@color/hint_text"
                                 android:id="@+id/txtLoginEmail"
-                                android:tag="tagLoginEmail"/>
+                                android:tag="tagLoginEmail"
+                                android:inputType="textEmailAddress" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -85,26 +76,17 @@
                             android:padding="10dp"
                             android:background="@drawable/field_background">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textColor="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView396" />
-
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="@string/login_enter_password"
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
                                 android:imeOptions="actionDone"
                                 android:textColorHint="@color/hint_text"
                                 android:id="@+id/txtLoginPassword"
-                                android:tag="tagLoginPassword"/>
+                                android:tag="tagLoginPassword"
+                                android:singleLine="true"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -140,7 +122,7 @@
                                 android:textColor="@color/dark_gray"
                                 android:textSize="15dp"
                                 android:id="@+id/txtForgotPassword"
-                                android:layout_marginLeft="165dp"/>
+                                android:layout_gravity="end"/>
                         </LinearLayout>
 
                         <LinearLayout

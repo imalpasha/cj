@@ -1,6 +1,7 @@
 package com.fly.cj.drawer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -8,11 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fly.cj.R;
+import com.fly.cj.api.obj.LoginReceive;
+import com.fly.cj.base.AQuery;
 import com.fly.cj.base.BaseBaseAdapter;
 import com.fly.cj.utils.LazyList.ImageLoader;
+import com.fly.cj.utils.SharedPrefManager;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Random;
 
 public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
@@ -35,7 +40,8 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
 	Random r = new Random(new Date().getTime());
 	ArrayList<View> rowList = new ArrayList<View>();
 	private NavigationDrawerFragment navigationDrawerFragment;
-   // SharedPrefManager prefer;
+	private SharedPrefManager pref;
+
     public ImageLoader imageLoader;
 
 
@@ -70,9 +76,16 @@ public class NavigationDrawerAdapter extends BaseBaseAdapter<DrawerItem>
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
+		pref = new SharedPrefManager(getActivity());
+
+        HashMap<String, String> initName = pref.getUserName();
+        String name = initName.get(SharedPrefManager.NAME);
+
+        HashMap<String, String> initAge = pref.getUserAge();
+        String age = initAge.get(SharedPrefManager.AGE);
 
         String profileImage = "n/a";
-        String userFullName = "n/a";
+        String userFullName = name + ", " + age;
 
 
         try

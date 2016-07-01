@@ -20,6 +20,7 @@ public class App extends Application {
 	public static final String WIKITUDE_SDK_KEY = "o61KXnIOPpFAXlZ3DVLTnTN2vRWE57IZmYW8RMUbbsh/k13re8CM4tTzBZ3rs/v/rYG7SPUXo3bklsdu6HPJAh+adM1+ANtYBs7MqIxLrU4nMYpWgex0F1Ju8MYWe8+ICd8Htc5G8yoCggJ4GkM0S4rQMXNr2/vmsLQkXOUuJ29TYWx0ZWRfX9zKvlEAsYcwZw8zo9XrLUBmNNSu5pBP1a8d7AGunC1Zlj5soG/bN5/C4u/cWg3985MjE0fOGHKGVHEianLD5b0h4pt06k70D6+WArNauN3PU9i0rBNgdlNOrVd1Gdzs0eGRQvNLj4ynqyP72scrj9cWjjO2pKYAXDcDnu8NO4SetYcO+8utyNCbZQrRuqmxQok/yzswLm7yZxhMPI6BuaWCA5h1nlsbO3wipvuImCepQ9XoWEj+F/egSOgCcxMzwAJwsoYGWlDnsBKAi1UmWFaiN4Tf3xKrZq/gr52HU33UKx3IVMdA3aRl6l8U/CLojyte/pkr1OXfV5ZJaDhTy8TRlGJWwP5fR+YU/mYlOp6+rYCSq+n0YwWoKgPYoc0vxQAgV7pJdoiKLeF6P11gusGwhi1PUZjnZgoygeoFMrXCf7wCh6Ad4Hh+MJKB/NT4VOVk3xhWxI61I2Ks28JUotw/DCRhjNKQcpLEVL3AF87A7YFPSw/qmnE=";
 	public static final String KEY = "owNLfnLjPvwbQH3hUmj5Wb7wBIv83pR7";
 	public static final String IV = "owNLfnLjPvwbQH3h";
+	public static final String IMAGE_URL = "http://carijodoh.me-tech.com.my/user_image/";
 
 	public static final String APP_VERSION = "0.11";
 

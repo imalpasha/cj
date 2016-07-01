@@ -18,14 +18,19 @@ import com.fly.cj.base.AQuery;
 import com.fly.cj.base.BaseFragmentActivity;
 import com.fly.cj.drawer.DrawerItem;
 import com.fly.cj.drawer.NavigationDrawerFragment;
+import com.fly.cj.ui.activity.AboutUs.AboutUsActivity;
+import com.fly.cj.ui.activity.Favourite.FavouriteActivity;
+import com.fly.cj.ui.activity.Gallery.GalleryActivity;
 import com.fly.cj.ui.activity.Homepage.HomeActivity;
-import com.fly.cj.ui.activity.HomepageLogin.HomeLoginActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
-import com.fly.cj.ui.activity.Profile.ProfileActivity;
+import com.fly.cj.ui.activity.PaidPlan.PaidPlanActivity;
+import com.fly.cj.ui.activity.PasswordExpired.PasswordExpiredActivity;
+import com.fly.cj.ui.activity.UpdateProfile.UpdateProfileActivity;
 import com.fly.cj.ui.activity.Register.RegisterActivity;
 import com.fly.cj.utils.SharedPrefManager;
 
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainFragmentActivity extends BaseFragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -166,31 +171,72 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
             }
             else if (item.getTag().equals("About"))
             {
-                Intent login2 = new Intent(this, HomeLoginActivity.class);
-                login2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(login2);
-
-            }
-            else if (item.getTag().equals("FAQ"))
-            {
-
+                Intent about = new Intent(this, AboutUsActivity.class);
+                about.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(about);
             }
             else if (item.getTag().equals("Information_Update"))
             {
-                Intent register = new Intent(this, ProfileActivity.class);
-                register.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(register);
+                Intent update = new Intent(this, UpdateProfileActivity.class);
+                update.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(update);
+            }
+            else if (item.getTag().equals("Gallery"))
+            {
+                Intent gallery = new Intent(getContext(), GalleryActivity.class);
+                gallery.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(gallery);
+            }
+            else if (item.getTag().equals("Favourite"))
+            {
+                Intent favourite = new Intent(getContext(), FavouriteActivity.class);
+                favourite.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(favourite);
+            }
+            else if (item.getTag().equals("Chat"))
+            {
+                Intent chat = new Intent(getContext(), PaidPlanActivity.class);
+                chat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(chat);
+            }
+            else if (item.getTag().equals("Search"))
+            {
+                Intent chat = new Intent(getContext(), PaidPlanActivity.class);
+                chat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(chat);
+            }
+            else if (item.getTag().equals("Setting"))
+            {
+                Intent chat = new Intent(getContext(), PaidPlanActivity.class);
+                chat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(chat);
             }
             else if (item.getTag().equals("Logout"))
             {
-                pref.setLoginStatus("N");
-                Controller.clearAll(this);
-                //RealmObjectController.deleteRealmFile(MainFragmentActivity.getContext());
-                Intent login = new Intent(this, HomeActivity.class);
-                login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(login);
-
-            }else if (item.getTag().equals("HEADER"))
+                new SweetAlertDialog(getContext(), SweetAlertDialog.NORMAL_TYPE)
+                        .setTitleText("Adakah anda pasti mahu log keluar?")
+                        .showCancelButton(true)
+                        .setCancelText("Batal")
+                        .setConfirmText("Log Keluar")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                pref.setLoginStatus("N");
+                                Controller.clearAll(getContext());
+                                Intent logout = new Intent(getContext(), HomeActivity.class);
+                                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(logout);
+                            }
+                        })
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.cancel();
+                            }
+                        })
+                        .show();
+            }
+            else if (item.getTag().equals("HEADER"))
             {
 
             }
@@ -210,7 +256,6 @@ public class MainFragmentActivity extends BaseFragmentActivity implements Naviga
     public boolean onCreateOptionsMenu(Menu menu)
     {
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override

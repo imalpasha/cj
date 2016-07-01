@@ -63,24 +63,34 @@
         </activity>
 
         <!-- HomeActivity -->
-        <activity android:name="com.fly.cj.ui.activity.Homepage.HomeActivity">
-
-        </activity>
+        <activity android:name="com.fly.cj.ui.activity.Homepage.HomeActivity"/>
 
         <activity android:name="com.fly.cj.ui.activity.SplashScreen.TokenActivity"/>
 
         <activity android:name="com.fly.cj.ui.activity.Login.LoginActivity" />
 
-        <activity android:name="com.fly.cj.ui.activity.HomepageLogin.HomeLoginActivity"
-            android:theme="@style/HomeTheme"/>
+        <activity android:name="com.fly.cj.ui.activity.ForgotPassword.ForgotPasswordActivity"/>
+
+        <activity android:name="com.fly.cj.ui.activity.PasswordExpired.PasswordExpiredActivity"/>
+
+        <activity android:name="com.fly.cj.ui.activity.ShowProfile.ShowProfileActivity"/>
 
         <activity android:name="com.fly.cj.ui.activity.Register.RegisterActivity" />
 
-        <activity android:name="com.fly.cj.ui.activity.Profile.ProfileActivity" />
+        <activity android:name=".ui.activity.UpdateProfile.UpdateProfileActivity" />
+
+        <activity android:name=".ui.activity.AboutUs.AboutUsActivity" />
+
+        <activity android:name=".ui.activity.PaidPlan.PaidPlanActivity" />
+
+        <activity android:name=".ui.activity.Favourite.FavouriteActivity" />
+
+        <activity android:name=".ui.activity.Gallery.GalleryActivity" />
+
+        <activity android:name=".ui.activity.Test.TestActivity" />
 
         <!-- LocalNotification -->
         <receiver android:name="com.fly.cj.AlarmReceiver" ></receiver>
-
 
         <!--
           Optionally, register AnalyticsReceiver and AnalyticsService to support background

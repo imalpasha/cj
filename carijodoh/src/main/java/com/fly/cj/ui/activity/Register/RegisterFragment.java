@@ -1,14 +1,19 @@
 package com.fly.cj.ui.activity.Register;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.fly.cj.Controller;
 import com.fly.cj.FireFlyApplication;
@@ -40,6 +45,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
@@ -53,19 +59,19 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
     @InjectView(R.id.create_Bcreate)
     Button create_Bcreate;
 
-    @NotEmpty(sequence = 1)
+    @NotEmpty(sequence = 1, message = "Sila isi e-mel")
     @Order(1)
     @Email(sequence = 2, message = "Invalid Email")
     @InjectView(R.id.create_ETemail)
     EditText create_ETemail;
 
-    @NotEmpty(sequence = 1)
+    @NotEmpty(sequence = 1, message = "Sila isi kata laluan")
     @Order(2)
     @Length(sequence = 2, min = 8, max = 16, message = "Minimum 8 aksara")
     @InjectView(R.id.create_ETpass)
     EditText create_ETpass;
 
-    @NotEmpty(sequence = 1)
+    @NotEmpty(sequence = 1, message = "Sila isi sah kata laluan")
     @Order(3)
     @InjectView(R.id.create_ETcpass)
     EditText create_ETcpass;
@@ -104,6 +110,51 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
 
         final View view = inflater.inflate(R.layout.register, container, false);
         ButterKnife.inject(this, view);
+
+        //Email hint
+        String simple1 = "E-mel ";
+        String colored1 = "*";
+        SpannableStringBuilder builder1 = new SpannableStringBuilder();
+
+        builder1.append(simple1);
+        int start1 = builder1.length();
+        builder1.append(colored1);
+        int end1 = builder1.length();
+
+        builder1.setSpan(new ForegroundColorSpan(Color.RED), start1, end1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        create_ETemail.setHint(builder1);
+
+        //Password hint
+        String simple2 = "Kata Laluan ";
+        String colored2 = "*";
+        SpannableStringBuilder builder2 = new SpannableStringBuilder();
+
+        builder2.append(simple2);
+        int start2 = builder2.length();
+        builder2.append(colored2);
+        int end2 = builder2.length();
+
+        builder2.setSpan(new ForegroundColorSpan(Color.RED), start2, end2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        create_ETpass.setHint(builder2);
+
+        //Confirm Password hint
+        String simple3 = "Sah Kata Laluan ";
+        String colored3 = "*";
+        SpannableStringBuilder builder3 = new SpannableStringBuilder();
+
+        builder3.append(simple3);
+        int start3 = builder3.length();
+        builder3.append(colored3);
+        int end3 = builder3.length();
+
+        builder3.setSpan(new ForegroundColorSpan(Color.RED), start3, end3,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        create_ETcpass.setHint(builder3);
 
         pref = new SharedPrefManager(getActivity());
 
@@ -163,10 +214,18 @@ public class RegisterFragment extends BaseFragment implements RegisterPresenter.
             pref.setRegisterStatus("Y");
             Log.e(storeEmail, storePassword);
             Log.e("Request Status", obj.getStatus());
+            new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Successfully Register!")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
 
-            Intent loginPage = new Intent(getActivity(), LoginActivity.class);
-            getActivity().startActivity(loginPage);
-            getActivity().finish();
+                            Intent loginPage = new Intent(getActivity(), LoginActivity.class);
+                            getActivity().startActivity(loginPage);
+                            getActivity().finish();
+                        }
+                    })
+                    .show();
         }
     }
 

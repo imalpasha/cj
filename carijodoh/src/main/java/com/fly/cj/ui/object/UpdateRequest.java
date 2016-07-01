@@ -2,33 +2,67 @@ package com.fly.cj.ui.object;
 
 public class UpdateRequest {
     /*Local Data Send To Server*/
+    String userName;
+    String userSex;
     String userDOB;
     String userMobile;
     String userHeight;
     String userWeight;
     String userSmoke;
+    String userCountry;
     String userState;
     String userTown;
     String userEducation;
     String userOccupation;
     String signature;
+    String userMarital;
+    String userChildren;
+    String userRelationship;
+    String userPolygamy;
+    String userFinancial;
+    String userImage;
     private String auth_token;
 
     /*Initiate Class*/
     public UpdateRequest(){}
 
     public UpdateRequest(UpdateRequest data){
+        userName = data.getName();
+        userSex = data.getSex();
         userDOB = data.getDOB();
         userMobile = data.getMobile();
         userHeight = data.getHeight();
         userWeight = data.getWeight();
         userSmoke = data.getSmoke();
+        userCountry = data.getCountry();
         userState = data.getState();
         userTown = data.getTown();
         userEducation = data.getEducation();
         userOccupation = data.getOccupation();
+        userMarital = data.getMaritial();
+        userChildren = data.getChildren();
+        userRelationship = data.getRelationship();
+        userPolygamy = data.getPolygamy();
+        userFinancial = data.getFinancial();
         signature = data.getSignature();
         auth_token = data.getAuth_token();
+        userImage = data.getImage();
+    }
+
+    public String getName() {
+        return userName;
+    }
+
+    public void setName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getSex() {
+        return userSex;
+    }
+
+    public void setSex(String userSex) {
+        this.userSex = userSex;
     }
 
     public String getDOB() {
@@ -71,6 +105,14 @@ public class UpdateRequest {
         this.userSmoke = userSmoke;
     }
 
+    public String getCountry() {
+        return userCountry;
+    }
+
+    public void setCountry(String userCountry) {
+        this.userCountry = userCountry;
+    }
+
     public String getState() {
         return userState;
     }
@@ -103,6 +145,46 @@ public class UpdateRequest {
         this.userOccupation = userOccupation;
     }
 
+    public String getMaritial() {
+        return userMarital;
+    }
+
+    public void setMaritial(String userMarital) {
+        this.userMarital = userMarital;
+    }
+
+    public String getChildren() {
+        return userChildren;
+    }
+
+    public void setChildren(String userChildren) {
+        this.userChildren = userChildren;
+    }
+
+    public String getRelationship() {
+        return userRelationship;
+    }
+
+    public void setRelationship(String userRelationship) {
+        this.userRelationship = userRelationship;
+    }
+
+    public String getPolygamy() {
+        return userPolygamy;
+    }
+
+    public void setPolygamy(String userPolygamy) {
+        this.userPolygamy = userPolygamy;
+    }
+
+    public String getFinancial() {
+        return userFinancial;
+    }
+
+    public void setFinancial(String userFinancial) {
+        this.userFinancial = userFinancial;
+    }
+
     public String getSignature() {
         return signature;
     }
@@ -110,6 +192,10 @@ public class UpdateRequest {
     public void setSignature(String signature) {
         this.signature = signature;
     }
+
+    public String getImage(){return userImage;}
+
+    public void setImage(String userImage){this.userImage = userImage; }
 
     public String getAuth_token() {
         return auth_token;

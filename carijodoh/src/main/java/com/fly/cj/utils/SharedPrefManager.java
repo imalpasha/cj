@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class SharedPrefManager {
     private static final String PREF_NAME = "CariJodohPref";
     public static final String SELECTED = "SELECTED";
+    public static final String PERSON_ID = "PERSON_ID";
     public static final String SIGNATURE = "SIGNATURE";
     public static final String USER_EMAIL = "USER_EMAIL";
     public static final String USER_AUTH = "USER_AUTH";
@@ -18,6 +19,12 @@ public class SharedPrefManager {
     public static final String STATE = "STATE";
     public static final String USERNAME = "USERNAME";
     public static final String PASSWORD = "PASSWORD";
+    public static final String IMAGEBASE = "IMAGEBASE";
+    public static final String USER_STATUS = "USER_STATUS";
+    public static final String UNIQ_ID = "UNIQ_ID";
+    public static final String IMAGE_URL = "IMAGE_URL";
+    public static final String NAME = "NAME";
+    public static final String AGE = "AGE";
 
     public static final String ISLOGIN = "ISLOGIN";
     public static final String ISREGISTER = "ISREGISTER";
@@ -79,6 +86,96 @@ public class SharedPrefManager {
         _sharedPrefs.edit().remove(USER_AUTH).apply();
     }
 
+    //-----------------------------PERSON_ID----------------------------------//
+
+    public HashMap<String, String> getProfileId() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(PERSON_ID, _sharedPrefs.getString(PERSON_ID, DEFAULT));
+        return init;
+    }
+
+    public void setProfileId(String url) {
+        _prefsEditor.putString(PERSON_ID, url);
+        _prefsEditor.apply();
+        _prefsEditor.commit();
+    }
+
+    public void clearProfileId() {
+        _sharedPrefs.edit().remove(PERSON_ID).apply();
+    }
+
+    //-----------------------------UNIQ_ID----------------------------------//
+
+    public HashMap<String, String> getUniqId() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(UNIQ_ID, _sharedPrefs.getString(UNIQ_ID, DEFAULT));
+        return init;
+    }
+
+    public void setUniqId(String url) {
+        _prefsEditor.putString(UNIQ_ID, url);
+        _prefsEditor.apply();
+        _prefsEditor.commit();
+    }
+
+    public void clearUniqId() {
+        _sharedPrefs.edit().remove(UNIQ_ID).apply();
+    }
+
+    //-----------------------------IMAGE_URL----------------------------------//
+
+    public HashMap<String, String> getUserName() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(NAME, _sharedPrefs.getString(NAME, DEFAULT));
+        return init;
+    }
+
+    public void setUserName(String url) {
+        _prefsEditor.putString(NAME, url);
+        _prefsEditor.apply();
+        _prefsEditor.commit();
+    }
+
+    public void clearUserName() {
+        _sharedPrefs.edit().remove(NAME).apply();
+    }
+
+    //-----------------------------NAME----------------------------------//
+
+    public HashMap<String, String> getImageUrl() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(IMAGE_URL, _sharedPrefs.getString(IMAGE_URL, DEFAULT));
+        return init;
+    }
+
+    public void setImageUrl(String url) {
+        _prefsEditor.putString(IMAGE_URL, url);
+        _prefsEditor.apply();
+        _prefsEditor.commit();
+    }
+
+    public void clearImageUrl() {
+        _sharedPrefs.edit().remove(IMAGE_URL).apply();
+    }
+
+    //-----------------------------AGE----------------------------------//
+
+    public HashMap<String, String> getUserAge() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(AGE, _sharedPrefs.getString(AGE, DEFAULT));
+        return init;
+    }
+
+    public void setUserAge(String url) {
+        _prefsEditor.putString(AGE, url);
+        _prefsEditor.apply();
+        _prefsEditor.commit();
+    }
+
+    public void clearUserAge() {
+        _sharedPrefs.edit().remove(AGE).apply();
+    }
+
     //-----------------------------EMAIL----------------------------------//
 
     public HashMap<String, String> getUserEmail() {
@@ -96,11 +193,29 @@ public class SharedPrefManager {
         _sharedPrefs.edit().remove(USER_EMAIL).apply();
     }
 
+    //-----------------------------USER_STATUS----------------------------------//
+
+    public HashMap<String, String> getUserStatus() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(USER_STATUS, _sharedPrefs.getString(USER_STATUS, DEFAULT));
+        return init;
+    }
+
+    public void setUserStatus(String url) {
+        _prefsEditor.putString(USER_STATUS, url);
+        _prefsEditor.apply();
+    }
+
+    public void clearUserStatus() {
+        _sharedPrefs.edit().remove(USER_STATUS).apply();
+    }
+
+
     //---------------------------LOGIN STATUS------------------------------//
 
     public HashMap<String, String> getLoginStatus() {
         HashMap<String, String> init = new HashMap<String, String>();
-        init.put(ISLOGIN, _sharedPrefs.getString(ISLOGIN, null));
+        init.put(ISLOGIN, _sharedPrefs.getString(ISLOGIN, DEFAULT));
         return init;
     }
 
@@ -122,7 +237,7 @@ public class SharedPrefManager {
 
     public HashMap<String, String> getUserPassword() {
         HashMap<String, String> init = new HashMap<String, String>();
-        init.put(PASSWORD, _sharedPrefs.getString(PASSWORD, null));
+        init.put(PASSWORD, _sharedPrefs.getString(PASSWORD, DEFAULT));
         return init;
     }
 
@@ -156,7 +271,22 @@ public class SharedPrefManager {
         _prefsEditor.apply();
     }
 
-    //-----------------------------------------------------------//
+    //---------------------------IMAGEBASE--------------------------------//
+
+    public void setImageBase(String imageBase) {
+        _prefsEditor.putString(IMAGEBASE, imageBase);
+        _prefsEditor.apply();
+    }
+
+    public HashMap<String, String> getImageBase() {
+        HashMap<String, String> init = new HashMap<String, String>();
+        init.put(IMAGEBASE, _sharedPrefs.getString(IMAGEBASE, DEFAULT));
+        return init;
+    }
+
+    public void clearImageBase() {
+        _sharedPrefs.edit().remove(IMAGEBASE).apply();
+    }
 
     //-----------------------------------------------------------//
 

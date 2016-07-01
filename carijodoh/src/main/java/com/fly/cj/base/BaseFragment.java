@@ -188,6 +188,21 @@ public class BaseFragment extends Fragment {
         return smokerList;
     }
 
+	public static ArrayList<DropDownItem> getCountry(Activity act) {
+
+		/*Country*/
+		ArrayList<DropDownItem> countryList = new ArrayList<DropDownItem>();
+
+		final String[] country = act.getResources().getStringArray(R.array.country);
+		for (int i = 0; i < country.length; i++) {
+			DropDownItem itemCountry = new DropDownItem();
+			itemCountry.setText(country[i]);
+			countryList.add(itemCountry);
+		}
+
+		return countryList;
+	}
+
     public static ArrayList<DropDownItem> getState(Activity act) {
 
 		/*State*/
@@ -202,6 +217,36 @@ public class BaseFragment extends Fragment {
 
         return stateList;
     }
+
+	public static ArrayList<DropDownItem> getEducation(Activity act) {
+
+		/*Education*/
+		ArrayList<DropDownItem> educationList = new ArrayList<DropDownItem>();
+
+		final String[] education = act.getResources().getStringArray(R.array.education);
+		for (int i = 0; i < education.length; i++) {
+			DropDownItem itemEducation = new DropDownItem();
+			itemEducation.setText(education[i]);
+			educationList.add(itemEducation);
+		}
+
+		return educationList;
+	}
+
+	public static ArrayList<DropDownItem> getOccupation(Activity act) {
+
+		/*Education*/
+		ArrayList<DropDownItem> occupationList = new ArrayList<DropDownItem>();
+
+		final String[] occupation = act.getResources().getStringArray(R.array.occupation);
+		for (int i = 0; i < occupation.length; i++) {
+			DropDownItem itemOccupation = new DropDownItem();
+			itemOccupation.setText(occupation[i]);
+			occupationList.add(itemOccupation);
+		}
+
+		return occupationList;
+	}
 
     public static ArrayList<DropDownItem> getMaritial(Activity act) {
 

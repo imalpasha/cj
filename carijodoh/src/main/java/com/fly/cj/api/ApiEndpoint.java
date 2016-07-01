@@ -9,8 +9,12 @@ public class ApiEndpoint implements Endpoint {
 
         //-----------------CARI JODOH------------------//
         //return "http://192.168.0.156/fly/public/api/";
-        //return "http://192.168.0.130/fly/public/api/";
-        return "http://192.168.0.111/fly/public/api/";
+        //return "http://192.168.0.106/fly/public/api/";
+        //return "http://192.168.0.123/fly/public/api/";
+        //return "http://192.168.0.117/fly/public/api/";
+        //return "http://192.168.0.148:8012/fly/public/api";
+        return "http://carijodoh.me-tech.com.my/api";
+
     }
 
     @Override

@@ -3,7 +3,7 @@
     <!-- Global Search -->
     <string name="google_map_api_key"><![CDATA[AIzaSyCK7VCGJomx5--fAPlvJZYGRsq4jyVyev0]]></string>
     <string name="imal_google_map_api_key"><![CDATA[AIzaSyBPg4DVdsfxlhmo_OT2_9iNVHSKK3OPBEA]]></string>
-    <string name="app_name">Online Dating</string>
+    <string name="app_name">Cari Jodoh</string>
 
     <!-- HOMEPAGE -->
     <string name="home_description1">Aplikasi Cari Jodoh Untuk Muslim</string>
@@ -103,13 +103,17 @@
     </string-array>
 
     <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
+        <item>Lelaki</item>
+        <item>Perempuan</item>
     </string-array>
 
     <string-array name="smoker">
-        <item>Yes</item>
-        <item>No</item>
+        <item>Merokok/Vaper</item>
+        <item>Tidak Merokok/Vaper</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>Malaysia</item>
     </string-array>
 
     <string-array name="state">
@@ -130,41 +134,105 @@
     </string-array>
 
     <string-array name="children">
-        <item>Yes</item>
-        <item>No</item>
+        <item>Mempunyai anak</item>
+        <item>Tidak mempunyai anak</item>
     </string-array>
 
     <string-array name="maritial_status">
-        <item>Divorced</item>
-        <item>Married</item>
-        <item>Single</item>
-        <item>Widowed</item>
+        <item>Bujang</item>
+        <item>Sudah berkahwin</item>
+        <item>Janda/Duda</item>
     </string-array>
 
     <string-array name="polygamy">
-        <item>Agreed</item>
-        <item>Can be discussed</item>
-        <item>Do not agree</item>
-        <item>Haven\'t thought yet</item>
+        <item>Boleh dibincangkan berpoligami</item>
+        <item>Belum difikirkan berpoligami</item>
+        <item>Tidak setuju berpoligami</item>
+        <item>Setuju berpoligami</item>
     </string-array>
 
     <string-array name="relationship_status">
-        <item>serius mencari</item>
-        <item>tidak serius mencari</item>
-        <item>sedang mengenali seseorang</item>
-        <item>tidak pasti</item>
+        <item>Serius mencari pasangan</item>
+        <item>Tidak serius mencari pasangan</item>
+        <item>Sedang mengenali seseorang</item>
+        <item>Tidak pasti mencari pasangan</item>
     </string-array>
 
     <string-array name="financial">
-        <item>Not working</item>
-        <item>Low income</item>
-        <item>Middle income</item>
-        <item>High income</item>
-        <item>Need more information</item>
+        <item>Tidak bekerja</item>
+        <item>Berpendapatan rendah</item>
+        <item>Berpendapatan sederhana</item>
+        <item>Berpendapatan tinggi</item>
+        <item>Perlu maklumat lanjut</item>
+    </string-array>
+
+    <string-array name="education">
+        <item>Tiada</item>
+        <item>PMR (Penilaian Menengah Rendah)</item>
+        <item>SRP (Sijil Rendah Pelajaran)</item>
+        <item>SPM (Sijil Pelajaran Malaysia)</item>
+        <item>MCE (Malaysian Certificate of Education)</item>
+        <item>SPMV (Sijil Pelajaran Malaysia Vokasional)</item>
+        <item>STPM (Sijil Tinggi Persekolahan Malaysia)</item>
+        <item>STAM (Sijil Tinggi Agama Malaysia)</item>
+        <item>SKM (Sijil Kemahiran Malaysia)/ Sijil Modula Kebangsaan</item>
+        <item>Sijil Kompeten</item>
+        <item>Matrikulasi/Asasi/Pra-Universiti/Kolej</item>
+        <item>Diploma</item>
+        <item>Degree (Ijazah Sarjana Muda)</item>
+        <item>Master (Ijazah Sarjana)</item>
+        <item>PHD (Ijazah Doktor Falsafah)</item>
+    </string-array>
+
+    <string-array name="occupation">
+        <item>Admin/Pentadbiran</item>
+        <item>Akauntan/Pengurus Kewangan</item>
+        <item>Alam Sekitar/Sosiologi</item>
+        <item>Arkitek/Seni Bina</item>
+        <item>Badan Beruniform</item>
+        <item>Fesyen/Kecantikan/Estetik</item>
+        <item>Fotografi/Perfileman/Produksi</item>
+        <item>Hartanah</item>
+        <item>Industri Minyak dan Gas/ Geologi</item>
+        <item>Insurans/Takaful</item>
+        <item>Keagamaan/Syariah/Islamik</item>
+        <item>Kejuruteraan</item>
+        <item>Kemahiran/Freelancer</item>
+        <item>Kesihatan/Perubatan/Farmasi</item>
+        <item>Keusahawanan</item>
+        <item>Komputer/Teknologi Maklumat</item>
+        <item>Komunikasi/Kewartawanan/Pengacaraan</item>
+        <item>Konstruksi/Pembinaan</item>
+        <item>Lakonan/Teater</item>
+        <item>Majlis/Aturcara</item>
+        <item>Makanan dan Minuman/Kafe dan Restoren</item>
+        <item>Media/Radio/Persiaran</item>
+        <item>Nyanyian//Komposer/Penulis lirik</item>
+        <item>Pelajar</item>
+        <item>Pelancongan/perhotelan</item>
+        <item>Pemasaran/Jualan/Pengiklanan</item>
+        <item>Pendidikan/Latihan</item>
+        <item>Penerbangan</item>
+        <item>Pengangkutan/Logistik</item>
+        <item>Penjawat Awam</item>
+        <item>Perhubungan Korporat</item>
+        <item>Perkapalan</item>
+        <item>Perkilangan/Proses Industri</item>
+        <item>Perniagaan</item>
+        <item>Pertanian/Perikanan</item>
+        <item>Perniagaan</item>
+        <item>Pertanian/Perikanan</item>
+        <item>Politik</item>
+        <item>Reka Grafik</item>
+        <item>Sains/Penyelidikan</item>
+        <item>Sukan/Rekreasi</item>
+        <item>Sukarelawan/NGO</item>
+        <item>Undang-undang</item>
+        <item>Lain-lain Bidang</item>
     </string-array>
     <!--DROPDOWN VALUE END-->
 
-    <string name="profile_submit_button">SUBMIT</string>
+    <string name="profile_submit_button">HANTAR</string>
     <!--END PROFILE-->
 
     <!--PASSWORD EXPIRED-->
@@ -230,9 +298,8 @@
     <string name="stateListDialogTitle">Please select state</string>
 
     <!-- Drawer/Version -->
-    <string name="x_lbl">V4/22_3</string>
+    <string name="x_lbl">V1/24_6</string>
 
-    <!-- CleanUP -->
     <!-- General -->
     <string name="unable_to_connect">Unable to connect to server</string>
     <string name="connection_error">Connection Error</string>
@@ -240,5 +307,14 @@
     <string name="ticketReminder">Kindly ensure email itinerary is received. If you don\'t receive email itinerary within 30 minutes , please contact our call centre +603 7845 4543 for assistance.</string>
     <string name="no_internet_connection_title">Whoops!</string>
     <string name="no_internet_connection">No internet connection found. Check your internet connection and try again</string>
+
+    <!--Address-->
+    <string name="address1">ME-Tech Solution Sdn Bhd (700819-U)</string>
+    <string name="address2">C-1-2A, Block C, Jalan GC1,</string>
+    <string name="address3">Glomac Cyberjaya, Cyber 4,</string>
+    <string name="address4">63200 Cyberjaya, Selangor Darul Ehsan,</string>
+    <string name="address5">Malaysia</string>
+    <string name="address6">Tel: +603-83251970</string>
+    <string name="address7">Fax: +603-83251973</string>
 
 </resources>

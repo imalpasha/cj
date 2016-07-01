@@ -54,22 +54,15 @@
                             android:background="@drawable/field_background"
                             android:layout_marginBottom="10dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView398" />
-
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="@string/create_hint_email"
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
-                                android:imeOptions="actionDone"
+                                android:imeOptions="actionNext"
+                                android:singleLine="true"
+                                android:inputType="textEmailAddress"
                                 android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETemail"
                                 android:tag="tagLoginPassword"/>
@@ -84,25 +77,17 @@
                             android:background="@drawable/field_background"
                             android:layout_marginBottom="10dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView399" />
-
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="@string/create_hint_password"
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
-                                android:imeOptions="actionDone"
+                                android:imeOptions="actionNext"
                                 android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETpass"
-                                android:tag="tagLoginPassword"/>
+                                android:tag="tagLoginPassword"
+                                android:singleLine="true"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -113,22 +98,14 @@
                             android:padding="10dp"
                             android:background="@drawable/field_background">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint=" *"
-                                android:textColorHint="@color/red"
-                                android:textStyle="bold"
-                                android:id="@+id/textView396" />
-
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:hint="@string/create_hint_confirm_password"
                                 android:layout_marginLeft="3dp"
                                 android:textSize="@dimen/font17sp"
                                 android:imeOptions="actionDone"
+                                android:singleLine="true"
                                 android:textColorHint="@color/hint_text"
                                 android:id="@+id/create_ETcpass"
                                 android:tag="tagLoginPassword"/>

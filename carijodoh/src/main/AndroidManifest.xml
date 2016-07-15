@@ -79,6 +79,8 @@
 
         <activity android:name="com.fly.cj.ui.activity.Profile.ProfileActivity" />
 
+        <activity android:name="com.fly.cj.ui.activity.Chat.ChatActivity" />
+
         <!-- LocalNotification -->
         <receiver android:name="com.fly.cj.AlarmReceiver" ></receiver>
 

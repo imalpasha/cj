@@ -63,7 +63,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         //getIntent().getStringExtra(KEY_EXTRA);
 
         Log.e("intent", intent.getClass().getCanonicalName());
-        String message = intent.getExtras().getString("data");
+        String message = intent.getExtras().getString("message");
         
        // displayMessage(context, message);
         // notifies user

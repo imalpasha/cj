@@ -6,10 +6,13 @@ import android.util.Log;
 
 import com.estimote.sdk.repackaged.gson_v2_3_1.com.google.gson.Gson;
 import com.fly.cj.MainFragmentActivity;
+import com.fly.cj.api.obj.ChatPackageReceive.ChatFailed;
+import com.fly.cj.api.obj.ChatPackageReceive.ChatReceive;
 import com.fly.cj.api.obj.LoginReceive;
 import com.fly.cj.api.obj.RegisterReceive;
 import com.fly.cj.api.obj.UpdateReceive;
 import com.fly.cj.base.BaseFragment;
+import com.fly.cj.ui.object.ChatRequest;
 import com.fly.cj.ui.object.LoginRequest;
 import com.fly.cj.ui.object.RegisterRequest;
 import com.fly.cj.ui.object.UpdateRequest;
@@ -129,6 +132,31 @@ public class ApiRequestHandler {
 
         });
     }
+
+    // -------------------------------------CHAT TEST----------------------------------------- //
+
+    @Subscribe
+    public void onChat(final ChatRequest event) {
+
+        //UpdateReceive -> receive response from api - pass to object
+        apiService.onChatRequest(event, new Callback<ChatReceive>() {
+
+            @Override
+            public void success(ChatReceive retroResponse, Response response) {
+                //otto send api data to update presenter back
+                bus.post(new ChatReceive(retroResponse));
+                RealmObjectController.cachedResult(MainFragmentActivity.getContext(), (new Gson()).toJson(retroResponse));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                //BaseFragment.setAlertNotification(MainFragmentActivity.getContext());
+                bus.post(new ChatFailed());
+            }
+
+        });
+    }
+
 
     public void resetInc(){
         inc = 0;

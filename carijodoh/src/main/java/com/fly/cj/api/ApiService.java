@@ -1,8 +1,10 @@
 package com.fly.cj.api;
 
+import com.fly.cj.api.obj.ChatPackageReceive.ChatReceive;
 import com.fly.cj.api.obj.LoginReceive;
 import com.fly.cj.api.obj.RegisterReceive;
 import com.fly.cj.api.obj.UpdateReceive;
+import com.fly.cj.ui.object.ChatRequest;
 import com.fly.cj.ui.object.LoginRequest;
 import com.fly.cj.ui.object.RegisterRequest;
 import com.fly.cj.ui.object.UpdateRequest;
@@ -21,6 +23,9 @@ public interface ApiService {
 
     @POST("/update")
     void onRequestToUpdate(@Body UpdateRequest task, Callback<UpdateReceive> callback);
+
+    @POST("/chat")
+    void onChatRequest(@Body ChatRequest task, Callback<ChatReceive> callback);
 
 }
 

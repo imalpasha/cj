@@ -18,6 +18,7 @@ import com.fly.cj.AnalyticsApplication;
 import com.fly.cj.FireFlyApplication;
 import com.fly.cj.R;
 import com.fly.cj.base.BaseFragment;
+import com.fly.cj.ui.activity.Chat.ChatActivity;
 import com.fly.cj.ui.activity.FragmentContainerActivity;
 import com.fly.cj.ui.activity.Login.LoginActivity;
 import com.fly.cj.ui.activity.Register.RegisterActivity;
@@ -49,6 +50,10 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
 
     @InjectView(R.id.homeRegister)
     Button homeRegister;
+
+    @InjectView(R.id.btnGoToChat)
+    Button btnGoToChat;
+
 
   /*  //@InjectView(R.id.test)
     //LinearLayout test;
@@ -130,6 +135,14 @@ public class HomeFragment extends BaseFragment implements HomePresenter.HomeView
             @Override
             public void onClick(View v) {
                 Intent register = new Intent (getActivity(), RegisterActivity.class);
+                getActivity().startActivity(register);
+            }
+        });
+
+        btnGoToChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent register = new Intent (getActivity(), ChatActivity.class);
                 getActivity().startActivity(register);
             }
         });

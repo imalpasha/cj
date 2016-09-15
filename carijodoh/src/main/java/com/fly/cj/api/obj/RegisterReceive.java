@@ -7,13 +7,13 @@ public class RegisterReceive {
     private String message;
     private user_info user_info;
 
+    public RegisterReceive getUserObj() {
+        return userObj;
+    }
+
     public RegisterReceive(RegisterReceive param_userObj) {
         this.userObj = param_userObj;
         status = param_userObj.getStatus();
-    }
-
-    public RegisterReceive getUserObj() {
-        return userObj;
     }
 
     public class user_info{

@@ -64,7 +64,7 @@ public class TokenActivity extends Activity {
 
         // Make sure the manifest was properly set - comment out this line
         // while developing the app, then uncomment it when it's ready.
-        GCMRegistrar.checkManifest(this);
+        //GCMRegistrar.checkManifest(this);
         //GCMRegistrar.checkManifest(this);
 
         registerReceiver(mHandleMessageReceiver, new IntentFilter(DISPLAY_MESSAGE_ACTION));

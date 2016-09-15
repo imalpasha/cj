@@ -28,6 +28,7 @@ public class LoginActivity extends MainFragmentActivity implements FragmentConta
         fragmentManager.beginTransaction().replace(R.id.main_content, LoginFragment.newInstance()).commit();
 
         setMenuButton();
+        setTitle("LOG MASUK");
 
 
         // [START shared_tracker]

@@ -24,7 +24,8 @@ public class RegisterActivity extends MainFragmentActivity implements FragmentCo
         fragmentManager.beginTransaction().replace(R.id.main_content, RegisterFragment.newInstance()).commit();
 
         setMenuButton();
-        hideTitle();
+        //hideTitle();
+        setTitle("DAFTAR AKAUN");
         unlockDrawer();
         BaseFragment.removeLogoHeader(this);
     }

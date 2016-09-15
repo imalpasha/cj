@@ -1,8 +1,5 @@
 package com.fly.cj.ui.object;
 
-/**
- * Created by Dell on 1/29/2016.
- */
 public class PushNotificationObj {
 
 

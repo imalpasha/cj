@@ -1,122 +1,77 @@
 <resources>
 
+    <!-- Global Search -->
+    <string name="google_map_api_key"><![CDATA[AIzaSyCK7VCGJomx5--fAPlvJZYGRsq4jyVyev0]]></string>
+    <string name="imal_google_map_api_key"><![CDATA[AIzaSyBPg4DVdsfxlhmo_OT2_9iNVHSKK3OPBEA]]></string>
+    <string name="app_name">Cari Jodoh</string>
 
-   <!-- <string name="retrieve_rhymes_failed">The network is slow or unavailable</string>
-    <string name="no_rhymes_found_error">Couldn\'t find anything that rhymes with %s</string>
+    <!-- HOMEPAGE -->
+    <string name="home_description1">Aplikasi Cari Jodoh Untuk Muslim</string>
+    <string name="home_description2">Sudah Mendaftar? Daftar Sekarang</string>
+    <string name="home_login">LOG MASUK</string>
+    <string name="home_register">DAFTAR BARU</string>
+    <!--END HOMEPAGE -->
 
-    <string name="search_hint">Retrofit - Test On api.github.com</string>
-    <string name="rhyme_caps">Search User</string>
-    <string name="retry_caps">RETRY</string>
+    <!-- LOGIN FIREFLY -->
+    <string name="login_enter_email">E-mel</string>
+    <string name="login_enter_password">Kata Laluan</string>
 
-    <string name="rhymes_with">Rhymes with %s</string>
+    <string name="login_login_txt">LOG MASUK</string>
+    <string name="login_register_txt">DAFTAR BARU</string>
+    <string name="title_login_and_password">LOGIN AND PASSWORD</string>
+    <string name="login_forgot_password">Lupa Kata Laluan?</string>
+    <!-- END LOGIN -->
 
+    <!-- FORGOT PASSWORD -->
+    <string name="forgot_password_title">FORGOT PASSWORD</string>
+    <string name="forgot_password_email">USER ID (Email)</string>
+    <string name="forgot_password_submitB">HANTAR</string>
+    <string name="forgot_password_closeB">Close</string>
+    <string name="title_activity_password_expired">PasswordExpiredActivity</string>
+    <string name="password_expire_text">Your password has expired and needs to be changed. The password must consist of at least 8 characters, must include one upper case letter, one lower case letter, one numeric digit and one symbol. Example: SkyPark+123</string>
+    <!-- END FORGOT PASSWORD -->
 
-    <string name="soapURL">http://192.168.0.120:9766/vrsm/generalHTTP/1.1</string>
+    <!-- REGISTER -->
+    <string name="create_title">CREATE ACCOUNT</string>
+    <string name="create_hint_email">E-mel</string>
+    <string name="create_hint_password">Kata Laluan</string>
+    <string name="create_hint_confirm_password">Sah Kata Laluan</string>
+    <string name="create_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
+    <string name="asterik">*</string>
+    <string name="create_create_button">DAFTAR BARU</string>
+    <!-- END REGISTER -->
 
-    <string name="module_package_name">com.silverlake.ifb.module</string>
+    <!--PROFILE-->
+    <string name="title_profile">PROFILE</string>
+    <string name="profile_email">E-mel</string>
+    <string name="profile_password">Kata Laluan</string>
+    <string name="profile_cmpassword">Sah Kata Laluan</string>
+    <string name="profile_personal_information">MAKLUMAT PERIBADI</string>
+    <string name="profile_name">Nama</string>
+    <string name="profile_gender">Jantina</string>
+    <string name="profile_dob">Tarikh Lahir</string>
+    <string name="profile_mobile">Telefon Bimbit</string>
+    <string name="profile_height">Tinggi</string>
+    <string name="profile_weight">Berat</string>
+    <string name="profile_smoker">Merokok/Vaper</string>
 
-    <string name="utc">Unable to connect to server</string>
+    <string name="profile_residence_information">MAKLUMAT KEDIAMAN</string>
+    <string name="profile_country">Negara</string>
+    <string name="profile_state">Negeri</string>
+    <string name="profile_town">Bandar</string>
 
-    <string name="internetNA">Internet connection not available </string>
+    <string name="profile_education_information">MAKLUMAT PENDIDIKAN</string>
+    <string name="profile_education">Pendidikan Tertinggi</string>
+    <string name="profile_occupation">Pekerjaan</string>
 
-    <string name="loginUserNameHint">Username</string>
-    <string name="loginUserPasswordHint">Password</string>
-    <string name="loginBtnLogin">Login</string>
-    <string name="loginBtnSignUp">Sign Up</string>
-    <string name="loginTxtFYP">Forgot your password?</string>
+    <string name="profile_status_information">STATUS</string>
+    <string name="profile_maritial_status">Status Perkahwinan</string>
+    <string name="profile_children">Bilangan Anak</string>
+    <string name="profile_relationship_status">Status Hubungan</string>
+    <string name="profile_polygamy">Poligami</string>
+    <string name="profile_financial_level">Kedudukan Kewangan</string>
 
-
-
-    <string name="promotionLabel">Promotions</string>
-
-    <string name="contactUsDescription">VRSM provides merchants with unsurpassed store-front features and functionalities that deliver personalize mobile shopping experience.
-	It is built from customer perspective that is easy to understand, protects customer data and customizable layout tailored to individual need.The velocity at which mobile devices increase its computing power to support complex multimedia rich applications makes VRSM an ideal landscape to bring online shopping experience to the mobile devices.
-</string> -->
-
-    <!-- Register Page --> <!--
-    <string name="registerLabel">Fill Up \nand \nLets Shop!</string>
-    <string name="registerHintUserID">User ID*</string>
-    <string name="registerHintUserPassword">Password*</string>
-    <string name="registerHintUserConfirmPassword">Confirm Password*</string>
-    <string name="registerHintUserEmail">Email*</string>
-    <string name="registerHintUserName">Name*</string>
-    <string name="registerHintUserGender">Gender*</string>
-    <string name="registerHintUserYear">Year*</string>
-    <string name="registerHintUserMonth">Month*</string>
-    <string name="registerHintUserDay">Day*</string>
-    <string name="registerHintUserPhone">Phone*</string>
-    <string name="registerHintUserAddAddress">Add Addres</string>
-    <string name="registerHintUserAddressName">Address Name*</string>
-    <string name="registerHintUserStreet1">Street 1*</string>
-    <string name="registerHintUserStreet2">Street 2</string>
-    <string name="registerHintUserStreet3">Street 3</string>
-    <string name="registerHintUserCity">City*</string>
-    <string name="registerHintUserPostCode">Post Code*</string>
-    <string name="registerHintUserCountry">Country*</string>
-    <string name="registerHintUserState">State*</string>
-    <string name="registerTC">I agree with Terms &amp; Condition</string>
-    <string name="registerRP">Return Policy</string>
-    <string name="tc">Terms &amp; Condition</string>-->
-
-    <!-- Error Text --><!--
-    <string name="errorPleaseFillUpEmptyField">Please fill up the highlighted field</string>
-    <string name="errorUserNamePassword">Invalid Username / Password</string>
-    <string name="loginErrorEmptyField">Forgot You Passoword</string> -->
-
-    <!-- General --><!--
-    <string name="department_section1">Ladies</string>
-    <string name="department_section2">Men</string>
-    <string name="department_section3">Books</string>
-    <string name="department_section4">Toys &amp; Games</string>
-    <string name="department_section5">Electronics </string>
-    <string name="department_section6">Kids &amp; Babies </string>
-    <string name="department_section7">Sport &amp; Outdoors</string>
-    <string name="department_section8">Gadgets</string>
-    <string name="more_section1">Newsletter</string>
-    <string name="more_section2">Augmented Reality</string>
-    <string name="more_section3">Partners</string>
-
-    <string name="action_example">Example action</string>
-    <string name="VRSM_webservices_url">http://localhost:9766/vrsm/VrsmWS/</string>
-    <string name="TRY">Try again</string>
-    <string name="internet_NA_with_retry">Unable to connect to server. Check your internet connection and try again</string>
-    <string name="connection_error">Connection error</string>
-    <string name="promotion">Promotion</string>
-    <string name="pna">Product not available or no longer sold by the merchant</string> -->
-
-    <!-- Sliding Menu -->
-    <!--<string name="newsletter">Newsletter</string>
-    <string name="newsletter_mine">My Newsletter</string>
-    <string name="augmented_reality">Augmented Reality</string>
-    <string name="social_media_wall">Social Media Wall</string>
-    <string name="merchant">Merchant</string>
-    <string name="badges">Badges</string>
-    <string name="contactUS">Contact Us</string>
-    <string name="tnc">Term &amp; Condition </string>
-    <string name="more_about_vrsm">More about VRSM</string>
-    <string name="faq">FAQ</string>
-    <string name="return_policy">Return Policy</string>-->
-
-
-    <!-- DropDown Value -->
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-    </string-array>
-
-    <string-array name="travel_doc">
-        <item>Malaysia IC-NRIC</item>
-        <item>Passport-P</item>
-        <item>Visa-V</item>
-    </string-array>
-
-    <!-- Travel Purpose -->
-    <string-array name="purpose">
-        <item>Leisure</item>
-        <item>Business</item>
-    </string-array>
-
-    <!-- Month -->
+    <!--DROPDOWN VALUE-->
     <string-array name="month">
         <item>Jan</item>
         <item>Feb</item>
@@ -147,198 +102,18 @@
         <item>December</item>
     </string-array>
 
-    <string-array name="requestType">
-        <item>Please select</item>
-        <item>Return</item>
-        <item>Refund</item>
-        <item>Other</item>
+    <string-array name="gender">
+        <item>Lelaki</item>
+        <item>Perempuan</item>
     </string-array>
-
-    <string-array name="itemCondition">
-        <item>Please select</item>
-        <item>Opened</item>
-        <item>Unopened</item>
-    </string-array>
-
-    <!-- Filter Code -->
-    <string-array name="filter_review">
-        <item>SHR,Highest Rate</item>
-        <item>SLR,Lowest Rate</item>
-        <item>SNF,Newest First</item>
-        <item>SOF,Oldest First</item>
-    </string-array>
-    <string-array name="filter_code">
-        <item>SAZ,A to Z</item>
-        <item>SZA,Z to A</item>
-        <item>SOS,On Sale </item>
-        <item>SLP,Lowest Price</item>
-        <item>SHP,Highest Price</item>
-        <item>SHR,Highest Rating</item>
-    </string-array>
-    <string-array name="filter">
-        <item>A to Z</item>
-        <item>Z to A</item>
-        <item>On Sale</item>
-        <item>Lowest Price</item>
-        <item>Highest Price</item>
-        <item>Highest Rating</item>
-    </string-array>
-
-    <!-- Global Search -->
-    <string-array name="search_code">
-        <item>STB,Brand,shopbybrand.ShopByBrandListView</item>
-        <item>STM,Merchant,merchant.MerchantDetailView</item>
-        <item>STD,Department,department.DepartmentView</item>
-        <item>STP,Product,productprofile.ProductProfileView</item>
-        <item>STD_LVL1,Department,department.
-            View</item>
-        <item>STD_LVL2,Department,department.DepartmentView</item>
-        <item>STD_LVL3,Department,department.DepartmentView</item>
-        <item>STD_LVL4,Department,department.DepartmentView</item>
-    </string-array>
-    <string name="google_map_api_key"><![CDATA[AIzaSyCK7VCGJomx5--fAPlvJZYGRsq4jyVyev0]]></string>
-    <string name="imal_google_map_api_key"><![CDATA[AIzaSyBPg4DVdsfxlhmo_OT2_9iNVHSKK3OPBEA]]></string>
-
-    <!-- State
-    <string-array name="state">
-        <item>Selangor-SL</item>
-        <item>Pahang-PHG</item>
-        <item>Johor-JHR</item>
-        <item>Kedah-KDH</item>
-        <item>Penang-PEN</item>
-    </string-array>-->
-
-    <string name="app_name">Online Dating</string>
-    <string name="welcome_to_firefly">Welcome to Firefly</string>
-    <string name="beyond_convenience">Beyond Convenience</string>
-    <string name="home_firefly_desc">access your booking,mobile check-in and manage flight by sign-in the system</string>
-    <string name="home_manage_flight">MANAGE FLIGHT</string>
-    <string name="home_book_flight">BOOK FLIGHT</string>
-    <string name="home_mobile_check_in">MOBILE CHECK-IN</string>
-    <string name="home_sign_in">SIGN-IN</string>
-    <string name="home_boarding">Boarding Pass</string>
-
-    <string name="firefly_stroke">/Firefly</string>
-    <string name="firefly_airlines_stroke">/Firefly Airlines</string>
-
-    <!--LANDSCAPE-->
-
-    <string name="home_book_flight_landscape">Book Flight</string>
-    <string name="home_boarding_pass_landscape">Boarding Pass</string>
-    <string name="home_manage_flight_landscape">Manage Flight</string>
-    <string name="home_mobile_check_in_landscape">Mobile Check-In</string>
-    <string name="home_boarding_pass">BOARDING PASS</string>
-
-
-    <!-- HOMEPAGE -->
-    <string name="home_description1">Dating Application for Muslim in Malaysia</string>
-    <string name="home_description2">Already have an account? Login Now</string>
-    <string name="home_login">LOG IN</string>
-    <string name="home_register">REGISTER</string>
-
-    <!--END HOMEPAGE -->
-
-    <!-- LOGIN FIREFLY -->
-
-    <string name="login_enter_email">User ID (Email)</string>
-    <string name="login_enter_password">Password</string>
-
-    <string name="login_login_txt">LOG IN</string>
-    <string name="login_register_txt">REGISTER</string>
-    <string name="login_no_account">Don\'t have account yet?</string>
-    <string name="title_login_and_password">LOGIN AND PASSWORD</string>
-    <string name="login_forgot_password">Forgot Password?</string>
-
-    <!-- END LOGIN -->
-
-    <!-- FORGOT PASSWORD -->
-
-    <string name="forgot_password_title">FORGOT PASSWORD</string>
-    <string name="forgot_password_email">USER ID (Email)</string>
-    <string name="forgot_password_submitB">Submit</string>
-    <string name="forgot_password_closeB">Close</string>
-    <string name="title_activity_password_expired">PasswordExpiredActivity</string>
-    <string name="password_expire_text">Your password has expired and needs to be changed. The password must consist of at least 8 characters, must include one upper case letter, one lower case letter, one numeric digit and one symbol. Example: SkyPark+123</string>
-
-    <!-- END FORGOT PASSWORD -->
-
-
-
-    <!-- REGISTER -->
-
-    <string name="create_title">CREATE ACCOUNT</string>
-
-    <string name="create_hint_email">Email</string>
-    <string name="create_hint_password">Password</string>
-    <string name="create_hint_confirm_password">Confirm Password</string>
-    <string name="create_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
-    <string name="asterik">*</string>
-
-    <string name="create_create_button">CREATE</string>
-
-
-
-    <!--<string name="register_basic_information">LOGIN INFORMATION</string>
-    <string name="register_basic_informationV2">BASIC INFORMATION</string>
-    <string name="register_personal_information">PERSONAL INFORMATION</string>
-    <string name="register_address_information">ADDRESS INFORMATION</string>
-    <string name="register_contact_information">CONTACT INFORMATION</string>
-    <string name="register_loyalty_information">LOYALTY PROGRAMME</string>
-
-    <string name="register_address_1">Address Line 1</string>
-    <string name="register_address_2">Address Line 2</string>
-    <string name="register_address_3">Address Line 3</string>
-
-    <string name="register_country">Country</string>
-    <string name="register_town">Town/City</string>
-    <string name="register_state">State</string>
-    <string name="register_postcode">Postcode</string>
-    <string name="register_mobile_phone">Mobile / Home</string>
-    <string name="register_alternate_phone">Alternate</string>
-    <string name="register_bonuslink">BonusLink Card No:</string>
-
-    <string name="register_fax">Fax</string>
-    <string name="register_city">Town/City</string>
-    <string name="register_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
-    <string name="register_password_policy">Password Policy</string>
-    <string name="register_term_error_message">You must agree with terms &amp; conditions</string>-->
-
-    <!-- END REGISTER -->
-
-    <!--PROFILE-->
-    <string name="title_profile">PROFILE</string>
-    <string name="profile_email">Email</string>
-    <string name="profile_password">Password</string>
-    <string name="profile_cmpassword">Confirm Password</string>
-    <string name="profile_personal_information">PERSONAL INFORMATION</string>
-    <string name="profile_name">Name</string>
-    <string name="profile_gender">Gender</string>
-    <string name="profile_dob">Date of Birth</string>
-    <string name="profile_mobile">Mobile</string>
-    <string name="profile_height">Height</string>
-    <string name="profile_weight">Weight</string>
-    <string name="profile_smoker">Smoker/Vaper</string>
-    <string name="profile_religion">Religion</string>
-
-    <string name="profile_residence_information">RESIDENCE INFORMATION</string>
-    <string name="profile_country">Country</string>
-    <string name="profile_state">State</string>
-    <string name="profile_town">Town</string>
-
-    <string name="profile_education_information">EDUCATION INFORMATION</string>
-    <string name="profile_education">High Education</string>
-    <string name="profile_occupation">Occupation</string>
-
-    <string name="profile_status_information">STATUS INFORMATION</string>
-    <string name="profile_maritial_status">Maritial Status</string>
-    <string name="profile_children">Have children</string>
-    <string name="profile_relationship_status">Relationship Status</string>
-    <string name="profile_polygamy">Polygamy</string>
-    <string name="profile_financial_level">Financial Level</string>
 
     <string-array name="smoker">
-        <item>Yes</item>
-        <item>No</item>
+        <item>Merokok/Vaper</item>
+        <item>Tidak Merokok/Vaper</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>Malaysia</item>
     </string-array>
 
     <string-array name="state">
@@ -359,149 +134,116 @@
     </string-array>
 
     <string-array name="children">
-        <item>Yes</item>
-        <item>No</item>
+        <item>Mempunyai anak</item>
+        <item>Tidak mempunyai anak</item>
     </string-array>
 
     <string-array name="maritial_status">
-        <item>Divorced</item>
-        <item>Married</item>
-        <item>Single</item>
-        <item>Widowed</item>
+        <item>Bujang</item>
+        <item>Sudah berkahwin</item>
+        <item>Janda/Duda</item>
     </string-array>
 
     <string-array name="polygamy">
-        <item>Agreed</item>
-        <item>Can be discussed</item>
-        <item>Do not agree</item>
-        <item>Haven\'t thought yet</item>
+        <item>Boleh dibincangkan berpoligami</item>
+        <item>Belum difikirkan berpoligami</item>
+        <item>Tidak setuju berpoligami</item>
+        <item>Setuju berpoligami</item>
     </string-array>
 
     <string-array name="relationship_status">
-        <item>serius mencari</item>
-        <item>tidak serius mencari</item>
-        <item>sedang mengenali seseorang</item>
-        <item>tidak pasti</item>
+        <item>Serius mencari pasangan</item>
+        <item>Tidak serius mencari pasangan</item>
+        <item>Sedang mengenali seseorang</item>
+        <item>Tidak pasti mencari pasangan</item>
     </string-array>
 
     <string-array name="financial">
-        <item>Not working</item>
-        <item>Low income</item>
-        <item>Middle income</item>
-        <item>High income</item>
-        <item>Need more information</item>
+        <item>Tidak bekerja</item>
+        <item>Berpendapatan rendah</item>
+        <item>Berpendapatan sederhana</item>
+        <item>Berpendapatan tinggi</item>
+        <item>Perlu maklumat lanjut</item>
     </string-array>
 
-    <string name="profile_submit_button">SUBMIT</string>
+    <string-array name="education">
+        <item>Tiada</item>
+        <item>PMR (Penilaian Menengah Rendah)</item>
+        <item>SRP (Sijil Rendah Pelajaran)</item>
+        <item>SPM (Sijil Pelajaran Malaysia)</item>
+        <item>MCE (Malaysian Certificate of Education)</item>
+        <item>SPMV (Sijil Pelajaran Malaysia Vokasional)</item>
+        <item>STPM (Sijil Tinggi Persekolahan Malaysia)</item>
+        <item>STAM (Sijil Tinggi Agama Malaysia)</item>
+        <item>SKM (Sijil Kemahiran Malaysia)/ Sijil Modula Kebangsaan</item>
+        <item>Sijil Kompeten</item>
+        <item>Matrikulasi/Asasi/Pra-Universiti/Kolej</item>
+        <item>Diploma</item>
+        <item>Degree (Ijazah Sarjana Muda)</item>
+        <item>Master (Ijazah Sarjana)</item>
+        <item>PHD (Ijazah Doktor Falsafah)</item>
+    </string-array>
+
+    <string-array name="occupation">
+        <item>Admin/Pentadbiran</item>
+        <item>Akauntan/Pengurus Kewangan</item>
+        <item>Alam Sekitar/Sosiologi</item>
+        <item>Arkitek/Seni Bina</item>
+        <item>Badan Beruniform</item>
+        <item>Fesyen/Kecantikan/Estetik</item>
+        <item>Fotografi/Perfileman/Produksi</item>
+        <item>Hartanah</item>
+        <item>Industri Minyak dan Gas/ Geologi</item>
+        <item>Insurans/Takaful</item>
+        <item>Keagamaan/Syariah/Islamik</item>
+        <item>Kejuruteraan</item>
+        <item>Kemahiran/Freelancer</item>
+        <item>Kesihatan/Perubatan/Farmasi</item>
+        <item>Keusahawanan</item>
+        <item>Komputer/Teknologi Maklumat</item>
+        <item>Komunikasi/Kewartawanan/Pengacaraan</item>
+        <item>Konstruksi/Pembinaan</item>
+        <item>Lakonan/Teater</item>
+        <item>Majlis/Aturcara</item>
+        <item>Makanan dan Minuman/Kafe dan Restoren</item>
+        <item>Media/Radio/Persiaran</item>
+        <item>Nyanyian//Komposer/Penulis lirik</item>
+        <item>Pelajar</item>
+        <item>Pelancongan/perhotelan</item>
+        <item>Pemasaran/Jualan/Pengiklanan</item>
+        <item>Pendidikan/Latihan</item>
+        <item>Penerbangan</item>
+        <item>Pengangkutan/Logistik</item>
+        <item>Penjawat Awam</item>
+        <item>Perhubungan Korporat</item>
+        <item>Perkapalan</item>
+        <item>Perkilangan/Proses Industri</item>
+        <item>Perniagaan</item>
+        <item>Pertanian/Perikanan</item>
+        <item>Perniagaan</item>
+        <item>Pertanian/Perikanan</item>
+        <item>Politik</item>
+        <item>Reka Grafik</item>
+        <item>Sains/Penyelidikan</item>
+        <item>Sukan/Rekreasi</item>
+        <item>Sukarelawan/NGO</item>
+        <item>Undang-undang</item>
+        <item>Lain-lain Bidang</item>
+    </string-array>
+    <!--DROPDOWN VALUE END-->
+
+    <string name="profile_submit_button">HANTAR</string>
     <!--END PROFILE-->
 
     <!--PASSWORD EXPIRED-->
     <string name="expired_title">PASSWORD EXPIRED</string>
-    <string name="expired_password_hint">Password must be at least 8 characters, no more than 16 characters, must include at least one upper case letter, one lower case letter, one numeric digit, and one non-alphanumeric. The password cannot contain a period(.) comma(,) or tilde(~).</string>
-    <string name="expired_username">User ID(Email)</string>
-    <string name="expired_current_password">Current Password</string>
-    <string name="expired_new_password">New Password</string>
-    <string name="expired_confirm_password">Confirm Password</string>
-    <string name="expired_button">Continue</string>
+    <string name="expired_password_hint">Kata Laluan hendaklah mempunyai minimum 8 aksara</string>
+    <string name="expired_username">E-mail</string>
+    <string name="expired_current_password">Kata Laluan Lama</string>
+    <string name="expired_new_password">Kata Laluan Baru</string>
+    <string name="expired_confirm_password">Sah Kata Laluan</string>
+    <string name="expired_button">SAHKAN</string>
     <!--END PASSWORD EXPIRED-->
-
-    <!-- BOOKING FLIGHT - SEARCH FLIGHT -->
-    <string name="book_flight">BOOK FLIGHT</string>
-    <string name="book_flight_one_way">ONE WAY</string>
-    <string name="book_flight_return">RETURN</string>
-
-    <string name="book_flight_departure_airport">DEPARTURE AIRPORT</string>
-    <string name="book_flight_arrival_airport">ARRIVAL AIRPORT</string>
-
-    <string name="book_flight_departure_date">DEPARTURE DATE</string>
-    <string name="book_flight_arrival_date">RETURN DATE</string>
-
-    <string name="book_flight_adult">Adult</string>
-    <string name="book_flight_adult_year">2+ years old</string>
-
-    <string name="book_flight_children">Children</string>
-    <string name="book_flight_children_year">2+ years old</string>
-
-    <string name="book_flight_infant">Infant</string>
-    <string name="book_flight_infant_year"> 9 days - 2 years old</string>
-
-
-    <!-- BOOKING FLIGHT - SEARCH FLIGHT -->
-    <string name="book_flight_availability">Sorry, no flights available. Please
-select another date or station and try again.</string>
-
-    <!-- BOOKING FLIGHT - LIST FLIGHT -->
-    <string name="book_flight_basic">BASIC</string>
-    <string name="book_flight_premier">PREMIER</string>
-
-
-    <string name="mobile_checkin">MOBILE CHECK-IN</string>
-
-    <!-- MANAGE FLIGHT -->
-
-    <string name="manage_flight_na">No Flight Available</string>
-
-    <string name="manage_flight">MANAGE FLIGHT</string>
-    <string name="manage_flight_contact_email">Contact Email</string>
-    <string name="manage_flight_confirmation_number">Confirmation Number</string>
-
-    <string name="manage_flight_change_contact">CHANGE CONTACT</string>
-    <string name="manage_flight_edit_passenger">EDIT PASSENGER</string>
-    <string name="manage_flight_change_flight">CHANGE FLIGHT</string>
-    <string name="manage_flight_change_seat">CHANGE SEAT</string>
-    <string name="manage_flight_special_meal_request">SPECIAL MEAL REQUEST</string>
-
-    <string name="manage_flight_add_payment">ADD PAYMENT</string>
-    <string name="manage_flight_send_itinenary">SEND ITINERARY</string>
-    <string name="manage_flight_contact_detail">CONTACT DETAIL</string>
-    <string name="manage_flight_sent_itinenary">SEND ITINERARY</string>
-    <string name="manage_flight_seat_optional">Seat Selection (Optional)</string>
-
-
-    <!-- General -->
-    <string name="general_continue">Continue</string>
-    <string name="general_email_addresss">Email Address</string>
-    <string name="general_travel_purpose">Primary Purpose of Your Travel</string>
-
-    <string name="agreeTnc">I agree with the Terms &amp; Conditions</string>
-    <string name="subscribe">Yes, I do not want to receive promotional information from Firefly and its partners</string>
-    <string name="alertTNC">You must agree to the terms.</string>
-    <string name="bonuslink_hint">e.g. 6018XXXXXXXXXXXX</string>
-    <string name="yes_proceed">Yes, I want to be protected during my trip</string>
-    <string name="no_thank">No, Thank You.</string>
-
-
-
-
-
-    <!-- Boarding Pass -->
-    <string name="boardingPassTitle">No boarding pass available.</string>
-    <string name="boardingPassNA">Boarding Pass will be displayed after the check-in process is complete. </string>
-
-
-    <string name="boarding_pass">BOARDING PASS</string>
-
-    <!-- Update Profile -->
-    <string name="title_activity_update_profile">UPDATE INFORMATION</string>
-    <string name="update_profile_logininfo">Login Information</string>
-    <string name="update_profile_contactinfo">Contact Information</string>
-    <string name="update_profile_btn">Update</string>
-    <string name="ctn_profile_btn">CONTINUE</string>
-
-    <string name="only_fill">Only fill in this section if you wish to change your password</string>
-
-
-    <!-- Mobile Check in -->
-    <string name="mobile_checkin_na">No Flight Available For Check-In</string>
-
-    <string name="mobile_checkin_check1">Yes, I am aware that the dangerous good above are not permitted in my bag, luggage has been in my possession at all times and i am aware of the contents in my bag.</string>
-    <string name="mobile_checkin_check2">Yes, I have read and agree with the important information.</string>
-    <string name="mobile_checkin_check3">Yes, I have access to a printer and print the mobile check-in boarding pass from my email if my departing station is NOT Subang(SZB), Penang(PEN), Johor Bharu(JHB) or Kota Bharu(KBR).</string>
-    <string name="title_activity_terms">Terms</string>
-
-    <!-- Terms-->
-    <string name="title_terms">TERMS AND CONDITIONS</string>
-
 
     <!-- Forgot Password Module -->
     <string name="forgotPassword">Forgot Password</string>
@@ -514,21 +256,13 @@ select another date or station and try again.</string>
     <string name="forgotPasswordNew">New Password</string>
     <string name="forgotPasswordConfirm">Confirm Password</string>
 
-
-
-
-
-
-
     <string name="update_success">Update Success</string>
     <string name="exit">EXIT FIREFLY</string>
     <string name="term_webview">http://fyapidev.me-tech.com.my/api/displayTerm</string>
 
-
     <string name="start_geofence_service">Starting geofence transition service</string>
     <string name="entering_geofence">Entering the GeoFence zone</string>
     <string name="exiting_geofence">Exiting the GeoFence zone</string>
-
 
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Push Notifications</string>
@@ -550,7 +284,6 @@ select another date or station and try again.</string>
     <string name="options_clear">Clear</string>
     <string name="options_exit">Exit</string>
 
-
     <!-- General -->
     <string name="searchCountryHint">Search</string>
     <string name="dob">DOB: </string>
@@ -564,14 +297,9 @@ select another date or station and try again.</string>
     <string name="countryListDialogTitle">Please select country</string>
     <string name="stateListDialogTitle">Please select state</string>
 
-
     <!-- Drawer/Version -->
-    <string name="x_lbl">V4/22_3</string>
+    <string name="x_lbl">V1/24_6</string>
 
-
-
-
-    <!-- CleanUP -->
     <!-- General -->
     <string name="unable_to_connect">Unable to connect to server</string>
     <string name="connection_error">Connection Error</string>
@@ -579,5 +307,14 @@ select another date or station and try again.</string>
     <string name="ticketReminder">Kindly ensure email itinerary is received. If you don\'t receive email itinerary within 30 minutes , please contact our call centre +603 7845 4543 for assistance.</string>
     <string name="no_internet_connection_title">Whoops!</string>
     <string name="no_internet_connection">No internet connection found. Check your internet connection and try again</string>
+
+    <!--Address-->
+    <string name="address1">ME-Tech Solution Sdn Bhd (700819-U)</string>
+    <string name="address2">C-1-2A, Block C, Jalan GC1,</string>
+    <string name="address3">Glomac Cyberjaya, Cyber 4,</string>
+    <string name="address4">63200 Cyberjaya, Selangor Darul Ehsan,</string>
+    <string name="address5">Malaysia</string>
+    <string name="address6">Tel: +603-83251970</string>
+    <string name="address7">Fax: +603-83251973</string>
 
 </resources>

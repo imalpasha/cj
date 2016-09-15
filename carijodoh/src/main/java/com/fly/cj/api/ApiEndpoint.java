@@ -6,17 +6,14 @@ public class ApiEndpoint implements Endpoint {
 
     @Override
     public String getUrl() {
-        //return "https://api.github.com";
-       //return "http://api.github.com";
-        //return "http://sheetsu.com";
 
-        //return "http://fyapidev.me-tech.com.my/api";
-        //return "http://fyapistage.me-tech.com.my/api";
-        //return "http://fyapi.me-tech.com.my/api";
-       // return "http://192.168.0.111:44447";
-
-        return "http://192.168.0.156/fly/public/api/";
-      //  return "http://103.249.85.102";
+        //-----------------CARI JODOH------------------//
+        //return "http://192.168.0.156/fly/public/api/";
+        //return "http://192.168.0.106/fly/public/api/";
+        //return "http://192.168.0.123/fly/public/api/";
+        //return "http://192.168.0.117/fly/public/api/";
+        //return "http://192.168.0.148:8012/fly/public/api";
+        return "http://carijodoh.me-tech.com.my/api";
 
     }
 
@@ -24,7 +21,6 @@ public class ApiEndpoint implements Endpoint {
     public String getName() {
         return "Production Endpoint";
     }
-    //
 }
 
 //http://sheetsu.com/apis/c4182617

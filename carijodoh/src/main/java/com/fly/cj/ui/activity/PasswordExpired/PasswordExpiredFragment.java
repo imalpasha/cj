@@ -2,8 +2,12 @@ package com.fly.cj.ui.activity.PasswordExpired;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,25 +65,28 @@ public class PasswordExpiredFragment extends BaseFragment implements PasswordExp
     PasswordExpiredPresenter presenter;
 
     //@InjectView(R.id.search_edit_text) EditText searchEditText;
-    @Order(1)@NotEmpty(sequence = 1)@Email(sequence = 2)
+    @Order(1)@NotEmpty(sequence = 1, message = "Sila isi e-mel")
+    @Email(sequence = 2)
     @InjectView(R.id.txtExpUsername)
     EditText txtExpUsername;
 
     @Order(2)
-    @NotEmpty (sequence = 1)
+    @NotEmpty (sequence = 1, message = "Sila isi kata laluan lama")
     @InjectView(R.id.txtExpLpass)
     EditText txtExpLpass;
 
     @Order(3)
-    @NotEmpty (sequence = 1)
+    @NotEmpty (sequence = 1, message = "Sila isi kata laluan baru")
     @ConfirmPassword(message = "Password mismatch")
     @InjectView(R.id.txtExpCpass)
     EditText txtExpCpass;
 
     @Order(4)
-    @NotEmpty(sequence = 1)
-    @Length(sequence = 2, min = 6, max = 16 , message = "Must be at least 8 and maximum 16 characters")
-    @Password(sequence = 3,scheme = Password.Scheme.ALPHA_NUMERIC_MIXED_CASE_SYMBOLS,message = "Password invalid , please refer to the password hint") // Password validator
+    @NotEmpty(sequence = 1, message = "Sila isi sah kata laluan")
+    @Length(sequence = 2, min = 6, max = 16 , message = "Kata laluan hendaklah melebihi 8 aksara")
+    @Password(sequence = 3)
+    // Password validator
+    //scheme = Password.Scheme.ALPHA_NUMERIC_MIXED_CASE_SYMBOLS,message = "Password invalid , please refer to the password hint"
     @InjectView(R.id.txtExpNpass)
     EditText txtExpNpass;
 
@@ -112,6 +119,66 @@ public class PasswordExpiredFragment extends BaseFragment implements PasswordExp
 
         view = inflater.inflate(R.layout.password_expired, container, false);
         ButterKnife.inject(this, view);
+
+        //Email hint
+        String simple = "E-mel ";
+        String colored = "*";
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+
+        builder.append(simple);
+        int start = builder.length();
+        builder.append(colored);
+        int end = builder.length();
+
+        builder.setSpan(new ForegroundColorSpan(Color.RED), start, end,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        txtExpUsername.setHint(builder);
+
+        //Last Password hint
+        String simple2 = "Kata Laluan Lama ";
+        String colored2 = "*";
+        SpannableStringBuilder builder2 = new SpannableStringBuilder();
+
+        builder2.append(simple2);
+        int start2 = builder2.length();
+        builder2.append(colored2);
+        int end2 = builder2.length();
+
+        builder2.setSpan(new ForegroundColorSpan(Color.RED), start2, end2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        txtExpLpass.setHint(builder2);
+
+        //New Password hint
+        String simple3 = "Kata Laluan Baru ";
+        String colored3 = "*";
+        SpannableStringBuilder builder3 = new SpannableStringBuilder();
+
+        builder3.append(simple3);
+        int start3 = builder3.length();
+        builder3.append(colored3);
+        int end3 = builder3.length();
+
+        builder3.setSpan(new ForegroundColorSpan(Color.RED), start3, end3,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        txtExpNpass.setHint(builder3);
+
+        //Confirm New Password hint
+        String simple4 = "Sah Kata Laluan ";
+        String colored4 = "*";
+        SpannableStringBuilder builder4 = new SpannableStringBuilder();
+
+        builder4.append(simple4);
+        int start4 = builder4.length();
+        builder4.append(colored4);
+        int end4 = builder4.length();
+
+        builder4.setSpan(new ForegroundColorSpan(Color.RED), start4, end4,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        txtExpCpass.setHint(builder4);
 
         pref = new SharedPrefManager(getActivity());
 

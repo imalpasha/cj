@@ -47,7 +47,8 @@
                             android:layout_centerInParent="true"
                             android:src="@drawable/default_profile"
                             app:civ_border_width="3dp"
-                            app:civ_border_color="@color/grey" />
+                            app:civ_border_color="@color/grey"
+                            android:id="@+id/profile_picture"/>
 
                     </LinearLayout>
 
@@ -140,338 +141,79 @@
                                     android:padding="10dp"
                                     android:layout_marginBottom="5dp">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
+                                    <EditText
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@null"
+                                        android:textSize="@dimen/font16sp"
+                                        android:imeOptions="actionNext"
+                                        android:textColorHint="@color/hint_text"
+                                        android:id="@+id/profile_password"
+                                        android:singleLine="true"
+                                        android:enabled="true"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/field_background"
+                                    android:padding="10dp"
+                                    android:layout_marginBottom="5dp">
 
                                     <EditText
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:inputType="textPersonName"
                                         android:layout_marginLeft="5dp"
                                         android:background="@null"
-                                        android:hint="@string/profile_email"
                                         android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_email"/>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:orientation="horizontal"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:background="@drawable/field_background"
-                                        android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:hint="@string/asterik"
-                                            android:textColorHint="@color/red"
-                                            android:textStyle="bold"
-                                            android:layout_marginLeft="2dp" />
-
-                                        <EditText
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:inputType="textPersonName"
-                                            android:layout_marginLeft="5dp"
-                                            android:background="@null"
-                                            android:hint="@string/profile_password"
-                                            android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/profile_password"/>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:orientation="horizontal"
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:background="@drawable/field_background"
-                                        android:padding="10dp"
-                                        android:layout_marginBottom="5dp">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:hint="@string/asterik"
-                                            android:textColorHint="@color/red"
-                                            android:textStyle="bold"
-                                            android:layout_marginLeft="2dp" />
-
-                                        <EditText
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:inputType="textPersonName"
-                                            android:layout_marginLeft="5dp"
-                                            android:background="@null"
-                                            android:hint="@string/profile_cmpassword"
-                                            android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/profile_cmpassword"/>
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="vertical"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp">
-
-                                    <TextView
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:background="@null"
-                                        android:paddingBottom="5dp"
-                                        android:hint="@string/profile_personal_information"
-                                        android:textSize="@dimen/font17sp"
-                                        android:textStyle="bold"
-                                        android:textColorHint="@color/registerBasicInfoText" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <EditText
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="textPersonName"
-                                        android:layout_marginLeft="5dp"
-                                        android:background="@null"
-                                        android:hint="@string/profile_name"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_name"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="textPersonName"
-                                        android:layout_marginLeft="5dp"
-                                        android:background="@null"
-                                        android:hint="@string/profile_gender"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColor="@color/black"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_gender"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textAppearance="?android:attr/textAppearanceSmall"
-                                            android:hint="@string/asterik"
-                                            android:textColorHint="@color/red"
-                                            android:textStyle="bold"
-                                            android:layout_marginLeft="2dp" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:inputType="date"
-                                            android:background="@null"
-                                            android:layout_marginLeft="5dp"
-                                            android:textColor="@color/black"
-                                            android:hint="@string/profile_dob"
-                                            android:textSize="@dimen/font16sp"
-                                            android:textColorHint="@color/loginFontTxt"
-                                            android:id="@+id/profile_dob"/>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <EditText
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="phone"
-                                        android:background="@null"
-                                        android:layout_marginLeft="5dp"
-                                        android:hint="@string/profile_mobile"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_mobile"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <EditText
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="numberDecimal"
-                                        android:background="@null"
-                                        android:layout_marginLeft="5dp"
-                                        android:hint="@string/profile_height"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_height"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <EditText
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="numberDecimal"
-                                        android:background="@null"
-                                        android:layout_marginLeft="5dp"
-                                        android:hint="@string/profile_weight"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_weight"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/field_background"
-                                    android:padding="10dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="?android:attr/textAppearanceSmall"
-                                        android:hint="@string/asterik"
-                                        android:textColorHint="@color/red"
-                                        android:textStyle="bold"
-                                        android:layout_marginLeft="2dp" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:inputType="textPersonName"
-                                        android:layout_marginLeft="5dp"
-                                        android:background="@null"
-                                        android:hint="@string/profile_smoker"
-                                        android:textSize="@dimen/font16sp"
-                                        android:textColor="@color/black"
-                                        android:textColorHint="@color/loginFontTxt"
-                                        android:id="@+id/profile_smoker"/>
+                                        android:textColorHint="@color/hint_text"
+                                        android:imeOptions="actionNext"
+                                        android:id="@+id/profile_cmpassword"
+                                        android:singleLine="true"
+                                        android:enabled="true"/>
                                 </LinearLayout>
 
                             </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/registerAddressInfoBlock"
-                            android:visibility="visible">
 
                             <LinearLayout
                                 android:orientation="vertical"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp">
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                android:background="@drawable/profile_back_title">
 
                                 <TextView
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/textView14"
                                     android:background="@null"
-                                    android:paddingBottom="5dp"
-                                    android:hint="@string/profile_residence_information"
+                                    android:text="@string/profile_personal_information"
                                     android:textSize="@dimen/font17sp"
                                     android:textStyle="bold"
-                                    android:textColorHint="@color/registerBasicInfoText" />
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/field_background"
+                                android:padding="10dp"
+                                android:layout_marginBottom="5dp">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@null"
+                                    android:textSize="@dimen/font16sp"
+                                    android:imeOptions="actionNext"
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_name"
+                                    android:singleLine="true"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -483,25 +225,15 @@
                                 android:layout_marginBottom="5dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textLongMessage"
-                                    android:background="@null"
+                                    android:inputType="textPersonName"
                                     android:layout_marginLeft="5dp"
-                                    android:hint="@string/profile_country"
+                                    android:background="@null"
                                     android:textSize="@dimen/font16sp"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_country"/>
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_gender"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -513,81 +245,64 @@
                                 android:layout_marginBottom="5dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textLongMessage"
+                                    android:inputType="date"
                                     android:background="@null"
                                     android:layout_marginLeft="5dp"
-                                    android:hint="@string/profile_state"
-                                    android:textSize="@dimen/font16sp"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_state"/>
+                                    android:textSize="@dimen/font16sp"
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_dob"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/field_background"
+                                android:padding="10dp"
+                                android:layout_marginBottom="5dp">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="phone"
+                                    android:background="@null"
+                                    android:layout_marginLeft="5dp"
+                                    android:textSize="@dimen/font16sp"
+                                    android:imeOptions="actionNext"
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_mobile"
+                                    android:singleLine="true"/>
                             </LinearLayout>
 
                             <LinearLayout
                                 android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:background="@drawable/field_background"
                                 android:padding="10dp"
                                 android:layout_marginBottom="5dp">
 
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:background="@null"
+                                    android:layout_marginLeft="5dp"
+                                    android:textSize="@dimen/font16sp"
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_height"
+                                    android:text="158"/>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:background="@null"
-                                    android:layout_marginLeft="5dp"
-                                    android:hint="@string/profile_town"
                                     android:textSize="@dimen/font16sp"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_town"/>
-                            </LinearLayout>
+                                    android:text=" cm"/>
 
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/registerContactInfoBlock"
-                            android:visibility="visible">
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp" >
-
-                                <TextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/textView15"
-                                    android:background="@null"
-                                    android:paddingBottom="5dp"
-                                    android:hint="@string/profile_education_information"
-                                    android:textSize="@dimen/font17sp"
-                                    android:textStyle="bold"
-                                    android:textColorHint="@color/registerBasicInfoText" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -598,203 +313,25 @@
                                 android:padding="10dp"
                                 android:layout_marginBottom="5dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:maxLength="16"
-                                    android:hint="@string/profile_education"
-                                    android:textSize="@dimen/font16sp"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_education"/>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp">
-
-                                <TextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:hint="@string/profile_occupation"
-                                    android:textSize="@dimen/font16sp"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:maxLength="16"
-                                    android:id="@+id/profile_occupation"/>
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/linearLayout33"
-                            android:visibility="visible" >
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp" >
-
-                                <TextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/textView86"
-                                    android:background="@null"
-                                    android:paddingBottom="5dp"
-                                    android:hint="@string/profile_status_information"
-                                    android:textSize="@dimen/font17sp"
-                                    android:textStyle="bold"
-                                    android:textColorHint="@color/registerBasicInfoText" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:inputType="numberDecimal"
-                                    android:layout_marginLeft="5dp"
                                     android:background="@null"
-                                    android:hint="@string/profile_maritial_status"
+                                    android:layout_marginLeft="5dp"
                                     android:textSize="@dimen/font16sp"
-                                    android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_maritial"/>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp" >
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_weight"
+                                    android:imeOptions="actionNext"
+                                    android:text="58"
+                                    android:singleLine="true"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="numberDecimal"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:hint="@string/profile_children"
                                     android:textSize="@dimen/font16sp"
-                                    android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_children"/>
-                            </LinearLayout>
+                                    android:text=" kg"/>
 
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:hint="@string/profile_relationship_status"
-                                    android:textSize="@dimen/font16sp"
-                                    android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_relationship"/>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp"/>
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:hint="@string/profile_polygamy"
-                                    android:textSize="@dimen/font16sp"
-                                    android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_polygamy"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -805,86 +342,363 @@
                                 android:padding="10dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textAppearance="?android:attr/textAppearanceSmall"
-                                    android:hint="@string/asterik"
-                                    android:textColorHint="@color/red"
-                                    android:textStyle="bold"
-                                    android:layout_marginLeft="2dp"/>
-
-                                <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPersonName"
                                     android:layout_marginLeft="5dp"
                                     android:background="@null"
-                                    android:hint="@string/profile_financial_level"
                                     android:textSize="@dimen/font16sp"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_financial"/>
+                                    android:textColorHint="@color/hint_text"
+                                    android:id="@+id/profile_smoker"/>
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:orientation="vertical"
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/registerAddressInfoBlock"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:padding="5dp"
+                            android:background="@drawable/profile_back_title">
+
+                            <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp" >
+                                android:id="@+id/textView14"
+                                android:background="@null"
+                                android:text="@string/profile_residence_information"
+                                android:textSize="@dimen/font17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@null"
-                                    android:paddingBottom="5dp"
-                                    android:hint="LANGGANAN"
-                                    android:textSize="@dimen/font17sp"
-                                    android:textStyle="bold"
-                                    android:textColorHint="@color/registerBasicInfoText" />
-                            </LinearLayout>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
 
-                            <LinearLayout
-                                android:orientation="horizontal"
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textLongMessage"
+                                android:background="@null"
+                                android:layout_marginLeft="5dp"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_country"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textLongMessage"
+                                android:background="@null"
+                                android:layout_marginLeft="5dp"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_state"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:background="@null"
+                                android:layout_marginLeft="5dp"
+                                android:textSize="@dimen/font16sp"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_town"
+                                android:imeOptions="actionDone"
+                                android:singleLine="true"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/registerContactInfoBlock"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:padding="5dp"
+                            android:background="@drawable/profile_back_title">
+
+                            <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/field_background"
-                                android:padding="10dp"
-                                android:layout_marginBottom="5dp">
+                                android:id="@+id/textView15"
+                                android:background="@null"
+                                android:text="@string/profile_education_information"
+                                android:textSize="@dimen/font17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:layout_marginLeft="5dp"
-                                    android:background="@null"
-                                    android:hint="Tiada Pakej"
-                                    android:textSize="@dimen/font16sp"
-                                    android:textColor="@color/black"
-                                    android:textColorHint="@color/loginFontTxt"
-                                    android:id="@+id/profile_package"/>
-                            </LinearLayout>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:background="@null"
+                                android:maxLines="4"
+                                android:textSize="17dp"
+                                android:scrollbars="vertical"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_education"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:background="@null"
+                                android:maxLines="4"
+                                android:textSize="17dp"
+                                android:scrollbars="vertical"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_occupation"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout33"
+                        android:visibility="visible" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:padding="5dp"
+                            android:background="@drawable/profile_back_title">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView86"
+                                android:background="@null"
+                                android:text="@string/profile_status_information"
+                                android:textSize="@dimen/font17sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_maritial"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_children"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_relationship"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_polygamy"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_financial"
+                                />
                         </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="15dp"
-                            android:paddingRight="15dp"
-                            android:layout_marginBottom="10dp">
+                            android:layout_marginTop="15dp"
+                            android:padding="5dp"
+                            android:background="@drawable/profile_back_title">
 
-                            <Button
+                            <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/profile_submit_button"
-                                android:background="@drawable/login_login_button_clicked"
-                                android:textColor="@color/black"
+                                android:background="@null"
+                                android:text="LANGGANAN"
+                                android:textSize="@dimen/font17sp"
                                 android:textStyle="bold"
-                                android:id="@+id/profile_submitBtn"
-                                android:layout_marginTop="15dp"/>
+                                android:textColor="@color/black"/>
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/field_background"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:layout_marginLeft="5dp"
+                                android:background="@null"
+                                android:textSize="@dimen/font16sp"
+                                android:textColor="@color/hint_text"
+                                android:textColorHint="@color/hint_text"
+                                android:id="@+id/profile_package"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:layout_marginBottom="10dp">
+
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_submit_button"
+                            android:background="@drawable/button_clicked"
+                            android:textColor="@color/button_text"
+                            android:textStyle="bold"
+                            android:id="@+id/profile_submitBtn"
+                            android:layout_marginTop="15dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -892,5 +706,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
+    </LinearLayout>
 
 </ScrollView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/home_profile_background">
+
+            <com.fly.cj.CircleImage
+                android:id="@+id/expanded_image"
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:layout_centerInParent="true"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/light"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/default_profile2"/>
+
+            <TextView
+                android:id="@+id/expanded_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="-10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_alignBottom="@+id/expanded_image"
+                android:layout_marginBottom="5dp"
+                android:text="-"
+                android:layout_marginRight="7dp"/>
+
+            <TextView
+                android:id="@+id/expanded_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/expanded_text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="5dp"
+                android:text="-"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

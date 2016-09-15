@@ -7,8 +7,6 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-//import org.apache.commons.codec.binary.Base64;
-
 public class AESCBC {
 
     public static String encrypt(String key, String initVector, String value) {
@@ -39,7 +37,6 @@ public class AESCBC {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
 
-            //byte[] b = encrypted.getBytes();
             byte[] original = cipher.doFinal(Base64.decode(encrypted,2));
 
             return new String(original);
@@ -55,7 +52,5 @@ public class AESCBC {
     public static void main(String[] args) {
         String key = "Bar12345Bar12345"; // 128 bit key
         String initVector = "RandomInitVector"; // 16 bytes IV
-
-        //System.out.println(decrypt(key, initVector,encrypt(key, initVector, "Hello World")));
     }
 }

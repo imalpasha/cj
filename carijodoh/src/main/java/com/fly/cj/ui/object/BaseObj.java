@@ -1,8 +1,5 @@
 package com.fly.cj.ui.object;
 
-/**
- * Created by Dell on 11/9/2015.
- */
 public class BaseObj {
 
     String username;

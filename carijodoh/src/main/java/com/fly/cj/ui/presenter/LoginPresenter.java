@@ -11,7 +11,6 @@ public class LoginPresenter {
 
         void onLoginSuccess(LoginReceive obj);
         void onLoginFailed(String dumm);
-
     }
 
     private final LoginView view;

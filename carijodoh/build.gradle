@@ -29,7 +29,7 @@ android {
     buildToolsVersion "22.0.0"
 
     defaultConfig {
-        applicationId "com.fly.firefly"
+        applicationId "com.app.cj"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

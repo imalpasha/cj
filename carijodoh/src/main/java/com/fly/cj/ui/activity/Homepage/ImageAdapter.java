@@ -1,6 +1,7 @@
 package com.fly.cj.ui.activity.Homepage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,78 +11,128 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fly.cj.api.obj.ActiveUserReceive;
 import com.fly.cj.R;
+import com.fly.cj.base.AQuery;
+import com.fly.cj.utils.App;
+import com.fly.cj.utils.SharedPrefManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class ImageAdapter extends BaseAdapter {
 
+    private final Context context;
     private int lastPosition = -1;
-    private Context mContext;
+    private final List<ActiveUserReceive.ListUser> obj;
+    private String module;
+    private SharedPrefManager pref;
+    private AQuery aq;
+    public ImageAdapter(Context context, List<ActiveUserReceive.ListUser> paramObj) {
+        this.context = context;
+        this.obj = paramObj;
+        this.module = module;
+        aq = new AQuery(context);
 
-    // Constructor
-    public ImageAdapter(Context c) {
-        mContext = c;
     }
 
+    @Override
     public int getCount() {
-        return mThumbIds.length;
+        return obj == null ? 0 : obj.size();
     }
 
-    static class ViewHolder {
-        @InjectView(R.id.expanded_image)
-        ImageView expanded_image;
-        @InjectView(R.id.expanded_text)
-        TextView expanded_text;
-    }
-
+    @Override
     public Object getItem(int position) {
-        return null;
+        return obj == null ? null : obj.get(position);
     }
 
+    @Override
     public long getItemId(int position) {
         return 0;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) {
+    static class ViewHolder {
+        @InjectView(R.id.expanded_text)
+        TextView expanded_text;
 
+        @InjectView(R.id.expanded_image)
+        ImageView expanded_image;
+
+        @InjectView(R.id.expanded_text2)
+        TextView expanded_text2;
+
+        @InjectView(R.id.expanded_text3)
+        TextView expended_text3;
+    }
+
+    @Override
+    public View getView(final int position, View view, ViewGroup parent) {
+        pref = new SharedPrefManager(context);
 
         ViewHolder vh;
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.content, parent, false);
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.home2, parent, false);
             vh = new ViewHolder();
-            ButterKnife.inject(vh, convertView);
-            convertView.setTag(vh);
-
+            ButterKnife.inject(vh, view);
+            view.setTag(vh);
         } else {
-            vh = (ViewHolder) convertView.getTag();
+            vh = (ViewHolder) view.getTag();
+        }
+        aq.recycle(view);
+
+        String dob = obj.get(position).getUserDOB();
+
+        String dateString = dob;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = dateFormat.parse(dateString);
+            System.out.println(date);
+            int d = getDay(date);
+            System.out.println(d);
+
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+
+            int real = year - d;
+            vh.expended_text3.setText(String.valueOf(real) + " tahun");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        vh.expanded_text.setText("Online");
-        vh.expanded_image.setImageResource(mThumbIds[position]);
+        vh.expanded_text.setText(obj.get(position).getUserStatus());
+        vh.expanded_text2.setText(obj.get(position).getUserId());
 
-        Animation animation = AnimationUtils.loadAnimation(convertView.getContext(), (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
+        String image = obj.get(position).getUserImage();
+        String imageUrl = App.IMAGE_URL + image;
+
+        Log.e("imagePath", imageUrl);
+
+        if (image.equals("")){
+            vh.expanded_image.setImageResource(R.drawable.default_profile2);
+        }
+        else {
+            aq.id(R.id.expanded_image).image(imageUrl);
+        }
+
+        pref.setUserStatus(obj.get(position).getUserStatus());
+        //pref.setImageUrl(imageUrl);
+
+        Animation animation = AnimationUtils.loadAnimation(view.getContext(), (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
         vh.expanded_image.startAnimation(animation);
         lastPosition = position;
 
-        return convertView;
+        return view;
     }
 
-    // Keep all Images in array
-    public Integer[] mThumbIds = {
-            R.drawable.image_1, R.drawable.image_2,
-            R.drawable.image_3, R.drawable.image_4,
-            R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8,
-            R.drawable.image_9, R.drawable.image_10,
-            R.drawable.image_11, R.drawable.image_12,
-            R.drawable.image_1, R.drawable.image_2,
-            R.drawable.image_3, R.drawable.image_4,
-            R.drawable.image_5, R.drawable.image_6,
-            R.drawable.image_7, R.drawable.image_8,
-            R.drawable.image_9, R.drawable.image_10,
-            R.drawable.image_11, R.drawable.image_12
-    };
+    public static int getDay(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.YEAR);
+    }
 }

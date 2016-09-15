@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#362f2d"
+    android:background="@color/theme1_drawer_bg"
     android:choiceMode="singleChoice"
-    android:divider="@android:color/transparent"
+    android:divider="@android:color/black"
     android:dividerHeight="0dp" />
 

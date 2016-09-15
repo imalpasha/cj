@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,12 +33,8 @@
                     android:layout_height="fill_parent"
                     android:padding="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@color/white">
-
-                    <!--<Space
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:id="@+id/space" />-->
+                    android:background="@color/white"
+                    android:id="@+id/layout_before_login">
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -50,86 +47,79 @@
                             android:orientation="vertical"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp">
+                            android:layout_marginTop="30dp"
+                            android:padding="10dp"
+                            android:background="@drawable/home_desc">
 
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/home_description1"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:padding="10dp"
                                 android:gravity="center"
-                                android:id="@+id/desc1"
-                                android:background="@drawable/home_desc"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp">
+                                android:fontFamily="Roboto"/>
 
                             <TextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
                                 android:text="@string/home_description2"
-                                android:id="@+id/desc2"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:padding="10dp"
                                 android:gravity="center"
-                                android:background="@drawable/home_desc"/>
+                                android:fontFamily="Roboto"/>
+
                         </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp">
+                            android:layout_marginTop="5dp">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/homepic"
+                                android:src="@drawable/splash_logo"
                                 android:layout_gravity="center"
                                 android:padding="15dp"/>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center">
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:layout_marginTop="5dp">
                             <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp">
-                                <Button
-                                    android:id="@+id/homeRegister"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_register"
-                                    android:paddingLeft="20dp"
-                                    android:paddingRight="20dp"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:background="@drawable/login_login_button_clicked"/>
-                                </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="5dp">
                                 <Button
                                     android:id="@+id/homeLogin"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/home_login"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/button_clicked"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="5dp">
+                                <Button
+                                    android:id="@+id/homeRegister"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/home_register"
                                     android:paddingLeft="30dp"
                                     android:paddingRight="30dp"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/button_text"
                                     android:textStyle="bold"
-                                    android:background="@drawable/login_login_button_clicked"/>
+                                    android:background="@drawable/button_clicked"/>
                             </LinearLayout>
 
                         </LinearLayout>
@@ -143,6 +133,28 @@
                             android:layout_gravity="center_horizontal" />
 
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_after_login">
+
+                    <GridView
+                        android:id="@+id/gridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="0dp"
+                        android:columnWidth="90dp"
+                        android:scrollingCache="true"
+                        android:smoothScrollbar="true"
+                        android:clipChildren="true"
+                        android:alwaysDrawnWithCache="true"
+                        android:numColumns="2"
+                        android:verticalSpacing="1dp"
+                        android:horizontalSpacing="1dp">
+                    </GridView>
 
                 </LinearLayout>
 

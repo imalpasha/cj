@@ -22,6 +22,7 @@ public class PasswordExpiredActivity extends MainFragmentActivity implements Fra
         ButterKnife.inject(this);
 
         setMenuButton();
+        setTitle("SET KATA LALUAN");
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.main_content, PasswordExpiredFragment.newInstance()).commit();

@@ -6,9 +6,6 @@ import android.content.SharedPreferences;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 
-/**
- * Created by Dell on 1/13/2016.
- */
 public class GeoFenceController{
 
     private final String TAG = GeoFenceController.class.getName();

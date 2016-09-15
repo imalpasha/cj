@@ -8,8 +8,7 @@ public class RegisterRequest {
     private String password_confirmation;
 
     /*Initiate Class*/
-    public RegisterRequest(){
-    }
+    public RegisterRequest(){}
 
     public RegisterRequest(RegisterRequest data){
         email = data.getEmail();
